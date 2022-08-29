@@ -117,6 +117,9 @@ void setup() {
       § UV light state
 */
 void loop() {
+
+  unsigned long startOfControlLoopMillis = millis();
+
   // Spray control
   gSprayController->controlLoop();
   // Flow sensing
@@ -126,6 +129,8 @@ void loop() {
   // Solution tank management
   gSolutionTanksController->controlLoop();
 
+  unsigned long controlLoopDurationMillis = millis() - startOfControlLoopMillis;
+  
   // Communicate any updates needed
   // TODO: Define comms protocol
 }
