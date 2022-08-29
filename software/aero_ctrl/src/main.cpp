@@ -2,8 +2,13 @@
 
 #include "SprayController.hpp"
 #include "FlowSensor.hpp"
+#include "IrrigationPressureController.hpp"
+#include "SolutionTanksController.hpp"
 
+// Set to true if the UV Steriliser light is LED based - if LED it will turn the light off when not needed to save power
 #define LED_UVC false
+// If true, serial output from the Arduino is in human readable form - this means comms with the Raspberry Pi controller won't work
+#define DEBUG_SOLO true
 
 /************************
  * Constants
@@ -45,6 +50,11 @@ static const uint8_t DS3TX = A4;
 SprayController* gSprayController;
 // Irrigation spray flow sensor
 FlowSensor* gFlowSensor;
+// Irrigation pressure controller
+IrrigationPressureController* gIrrigationPressureController;
+// Controls the movement of solution between tanks
+SolutionTanksController* gSolutionTanksController;
+
 // Last spray volume / millilitres
 double gLastSprayVolume = 0;
 
@@ -55,22 +65,18 @@ void setup() {
 
   gSprayController = new SprayController(SV1CTL);
   gFlowSensor = new FlowSensor(FM1S);
+  gIrrigationPressureController = new IrrigationPressureController(PS1S, SV2CTL, IPCTL);
+  gSolutionTanksController = new SolutionTanksController(TP1CTL, TP2CTL, UVLCTL, LED_UVC, DS1RX, DS2RX, DS3RX, DS1TX, DS2TX, DS3TX);
+
   gSprayController->onSprayStop([]() {
     gLastSprayVolume = gFlowSensor->getCumulativeVolumeMl();
     gFlowSensor->resetCumulativeVolume();
   });
 
-  // Set up control pins
-  pinMode(SV2CTL, OUTPUT);
-  pinMode(TP1CTL, OUTPUT);
-  pinMode(TP2CTL, OUTPUT);
-  pinMode(IPCTL, OUTPUT);
-  pinMode(UVLCTL, OUTPUT);
-  
-  pinMode(PS1S, INPUT);
+  // TODO: Sort out Alarm registration and management
 
-  // TODO: Set up the Depth Sensor UART inputs
-
+  // Sort out serial comms interface
+  Serial.begin(115200);
 }
 
 /*
@@ -115,7 +121,11 @@ void loop() {
   gSprayController->controlLoop();
   // Flow sensing
   gFlowSensor->controlLoop();
+  // Pressure management
+  gIrrigationPressureController->controlLoop();
+  // Solution tank management
+  gSolutionTanksController->controlLoop();
 
-  int pressureSensorRawValue = analogRead(PS1S);
-
+  // Communicate any updates needed
+  // TODO: Define comms protocol
 }
