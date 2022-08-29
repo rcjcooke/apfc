@@ -5,6 +5,10 @@
 		},
 		{
 			"path": "software\\aero_ctrl"
+		},
+		{
+			"name": "pressure_cal",
+			"path": "software\\pressure_cal"
 		}
 	],
 	"settings": {}
