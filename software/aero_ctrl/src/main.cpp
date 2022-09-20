@@ -4,6 +4,7 @@
 #include "FlowSensor.hpp"
 #include "IrrigationPressureController.hpp"
 #include "SolutionTanksController.hpp"
+#include "SerialDebugger.hpp"
 
 // Set to true if the UV Steriliser light is LED based - if LED it will turn the light off when not needed to save power
 #define LED_UVC false
@@ -13,10 +14,10 @@
 /************************
  * Constants
  ************************/
-// Solenoid valve 1 control pin
-static const uint8_t SV1CTL = 6;
-// Solenoid valve 2 control pin
-static const uint8_t SV2CTL = 7;
+// Irrigation solenoid valve control pin
+static const uint8_t ISVCTL = 6;
+// Irrigation pressure release solenoid valve control pin
+static const uint8_t IPRSVCTL = 7;
 // Tank 1 pump control pin
 static const uint8_t TP1CTL = 8;
 // Tank 2 pump control pin
@@ -55,6 +56,9 @@ IrrigationPressureController* gIrrigationPressureController;
 // Controls the movement of solution between tanks
 SolutionTanksController* gSolutionTanksController;
 
+// The serial output interface
+SerialDebugger* mDebugger;
+
 // Last spray volume / millilitres
 double gLastSprayVolume = 0;
 
@@ -63,9 +67,9 @@ double gLastSprayVolume = 0;
  *********************/
 void setup() {
 
-  gSprayController = new SprayController(SV1CTL);
+  gSprayController = new SprayController(ISVCTL);
   gFlowSensor = new FlowSensor(FM1S);
-  gIrrigationPressureController = new IrrigationPressureController(PS1S, SV2CTL, IPCTL);
+  gIrrigationPressureController = new IrrigationPressureController(PS1S, IPRSVCTL, IPCTL);
   gSolutionTanksController = new SolutionTanksController(TP1CTL, TP2CTL, UVLCTL, LED_UVC, DS1RX, DS2RX, DS3RX, DS1TX, DS2TX, DS3TX);
 
   gSprayController->onSprayStop([]() {
@@ -74,9 +78,15 @@ void setup() {
   });
 
   // TODO: Sort out Alarm registration and management
+	
+	if (DEBUG_SOLO) {
+		// Note: this also starts the serial interface at a baud rate of 115200 bps
+		mDebugger = new SerialDebugger();
+	} else {
+		// TODO: Sort out serial comms interface
+		Serial.begin(115200);
+	}
 
-  // Sort out serial comms interface
-  Serial.begin(115200);
 }
 
 /*
@@ -119,6 +129,7 @@ void setup() {
 void loop() {
 
   unsigned long startOfControlLoopMillis = millis();
+	static unsigned long controlLoopDurationMillis = 0;
 
   // Spray control
   gSprayController->controlLoop();
@@ -129,8 +140,24 @@ void loop() {
   // Solution tank management
   gSolutionTanksController->controlLoop();
 
-  unsigned long controlLoopDurationMillis = millis() - startOfControlLoopMillis;
-  
   // Communicate any updates needed
-  // TODO: Define comms protocol
+	if (DEBUG_SOLO) {
+
+		PressureSensor* ps = gIrrigationPressureController->getPressureSensor();
+
+		mDebugger->updateValue("Raw pressure sensor ADC value / bits", ps->getLastRawADCValue());
+		mDebugger->updateValue("Calibration point 1 ADC value (press 1 to calibrate) / bits", ps->getCalibationPoint1()[0]);
+		mDebugger->updateValue("Calibration point 1 pressure (press 1 to calibrate) / PSI", ps->getCalibationPoint1()[1]);
+		mDebugger->updateValue("Calibration point 2 ADC value (press 2 to calibrate) / bits", ps->getCalibationPoint2()[0]);
+		mDebugger->updateValue("Calibration point 2 pressure (press 2 to calibrate) / PSI", ps->getCalibationPoint2()[1]);
+		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
+		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
+		mDebugger->printUpdate();
+	
+	} else {
+	  // TODO: Define comms protocol
+	}
+
+  controlLoopDurationMillis = millis() - startOfControlLoopMillis;
+
 }

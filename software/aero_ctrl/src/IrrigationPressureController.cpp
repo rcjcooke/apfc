@@ -5,20 +5,8 @@
  ************************/
 namespace IrrigationPressureControllerNS {
   /* Sensor Calibration */
-  // Voltage produced at 0 PSI
-  const float VOLTAGE_AT_0_PSI = 0.0;
-  // Voltage produced at 100 PSI
-  const float VOLTAGE_AT_100_PSI = 5.0;
-  // Analogue Reference Voltage
-  const float A_REF = 5.0;
-
-  const float C = 0.0;
-
-  const float M = 0.0;
-
-  /* Low Pass Filter */
-  // Proportion between 0-1 to bias towards 2 point rolling average (i.e. previous filtered value)
-  const float ALPHA = 0.95;  
+  // Maximum pressure the sensor detects / PSI
+  const int MAX_PRESSURE = 150; 
 }
 
 /*******************************
@@ -26,16 +14,16 @@ namespace IrrigationPressureControllerNS {
  *******************************/
 // Basic constructor
 IrrigationPressureController::IrrigationPressureController(uint8_t pressureSensorPin, uint8_t drainValveControlPin, uint8_t irrigationPumpControlPin) : AlarmGenerator(1) {
-  mPressureSensorPin = pressureSensorPin;
+  mPressureSensor = new PressureSensor(pressureSensorPin, IrrigationPressureControllerNS::MAX_PRESSURE);
+
   mDrainValveControlPin = drainValveControlPin;
   mIrrigationPumpControlPin = irrigationPumpControlPin;
-  // Note: No need to set pin mode on pressure sensor pin - analogueRead does it for you
+
   pinMode(mDrainValveControlPin, OUTPUT);
   pinMode(mIrrigationPumpControlPin, OUTPUT);
 
   turnOffIrrigationPump();
   closeDrainValve();
-  mCurrentPressure = 0;
 }
 
 /*******************************
@@ -51,9 +39,14 @@ bool IrrigationPressureController::isIrrigationPumpOn() const {
   return mIrrigationPumpOn;
 }
 
-// Get the current irrigation system pressure / ?
-double IrrigationPressureController::getPressure() {
-  return mCurrentPressure;
+// Get the current irrigation system pressure / PSI
+double IrrigationPressureController::getPressurePSI() const {
+  return mPressureSensor->getPressurePSI();
+}
+
+// Get the PressureSensor - useful for debug purposes
+PressureSensor* IrrigationPressureController::getPressureSensor() const {
+  return mPressureSensor;
 }
 
 /*******************************
@@ -61,15 +54,10 @@ double IrrigationPressureController::getPressure() {
  *******************************/
 // Called every microcontroller main program loop - controls the pressure in the irrigation system
 void IrrigationPressureController::controlLoop() {
-  // NOTE: Arduino Nano has 10-bit resolution ADCs = 0-1024
-
-  // Assume we're starting up within the "at pressure" region so no action is taken by default
-  static float filteredValue = 512; // TODO: Work out what this should be for 90 PSI
   
-  float rawValue = (float) analogRead(mPressureSensorPin);
-  filteredValue = (IrrigationPressureControllerNS::ALPHA * filteredValue) + ((1-IrrigationPressureControllerNS::ALPHA) * rawValue); // low pass filter to reduce noise
-  float voltage = (filteredValue * 1024.0) * IrrigationPressureControllerNS::A_REF;
-  float pressurePSI = (voltage - IrrigationPressureControllerNS::C) / IrrigationPressureControllerNS::M; // TODO: Work out this equation once I've calibrated
+  // Get updated pressure readings
+  mPressureSensor->readPressure();
+  float pressurePSI = mPressureSensor->getPressurePSI();
 
   if (pressurePSI < 120) {
     clearAlarm(OVER_PRESSURE_ALARM); // Just in case it's been triggered

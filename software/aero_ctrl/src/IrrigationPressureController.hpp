@@ -4,6 +4,7 @@
 #include <Arduino.h>
 
 #include "AlarmGenerator.hpp"
+#include "PressureSensor.hpp"
 
 class IrrigationPressureController: public AlarmGenerator {
 
@@ -18,6 +19,8 @@ public:
   /*******************************
    * Constructors
    *******************************/
+  // TODO: Constructor doc
+  // The pin on which the pressure is reported by the pressure sensor (analogue 0-5V ~= 0-150 PSI)
   IrrigationPressureController(uint8_t pressureSensorPin, uint8_t drainValveControlPin, uint8_t irrigationPumpControlPin);
 
   /*******************************
@@ -27,8 +30,10 @@ public:
   bool isDrainValveOpen() const;
   // True when the irrigation pump is on (building pressure)
   bool isIrrigationPumpOn() const;
-  // Get the current irrigation system pressure / ?
-  double getPressure();
+  // Get the current irrigation system pressure / PSI
+  double getPressurePSI() const;
+  // Get the PressureSensor - useful for debug purposes
+  PressureSensor* getPressureSensor() const;
 
   /*******************************
    * Actions
@@ -52,14 +57,12 @@ private:
   uint8_t mDrainValveControlPin;
   // The microcontroller pin that controls the irrigation pump state
   uint8_t mIrrigationPumpControlPin;
-  // The pin on which the pressure is reported by the pressure sensor (analogue 0-5V ~= 0-150 PSI)
-  uint8_t mPressureSensorPin;
+  // The pressure sensor
+  PressureSensor* mPressureSensor;
   // True when the valve is open (i.e. pressure is being released from the system)
   bool mDrainValveOpen;
   // True when the irrigation pump is running
   bool mIrrigationPumpOn;
-  // The current irrigation system pressure / ?
-  double mCurrentPressure;
 
 };
 
