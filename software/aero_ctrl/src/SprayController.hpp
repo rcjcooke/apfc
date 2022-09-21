@@ -61,7 +61,7 @@ private:
   unsigned long mSprayDurationMillis;
 
   // The function to call on a spray stop event
-  static volatile VoidFuncPtr mOnHandlerFunction;
+  volatile VoidFuncPtr mOnSprayStopHandlerFunction;
 };
 
 #endif // __SPRAYCONTROLLER_H_INCLUDED__

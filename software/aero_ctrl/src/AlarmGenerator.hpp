@@ -47,9 +47,9 @@ protected:
   bool* mAlarmStates;
 
   // The function to call if an alarm occurs
-  static volatile AlarmGeneratorPtrCharIntFuncPtr mOnAlarmFunction;
+  volatile AlarmGeneratorPtrCharIntFuncPtr mOnAlarmFunction;
   // The function to call if an alarm clears
-  static volatile AlarmGeneratorPtrCharIntFuncPtr mOnClearFunction;
+  volatile AlarmGeneratorPtrCharIntFuncPtr mOnClearFunction;
 
 };
 

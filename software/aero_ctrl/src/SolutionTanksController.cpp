@@ -188,7 +188,7 @@ void SolutionTanksController::emergencyStop() {
  * Utilities
  *******************************/
 // Converts a distance sensor reading into a tank depth
-int convertDistanceToDepth(int distance) {
+int SolutionTanksController::convertDistanceToDepth(int distance) {
   // Bound the distance as the sensor doesn't work under 30 mm - if it gets this close we're in trouble
   if (distance < 30) distance = 30;
   return SolutionTanksControllerNS::EMPTY_TANK_DISTANCE_MM - distance;

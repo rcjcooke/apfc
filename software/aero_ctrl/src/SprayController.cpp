@@ -9,7 +9,7 @@ SprayController::SprayController(uint8_t valveControlPin) {
   mLastSprayStartMillis = 0;
   // Set defaults
   stopSpraying();
-  mSprayIntervalMillis = 4*60*1000;
+  mSprayIntervalMillis = (unsigned long) 4*60*1000;
   mSprayDurationMillis = 3*1000;
 }
 
@@ -46,7 +46,7 @@ void SprayController::setSprayDurationMillis(unsigned long duration) {
  *******************************/
 // Defines the function to call on a spray stop event
 void SprayController::onSprayStop(VoidFuncPtr onHandlerFunction) {
-  mOnHandlerFunction = onHandlerFunction;
+  mOnSprayStopHandlerFunction = onHandlerFunction;
 }
 
 /*******************************
@@ -75,5 +75,5 @@ void SprayController::startSpraying() {
 void SprayController::stopSpraying() {
   digitalWrite(mValveControlPin, LOW);
   mValveOpen = false;
-  if (mOnHandlerFunction) mOnHandlerFunction();
+  if (mOnSprayStopHandlerFunction) mOnSprayStopHandlerFunction();
 }
