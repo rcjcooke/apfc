@@ -4,8 +4,6 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-#include "AlarmGenerator.hpp"
-
 class A02YYUWDistanceSensor {
 
 public:

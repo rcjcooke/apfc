@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-#include "AlarmGenerator.hpp"
+#include "util/AlarmGenerator.hpp"
 #include "A02YYUWDistanceSensor.hpp"
 
 class SolutionTanksController : public AlarmGenerator {

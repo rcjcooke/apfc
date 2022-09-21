@@ -4,7 +4,7 @@
 #include "FlowSensor.hpp"
 #include "IrrigationPressureController.hpp"
 #include "SolutionTanksController.hpp"
-#include "SerialDebugger.hpp"
+#include "util/SerialDebugger.hpp"
 
 // Set to true if the UV Steriliser light is LED based - if LED it will turn the light off when not needed to save power
 #define LED_UVC false

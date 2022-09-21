@@ -3,6 +3,11 @@
 #include "PressureSensor.hpp"
 #include "SerialDebugger.hpp"
 
+// Valve control pin
+static const uint8_t VALVE_PIN = 5;
+// Valve closed (0 = closed, 1 = open)
+bool gValveState = 0;
+
 // The pressure sensor connected to pin A7
 PressureSensor* gPSensor = new PressureSensor(A7);
 // The serial output interface
@@ -39,6 +44,11 @@ bool getRawSerialInput(int &inputValue) {
 void setup() {
   // Note: this also starts the serial interface at a baud rate of 115200 bps
   mDebugger = new SerialDebugger();
+
+  // Set up valve
+  gValveState = 0;
+  pinMode(VALVE_PIN, OUTPUT);
+  digitalWrite(VALVE_PIN, LOW);  
 }
 
 /*******************************
@@ -49,12 +59,12 @@ void loop() {
   // Get the latest values
   gPSensor->readPressure();
   int rawValue = gPSensor->getLastRawADCValue();
-  int pressure = gPSensor->getPressure();
 
   mDebugger->updateValue("Raw Sensor Value / bits", rawValue);
   mDebugger->updateValue("ADC At 0 Bar (press 0 to calibrate) / bits", gPSensor->getADCAt0Bar());
   mDebugger->updateValue("ADC At 8 Bar (press 8 to calibrate) / bits", gPSensor->getADCAt8Bar());
-  mDebugger->updateValue("Pressure / Bar", pressure);
+  mDebugger->updateValue("Calculated Pressure / Bar", (float) gPSensor->getPressure());
+  mDebugger->updateValue("Valve Open (press 1 to open, 2 to close)", gValveState);
   mDebugger->printUpdate();
 
   // Get user input
@@ -65,6 +75,14 @@ void loop() {
     switch (inputValue) {
     case 0:
       gPSensor->setADCAt0Bar(rawValue);
+      break;
+    case 1:
+      digitalWrite(VALVE_PIN, HIGH);
+      gValveState = 1;
+      break;
+    case 2:
+      digitalWrite(VALVE_PIN, LOW);
+      gValveState = 0;
       break;
     case 8:
       gPSensor->setADCAt8Bar(rawValue);
