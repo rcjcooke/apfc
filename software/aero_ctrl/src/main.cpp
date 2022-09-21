@@ -78,7 +78,7 @@ void setup() {
   });
 
   // TODO: Sort out Alarm registration and management
-	
+
 	if (DEBUG_SOLO) {
 		// Note: this also starts the serial interface at a baud rate of 115200 bps
 		mDebugger = new SerialDebugger();
@@ -145,11 +145,11 @@ void loop() {
 
 		PressureSensor* ps = gIrrigationPressureController->getPressureSensor();
 
+		mDebugger->updateValue("Calibration point 1 ADC value / bits", ps->getCalibationPoint1()[0]);
+		mDebugger->updateValue("Calibration point 1 pressure / PSI", ps->getCalibationPoint1()[1]);
+		mDebugger->updateValue("Calibration point 2 ADC value / bits", ps->getCalibationPoint2()[0]);
+		mDebugger->updateValue("Calibration point 2 pressure / PSI", ps->getCalibationPoint2()[1]);
 		mDebugger->updateValue("Raw pressure sensor ADC value / bits", ps->getLastRawADCValue());
-		mDebugger->updateValue("Calibration point 1 ADC value (press 1 to calibrate) / bits", ps->getCalibationPoint1()[0]);
-		mDebugger->updateValue("Calibration point 1 pressure (press 1 to calibrate) / PSI", ps->getCalibationPoint1()[1]);
-		mDebugger->updateValue("Calibration point 2 ADC value (press 2 to calibrate) / bits", ps->getCalibationPoint2()[0]);
-		mDebugger->updateValue("Calibration point 2 pressure (press 2 to calibrate) / PSI", ps->getCalibationPoint2()[1]);
 		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
 		mDebugger->printUpdate();
