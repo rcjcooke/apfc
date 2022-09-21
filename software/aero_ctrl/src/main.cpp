@@ -43,6 +43,9 @@ static const uint8_t DS3RX = A5;
 // Tank Depth Sensor 3: UART TX: Depth data
 static const uint8_t DS3TX = A4;
 
+// The total number of alarm generators
+static const int NUM_ALARM_GENERATORS = 2;
+
 /************************
  * Variables
  ************************/
@@ -56,11 +59,34 @@ IrrigationPressureController* gIrrigationPressureController;
 // Controls the movement of solution between tanks
 SolutionTanksController* gSolutionTanksController;
 
+// The array of all alarm generators
+AlarmGenerator** gAGs;
 // The serial output interface
 SerialDebugger* mDebugger;
 
 // Last spray volume / millilitres
 double gLastSprayVolume = 0;
+
+/*********************
+ * Utility functions
+ *********************/
+String createAlarmString(int numAGs, AlarmGenerator** ags) {
+	String alarmString = "";
+	for (int agi = 0; agi < numAGs; agi++) {
+		AlarmGenerator* ag = ags[agi];
+		bool* aStates = ag->getAlarmStates();
+		int numAlarmCodes = ag->getNumAlarmCodes();
+		char agCode = ag->getUniqueAlarmGeneratorCode();
+		for (int i = 0; i < numAlarmCodes; i++) {
+			if (aStates[i]) {
+				if (alarmString.length() != 0) alarmString += ',';
+				alarmString += agCode;
+				alarmString += i;
+			}
+		}
+	}
+	return alarmString;
+}
 
 /*********************
  * Entry point methods
@@ -77,7 +103,8 @@ void setup() {
     gFlowSensor->resetCumulativeVolume();
   });
 
-  // TODO: Sort out Alarm registration and management
+	// Record which controllers are alarm generators for future access
+	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gIrrigationPressureController, gSolutionTanksController};
 
 	if (DEBUG_SOLO) {
 		// Note: this also starts the serial interface at a baud rate of 115200 bps
@@ -144,6 +171,7 @@ void loop() {
 	if (DEBUG_SOLO) {
 
 		PressureSensor* ps = gIrrigationPressureController->getPressureSensor();
+		String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
 
 		mDebugger->updateValue("Calibration point 1 ADC value / bits", ps->getCalibationPoint1()[0]);
 		mDebugger->updateValue("Calibration point 1 pressure / PSI", ps->getCalibationPoint1()[1]);
@@ -151,6 +179,7 @@ void loop() {
 		mDebugger->updateValue("Calibration point 2 pressure / PSI", ps->getCalibationPoint2()[1]);
 		mDebugger->updateValue("Raw pressure sensor ADC value / bits", ps->getLastRawADCValue());
 		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
+		mDebugger->updateValue("Alarms", currentAlarms);
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
 		mDebugger->printUpdate();
 	

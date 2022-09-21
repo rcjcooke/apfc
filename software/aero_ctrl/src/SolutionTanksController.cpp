@@ -35,7 +35,7 @@ namespace SolutionTanksControllerNS {
 SolutionTanksController::SolutionTanksController(uint8_t usedSolutionPumpControlPin, uint8_t nutrientPumpControlPin, 
                         uint8_t uvControlPin, bool ledUVC,
                         uint8_t usedSolutionTankDepthModeSelectPin, uint8_t mixingTankDepthModeSelectPin, uint8_t nutrientTankDepthModeSelectPin,
-                        uint8_t usedSolutionTankDepthSensorPin, uint8_t mixingTankDepthSensorPin, uint8_t nutrientTankDepthSensorPin) : AlarmGenerator(6) {
+                        uint8_t usedSolutionTankDepthSensorPin, uint8_t mixingTankDepthSensorPin, uint8_t nutrientTankDepthSensorPin) : AlarmGenerator('S', 6) {
   mUsedSolutionPumpControlPin = usedSolutionPumpControlPin;
   mNutrientPumpControlPin = nutrientPumpControlPin;
   mUVControlPin = uvControlPin;
@@ -95,17 +95,17 @@ double SolutionTanksController::getUsedSolutionTankDepth() {
 void SolutionTanksController::controlLoop() {
   // Read all the depths
   if (mUsedSolutionTankDepthSensor->readDistance() != 0) {
-    triggerAlarm(USED_SOLUTION_TANK_DEPTH_SENSOR_COMMS_ERROR);
+    triggerAlarm(ALARM_USED_SOLUTION_TANK_DEPTH_SENSOR_COMMS_ERROR);
     emergencyStop();
     return;
   }
   if (mMixingTankDepthSensor->readDistance() != 0) {
-    triggerAlarm(MIXING_TANK_DEPTH_SENSOR_COMMS_ERROR);
+    triggerAlarm(ALARM_MIXING_TANK_DEPTH_SENSOR_COMMS_ERROR);
     emergencyStop();
     return;
   }
   if (mNutrientTankDepthSensor->readDistance() != 0) {
-    triggerAlarm(NUTRIENT_TANK_DEPTH_SENSOR_COMMS_ERROR);
+    triggerAlarm(ALARM_NUTRIENT_TANK_DEPTH_SENSOR_COMMS_ERROR);
     emergencyStop();
     return;
   }
@@ -118,7 +118,7 @@ void SolutionTanksController::controlLoop() {
     if (mLEDUVC) turnOnUVC();
     turnOnUsedSolutionPump();
   } else if (mUsedSolutionTankDepth > SolutionTanksControllerNS::WARNING_TANK_MAX_DEPTH_MM) {
-    triggerAlarm(USED_SOLUTION_TANK_OVER_FULL);
+    triggerAlarm(ALARM_USED_SOLUTION_TANK_OVER_FULL);
   } else if (mUsedSolutionTankDepth < SolutionTanksControllerNS::USED_SOLUTION_MIN_TANK_DEPTH_MM) {
     turnOffUsedSolutionPump();
     if (mLEDUVC) turnOffUVC();
@@ -126,7 +126,7 @@ void SolutionTanksController::controlLoop() {
 
   int systemSolutionDepth = mMixingTankDepth + mUsedSolutionTankDepth;
   if (mMixingTankDepth > SolutionTanksControllerNS::WARNING_TANK_MAX_DEPTH_MM) {
-    triggerAlarm(MIXING_TANK_OVER_FULL);
+    triggerAlarm(ALARM_MIXING_TANK_OVER_FULL);
   }
 
   if (systemSolutionDepth < SolutionTanksControllerNS::IN_SYSTEM_SOLUTION_MIN_DEPTH_MM) {
@@ -136,7 +136,7 @@ void SolutionTanksController::controlLoop() {
   }
 
   if (mNutrientTankDepth < SolutionTanksControllerNS::NUTRIENT_TANK_MIN_DEPTH_MM) {
-    triggerAlarm(NUTRIENT_TANK_TOO_LOW);
+    triggerAlarm(ALARM_NUTRIENT_TANK_TOO_LOW);
   }
 
 }

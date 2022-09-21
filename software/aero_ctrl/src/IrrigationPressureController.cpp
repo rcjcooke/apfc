@@ -13,7 +13,7 @@ namespace IrrigationPressureControllerNS {
  * Constructors
  *******************************/
 // Basic constructor
-IrrigationPressureController::IrrigationPressureController(uint8_t pressureSensorPin, uint8_t drainValveControlPin, uint8_t irrigationPumpControlPin) : AlarmGenerator(1) {
+IrrigationPressureController::IrrigationPressureController(uint8_t pressureSensorPin, uint8_t drainValveControlPin, uint8_t irrigationPumpControlPin) : AlarmGenerator('I', 1) {
   mPressureSensor = new PressureSensor(pressureSensorPin, IrrigationPressureControllerNS::MAX_PRESSURE);
 
   mDrainValveControlPin = drainValveControlPin;

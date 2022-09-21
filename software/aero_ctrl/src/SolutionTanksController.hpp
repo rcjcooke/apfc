@@ -15,18 +15,18 @@ public:
    * Constants
    *******************************/
   // Alarm code triggered when used solution tank is too full
-  static const int USED_SOLUTION_TANK_OVER_FULL = 1;
+  static const int ALARM_USED_SOLUTION_TANK_OVER_FULL = 0;
   // Alarm code triggered when mixing tank is too full
-  static const int MIXING_TANK_OVER_FULL = 2;
+  static const int ALARM_MIXING_TANK_OVER_FULL = 1;
   // Alarm code triggered when nutrient tank is too low
-  static const int NUTRIENT_TANK_TOO_LOW = 3;
+  static const int ALARM_NUTRIENT_TANK_TOO_LOW = 2;
 
   // Alarm code triggered if there are communication problems with the used solution tank depth sensor
-  static const int USED_SOLUTION_TANK_DEPTH_SENSOR_COMMS_ERROR = 4;
+  static const int ALARM_USED_SOLUTION_TANK_DEPTH_SENSOR_COMMS_ERROR = 3;
   // Alarm code triggered if there are communication problems with the mixing tank depth sensor
-  static const int MIXING_TANK_DEPTH_SENSOR_COMMS_ERROR = 5;
+  static const int ALARM_MIXING_TANK_DEPTH_SENSOR_COMMS_ERROR = 4;
   // Alarm code triggered if there are communication problems with the nutrient tank depth sensor
-  static const int NUTRIENT_TANK_DEPTH_SENSOR_COMMS_ERROR = 6;
+  static const int ALARM_NUTRIENT_TANK_DEPTH_SENSOR_COMMS_ERROR = 5;
 
   /*******************************
    * Constructors

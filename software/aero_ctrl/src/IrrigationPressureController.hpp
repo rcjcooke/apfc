@@ -14,7 +14,7 @@ public:
    * Constants
    *******************************/
   // Alarm code triggered when pressure rises over 120PSI (implies that pump is building pressure unexpectedly)
-  static const int OVER_PRESSURE_ALARM = 1;
+  static const int OVER_PRESSURE_ALARM = 0;
 
   /*******************************
    * Constructors
