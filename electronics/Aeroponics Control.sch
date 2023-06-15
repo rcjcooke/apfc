@@ -227,29 +227,6 @@ Number of pins: &lt;b&gt;3&lt;/b&gt;&lt;b&gt;&lt;P&gt;
 <text x="-4.6025" y="3.8925" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-4.1675" y="-1.4875" size="1.016" layer="51" ratio="10">1</text>
 </package>
-<package name="JST-XH-04-PACKAGE-LONG-PAD" urn="urn:adsk.eagle:footprint:37207155/1">
-<description>&lt;b&gt;JST XH Connector Long Pads (Package)&lt;/b&gt;&lt;p&gt;
-Wire to board connector.
-
-Pitch: 2,54 mm, (0.100")&lt;p&gt;
-Number of pins: &lt;b&gt;4&lt;/b&gt;&lt;b&gt;&lt;P&gt;
-
-&lt;b&gt;Created by Rembrandt Electronics&lt;/b&gt;&lt;p&gt;
-&lt;b&gt;www.rembrandtelectronics.com&lt;/b&gt;&lt;p&gt;</description>
-<wire x1="6.2" y1="-2.3575" x2="6.2" y2="3.3925" width="0.254" layer="21"/>
-<wire x1="6.2" y1="3.3925" x2="-6.2" y2="3.3925" width="0.254" layer="21"/>
-<wire x1="-6.2" y1="3.3925" x2="-6.2" y2="-2.3575" width="0.254" layer="21"/>
-<wire x1="-6.2" y1="-2.3575" x2="6.2" y2="-2.3575" width="0.254" layer="21"/>
-<wire x1="-3.8" y1="-2.3" x2="-3.8" y2="-1.8" width="0.254" layer="21"/>
-<wire x1="3.9" y1="-2.3" x2="3.9" y2="-1.8" width="0.254" layer="21"/>
-<pad name="3" x="1.27" y="0" drill="1.016" shape="long" rot="R90"/>
-<pad name="2" x="-1.27" y="0" drill="1.016" shape="long" rot="R90"/>
-<pad name="1" x="-3.81" y="0" drill="1.016" shape="long" rot="R90"/>
-<pad name="4" x="3.81" y="0" drill="1.016" shape="long" rot="R90"/>
-<text x="-6.655" y="-2.04" size="1.016" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="-6.0025" y="3.8925" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-5.4675" y="-1.4875" size="1.016" layer="51" ratio="10">1</text>
-</package>
 <package name="0204/7" urn="urn:adsk.eagle:footprint:22998/1">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
 type 0204, grid 7.5 mm</description>
@@ -570,19 +547,6 @@ Number of pins: &lt;b&gt;3&lt;/b&gt;&lt;b&gt;&lt;P&gt;
 &lt;b&gt;www.rembrandtelectronics.com&lt;/b&gt;&lt;p&gt;</description>
 <packageinstances>
 <packageinstance name="JST-XH-03-PACKAGE-LONG-PAD"/>
-</packageinstances>
-</package3d>
-<package3d name="JST-XH-04-PACKAGE-LONG-PAD" urn="urn:adsk.eagle:package:37207154/2" type="model">
-<description>&lt;b&gt;JST XH Connector Long Pads (Package)&lt;/b&gt;&lt;p&gt;
-Wire to board connector.
-
-Pitch: 2,54 mm, (0.100")&lt;p&gt;
-Number of pins: &lt;b&gt;4&lt;/b&gt;&lt;b&gt;&lt;P&gt;
-
-&lt;b&gt;Created by Rembrandt Electronics&lt;/b&gt;&lt;p&gt;
-&lt;b&gt;www.rembrandtelectronics.com&lt;/b&gt;&lt;p&gt;</description>
-<packageinstances>
-<packageinstance name="JST-XH-04-PACKAGE-LONG-PAD"/>
 </packageinstances>
 </package3d>
 <package3d name="0204/7" urn="urn:adsk.eagle:package:23498/2" type="model">
@@ -1044,39 +1008,6 @@ Number of pins: &lt;b&gt;3&lt;/b&gt;&lt;b&gt;&lt;P&gt;
 </device>
 </devices>
 </deviceset>
-<deviceset name="JST-XH-04-PIN" prefix="X">
-<description>&lt;b&gt;JST XH Connector 2 Pin&lt;/b&gt;&lt;p&gt;
-
-Wire to board connector.
-
-Pitch: 2,54 mm, (0.100")&lt;p&gt;
-Number of pins: &lt;b&gt;4&lt;/b&gt;&lt;b&gt;&lt;P&gt;
-
-&lt;b&gt;Created by Rembrandt Electronics&lt;/b&gt;&lt;p&gt;
-&lt;b&gt;www.rembrandtelectronics.com&lt;/b&gt;&lt;p&gt;</description>
-<gates>
-<gate name="-1" symbol="MV" x="2.54" y="0" addlevel="always" swaplevel="1"/>
-<gate name="-2" symbol="M" x="2.54" y="-2.54" addlevel="always" swaplevel="1"/>
-<gate name="-3" symbol="M" x="2.54" y="-5.08" addlevel="always" swaplevel="1"/>
-<gate name="-4" symbol="M" x="2.54" y="-7.62" addlevel="always" swaplevel="1"/>
-</gates>
-<devices>
-<device name="-LONG-PAD" package="JST-XH-04-PACKAGE-LONG-PAD">
-<connects>
-<connect gate="-1" pin="S" pad="1"/>
-<connect gate="-2" pin="S" pad="2"/>
-<connect gate="-3" pin="S" pad="3"/>
-<connect gate="-4" pin="S" pad="4"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:37207154/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="R-EU_" prefix="R" uservalue="yes">
 <description>&lt;B&gt;RESISTOR&lt;/B&gt;, European symbol</description>
 <gates>
@@ -1418,34 +1349,53 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.2032" drill="0">
+<clearance class="0" value="0.254"/>
 </class>
 <class number="1" name="240VAC" width="0.254" drill="0.254">
+<clearance class="0" value="0.508"/>
 <clearance class="1" value="0.508"/>
 </class>
 <class number="2" name="24VAC" width="0.762" drill="0.762">
+<clearance class="0" value="0.508"/>
+<clearance class="1" value="0.508"/>
 <clearance class="2" value="0.508"/>
 </class>
 <class number="3" name="5V" width="0.508" drill="0.508">
+<clearance class="0" value="0.254"/>
+<clearance class="1" value="0.254"/>
+<clearance class="2" value="0.254"/>
 <clearance class="3" value="0.254"/>
 </class>
 <class number="4" name="12V" width="2.032" drill="2.032">
+<clearance class="0" value="0.254"/>
+<clearance class="1" value="0.254"/>
+<clearance class="2" value="0.254"/>
+<clearance class="3" value="0.254"/>
 <clearance class="4" value="0.254"/>
 </class>
 <class number="5" name="Pumps" width="0.762" drill="0.762">
+<clearance class="0" value="0.254"/>
+<clearance class="1" value="0.254"/>
+<clearance class="2" value="0.254"/>
+<clearance class="3" value="0.254"/>
+<clearance class="4" value="0.254"/>
 <clearance class="5" value="0.254"/>
 </class>
 <class number="6" name="Solenoids" width="0.254" drill="0.254">
+<clearance class="0" value="0.254"/>
+<clearance class="1" value="0.254"/>
+<clearance class="2" value="0.254"/>
+<clearance class="3" value="0.254"/>
+<clearance class="4" value="0.254"/>
+<clearance class="5" value="0.254"/>
 <clearance class="6" value="0.254"/>
 </class>
 </classes>
 <groups>
 <schematic_group name="2A-30V-IND-LOAD4"/>
 <schematic_group name="2A-30V-IND-LOAD"/>
-<schematic_group name="2A-30V-IND-LOAD3"/>
-<schematic_group name="2A-30V-IND-LOAD1"/>
 <schematic_group name="10A-IND-LOAD"/>
-<schematic_group name="10A-IND-LOAD1"/>
 </groups>
 <parts>
 <part name="Q1" library="Aeroponics Control" deviceset="FQP30N06L" device="" package3d_urn="urn:adsk.eagle:package:37207079/2"/>
@@ -1477,17 +1427,11 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <part name="R6" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
 <part name="SUPPLY10" library="Aeroponics Control" deviceset="GND" device=""/>
 <part name="P+11" library="Aeroponics Control" deviceset="+5V" device=""/>
-<part name="IPUMP" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
-<part name="5VS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
-<part name="12VS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
-<part name="24ACVS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
-<part name="240ACVS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
+<part name="IPUMP" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2" value="IPUMP"/>
+<part name="5VS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2" value="5VS"/>
+<part name="12VS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2" value="12VS"/>
+<part name="24ACVS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2" value="24VACS"/>
 <part name="P+5" library="Aeroponics Control" deviceset="+12V" device=""/>
-<part name="DS1" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
-<part name="DS2" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
-<part name="DS3" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
-<part name="P+13" library="Aeroponics Control" deviceset="+5V" device=""/>
-<part name="SUPPLY12" library="Aeroponics Control" deviceset="GND" device=""/>
 <part name="P+10" library="Aeroponics Control" deviceset="+5V" device=""/>
 <part name="SUPPLY9" library="Aeroponics Control" deviceset="GND" device=""/>
 <part name="SUPPLY13" library="Aeroponics Control" deviceset="GND" device=""/>
@@ -1498,34 +1442,10 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <part name="R8" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
 <part name="P+15" library="Aeroponics Control" deviceset="+5V" device=""/>
 <part name="P+16" library="Aeroponics Control" deviceset="+5V" device=""/>
-<part name="Q5" library="Aeroponics Control" deviceset="FQP30N06L" device="" package3d_urn="urn:adsk.eagle:package:37207079/2"/>
-<part name="D5" library="Aeroponics Control" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:10898391/4"/>
-<part name="R9" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
-<part name="SUPPLY15" library="Aeroponics Control" deviceset="GND" device=""/>
-<part name="P+17" library="Aeroponics Control" deviceset="+12V" device=""/>
-<part name="12VPUMP1" library="Aeroponics Control" deviceset="JST-XH-02-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207166/2"/>
-<part name="R10" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
-<part name="P+18" library="Aeroponics Control" deviceset="+5V" device=""/>
-<part name="Q3" library="Aeroponics Control" deviceset="FQP30N06L" device="" package3d_urn="urn:adsk.eagle:package:37207079/2"/>
-<part name="D3" library="Aeroponics Control" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:10898391/4"/>
-<part name="R3" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
-<part name="SUPPLY7" library="Aeroponics Control" deviceset="GND" device=""/>
-<part name="P+8" library="Aeroponics Control" deviceset="+12V" device=""/>
-<part name="12VPUMP2" library="Aeroponics Control" deviceset="JST-XH-02-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207166/2"/>
-<part name="R4" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
-<part name="P+9" library="Aeroponics Control" deviceset="+12V" device=""/>
 <part name="R11" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
-<part name="K2" library="Aeroponics Control" deviceset="SRM-1C-SL-5VDC" device="" package3d_urn="urn:adsk.eagle:package:37207205/2"/>
-<part name="Q4" library="Aeroponics Control" deviceset="FDU3N40TU" device="" package3d_urn="urn:adsk.eagle:package:37207208/2"/>
-<part name="D4" library="Aeroponics Control" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:10898391/4"/>
-<part name="R7" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
-<part name="SUPPLY8" library="Aeroponics Control" deviceset="GND" device=""/>
-<part name="P+12" library="Aeroponics Control" deviceset="+5V" device=""/>
-<part name="UVLIGHT" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
-<part name="R12" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
 <part name="IC1" library="Aeroponics Control" deviceset="74*07" device="N" package3d_urn="urn:adsk.eagle:package:16407/2"/>
 <part name="P+19" library="Aeroponics Control" deviceset="+12V" device=""/>
-<part name="P+20" library="Aeroponics Control" deviceset="+12V" device=""/>
+<part name="SUPPLY7" library="Aeroponics Control" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1585,21 +1505,21 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <instance part="SUPPLY5" gate="GND" x="134.62" y="83.82" smashed="yes">
 <attribute name="VALUE" x="132.715" y="80.645" size="1.778" layer="96"/>
 </instance>
-<instance part="PS1" gate="-1" x="233.68" y="2.54" smashed="yes">
-<attribute name="NAME" x="236.22" y="1.778" size="1.524" layer="95"/>
-<attribute name="VALUE" x="232.918" y="3.937" size="1.778" layer="96"/>
+<instance part="PS1" gate="-1" x="180.34" y="5.08" smashed="yes">
+<attribute name="NAME" x="182.88" y="4.318" size="1.524" layer="95"/>
+<attribute name="VALUE" x="179.578" y="6.477" size="1.778" layer="96"/>
 </instance>
-<instance part="PS1" gate="-2" x="233.68" y="0" smashed="yes">
-<attribute name="NAME" x="236.22" y="-0.762" size="1.524" layer="95"/>
+<instance part="PS1" gate="-2" x="180.34" y="2.54" smashed="yes">
+<attribute name="NAME" x="182.88" y="1.778" size="1.524" layer="95"/>
 </instance>
-<instance part="PS1" gate="-3" x="233.68" y="-2.54" smashed="yes">
-<attribute name="NAME" x="236.22" y="-3.302" size="1.524" layer="95"/>
+<instance part="PS1" gate="-3" x="180.34" y="0" smashed="yes">
+<attribute name="NAME" x="182.88" y="-0.762" size="1.524" layer="95"/>
 </instance>
-<instance part="P+7" gate="1" x="228.6" y="7.62" smashed="yes">
-<attribute name="VALUE" x="226.06" y="2.54" size="1.778" layer="96" rot="R90"/>
+<instance part="P+7" gate="1" x="175.26" y="10.16" smashed="yes">
+<attribute name="VALUE" x="172.72" y="5.08" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY6" gate="GND" x="220.98" y="-5.08" smashed="yes">
-<attribute name="VALUE" x="219.075" y="-8.255" size="1.778" layer="96"/>
+<instance part="SUPPLY6" gate="GND" x="167.64" y="-2.54" smashed="yes">
+<attribute name="VALUE" x="165.735" y="-5.715" size="1.778" layer="96"/>
 </instance>
 <instance part="Q2" gate="G$1" x="175.26" y="33.02" smashed="yes" grouprefs="2A-30V-IND-LOAD4">
 <attribute name="NAME" x="186.69" y="36.83" size="1.778" layer="95" align="center-left"/>
@@ -1625,31 +1545,31 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <instance part="IPRSV" gate="-1" x="193.04" y="55.88" smashed="yes" grouprefs="2A-30V-IND-LOAD4">
 <attribute name="NAME" x="195.58" y="55.118" size="1.524" layer="95"/>
 </instance>
-<instance part="K1" gate="G$1" x="96.52" y="-88.9" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
-<attribute name="NAME" x="91.44" y="-69.85" size="1.778" layer="95" rot="R90" align="center-left"/>
-<attribute name="VALUE" x="106.68" y="-82.55" size="1.778" layer="96" rot="R90" align="center-left"/>
+<instance part="K1" gate="G$1" x="129.54" y="-33.02" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
+<attribute name="NAME" x="124.46" y="-13.97" size="1.778" layer="95" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="139.7" y="-26.67" size="1.778" layer="96" rot="R90" align="center-left"/>
 </instance>
-<instance part="Q6" gate="G$1" x="63.5" y="-86.36" smashed="yes" grouprefs="10A-IND-LOAD">
-<attribute name="NAME" x="74.93" y="-82.55" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="74.93" y="-85.09" size="1.778" layer="96" align="center-left"/>
+<instance part="Q6" gate="G$1" x="96.52" y="-30.48" smashed="yes" grouprefs="10A-IND-LOAD">
+<attribute name="NAME" x="107.95" y="-26.67" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="107.95" y="-29.21" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D6" gate="G$1" x="71.12" y="-68.58" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
-<attribute name="NAME" x="68.0974" y="-71.12" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="75.9714" y="-71.12" size="1.778" layer="96" rot="R90"/>
+<instance part="D6" gate="G$1" x="104.14" y="-12.7" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
+<attribute name="NAME" x="101.1174" y="-15.24" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="108.9914" y="-15.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R6" gate="G$1" x="48.26" y="-71.12" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
-<attribute name="NAME" x="46.7614" y="-74.93" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="51.562" y="-74.93" size="1.778" layer="96" rot="R90"/>
+<instance part="R6" gate="G$1" x="81.28" y="-15.24" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
+<attribute name="NAME" x="79.7814" y="-19.05" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="84.582" y="-19.05" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY10" gate="GND" x="71.12" y="-96.52" smashed="yes" grouprefs="10A-IND-LOAD">
-<attribute name="VALUE" x="69.215" y="-99.695" size="1.778" layer="96"/>
+<instance part="SUPPLY10" gate="GND" x="104.14" y="-40.64" smashed="yes" grouprefs="10A-IND-LOAD">
+<attribute name="VALUE" x="102.235" y="-43.815" size="1.778" layer="96"/>
 </instance>
-<instance part="P+11" gate="1" x="71.12" y="-55.88" smashed="yes" grouprefs="10A-IND-LOAD">
-<attribute name="VALUE" x="68.58" y="-60.96" size="1.778" layer="96" rot="R90"/>
+<instance part="P+11" gate="1" x="104.14" y="0" smashed="yes" grouprefs="10A-IND-LOAD">
+<attribute name="VALUE" x="101.6" y="-5.08" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IPUMP" gate="G$1" x="116.84" y="-71.12" smashed="yes" grouprefs="10A-IND-LOAD">
-<attribute name="VALUE" x="115.57" y="-76.2" size="1.778" layer="96"/>
-<attribute name="NAME" x="115.57" y="-65.278" size="1.778" layer="95"/>
+<instance part="IPUMP" gate="G$1" x="149.86" y="-15.24" smashed="yes" grouprefs="10A-IND-LOAD">
+<attribute name="VALUE" x="148.59" y="-20.32" size="1.778" layer="96"/>
+<attribute name="NAME" x="148.59" y="-9.398" size="1.778" layer="95"/>
 </instance>
 <instance part="5VS" gate="G$1" x="55.88" y="99.06" smashed="yes" rot="R90">
 <attribute name="VALUE" x="60.96" y="97.79" size="1.778" layer="96" rot="R90"/>
@@ -1663,57 +1583,8 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <attribute name="VALUE" x="101.6" y="97.79" size="1.778" layer="96" rot="R90"/>
 <attribute name="NAME" x="90.678" y="97.79" size="1.778" layer="95" rot="R90"/>
 </instance>
-<instance part="240ACVS" gate="G$1" x="114.3" y="99.06" smashed="yes" rot="R90">
-<attribute name="VALUE" x="119.38" y="97.79" size="1.778" layer="96" rot="R90"/>
-<attribute name="NAME" x="108.458" y="97.79" size="1.778" layer="95" rot="R90"/>
-</instance>
 <instance part="P+5" gate="1" x="73.66" y="88.9" smashed="yes" rot="R180">
 <attribute name="VALUE" x="68.58" y="91.44" size="1.778" layer="96" rot="R270"/>
-</instance>
-<instance part="DS1" gate="-1" x="233.68" y="63.5" smashed="yes">
-<attribute name="NAME" x="236.22" y="62.738" size="1.524" layer="95"/>
-<attribute name="VALUE" x="232.918" y="64.897" size="1.778" layer="96"/>
-</instance>
-<instance part="DS1" gate="-2" x="233.68" y="60.96" smashed="yes">
-<attribute name="NAME" x="236.22" y="60.198" size="1.524" layer="95"/>
-</instance>
-<instance part="DS1" gate="-3" x="233.68" y="58.42" smashed="yes">
-<attribute name="NAME" x="236.22" y="57.658" size="1.524" layer="95"/>
-</instance>
-<instance part="DS1" gate="-4" x="233.68" y="55.88" smashed="yes">
-<attribute name="NAME" x="236.22" y="55.118" size="1.524" layer="95"/>
-</instance>
-<instance part="DS2" gate="-1" x="233.68" y="45.72" smashed="yes">
-<attribute name="NAME" x="236.22" y="44.958" size="1.524" layer="95"/>
-<attribute name="VALUE" x="232.918" y="47.117" size="1.778" layer="96"/>
-</instance>
-<instance part="DS2" gate="-2" x="233.68" y="43.18" smashed="yes">
-<attribute name="NAME" x="236.22" y="42.418" size="1.524" layer="95"/>
-</instance>
-<instance part="DS2" gate="-3" x="233.68" y="40.64" smashed="yes">
-<attribute name="NAME" x="236.22" y="39.878" size="1.524" layer="95"/>
-</instance>
-<instance part="DS2" gate="-4" x="233.68" y="38.1" smashed="yes">
-<attribute name="NAME" x="236.22" y="37.338" size="1.524" layer="95"/>
-</instance>
-<instance part="DS3" gate="-1" x="233.68" y="30.48" smashed="yes">
-<attribute name="NAME" x="236.22" y="29.718" size="1.524" layer="95"/>
-<attribute name="VALUE" x="232.918" y="31.877" size="1.778" layer="96"/>
-</instance>
-<instance part="DS3" gate="-2" x="233.68" y="27.94" smashed="yes">
-<attribute name="NAME" x="236.22" y="27.178" size="1.524" layer="95"/>
-</instance>
-<instance part="DS3" gate="-3" x="233.68" y="25.4" smashed="yes">
-<attribute name="NAME" x="236.22" y="24.638" size="1.524" layer="95"/>
-</instance>
-<instance part="DS3" gate="-4" x="233.68" y="22.86" smashed="yes">
-<attribute name="NAME" x="236.22" y="22.098" size="1.524" layer="95"/>
-</instance>
-<instance part="P+13" gate="1" x="226.06" y="68.58" smashed="yes">
-<attribute name="VALUE" x="223.52" y="63.5" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="SUPPLY12" gate="GND" x="223.52" y="17.78" smashed="yes">
-<attribute name="VALUE" x="221.615" y="14.605" size="1.778" layer="96"/>
 </instance>
 <instance part="P+10" gate="1" x="7.62" y="20.32" smashed="yes">
 <attribute name="VALUE" x="5.08" y="15.24" size="1.778" layer="96" rot="R90"/>
@@ -1748,101 +1619,9 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <instance part="P+16" gate="1" x="81.28" y="53.34" smashed="yes" grouprefs="2A-30V-IND-LOAD">
 <attribute name="VALUE" x="78.74" y="48.26" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="Q5" gate="G$1" x="88.9" y="-22.86" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="NAME" x="100.33" y="-19.05" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="100.33" y="-21.59" size="1.778" layer="96" align="center-left"/>
-</instance>
-<instance part="D5" gate="G$1" x="96.52" y="-5.08" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="NAME" x="93.4974" y="-7.62" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="101.3714" y="-7.62" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R9" gate="G$1" x="73.66" y="-12.7" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="NAME" x="72.1614" y="-16.51" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="76.962" y="-16.51" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="SUPPLY15" gate="GND" x="96.52" y="-33.02" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="VALUE" x="94.615" y="-36.195" size="1.778" layer="96"/>
-</instance>
-<instance part="P+17" gate="1" x="96.52" y="7.62" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="VALUE" x="93.98" y="2.54" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="12VPUMP1" gate="-2" x="106.68" y="-10.16" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="NAME" x="109.22" y="-10.922" size="1.524" layer="95"/>
-</instance>
-<instance part="12VPUMP1" gate="-1" x="106.68" y="0" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="NAME" x="109.22" y="-0.762" size="1.524" layer="95"/>
-</instance>
-<instance part="R10" gate="G$1" x="81.28" y="-22.86" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="NAME" x="77.47" y="-21.3614" size="1.778" layer="95"/>
-<attribute name="VALUE" x="77.47" y="-26.162" size="1.778" layer="96"/>
-</instance>
-<instance part="P+18" gate="1" x="73.66" y="-2.54" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
-<attribute name="VALUE" x="71.12" y="-7.62" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="Q3" gate="G$1" x="175.26" y="-22.86" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="NAME" x="186.69" y="-19.05" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="186.69" y="-21.59" size="1.778" layer="96" align="center-left"/>
-</instance>
-<instance part="D3" gate="G$1" x="182.88" y="-5.08" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="NAME" x="179.8574" y="-7.62" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="187.7314" y="-7.62" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R3" gate="G$1" x="160.02" y="-12.7" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="NAME" x="158.5214" y="-16.51" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="163.322" y="-16.51" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="SUPPLY7" gate="GND" x="182.88" y="-33.02" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="VALUE" x="180.975" y="-36.195" size="1.778" layer="96"/>
-</instance>
-<instance part="P+8" gate="1" x="182.88" y="7.62" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="VALUE" x="180.34" y="2.54" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="12VPUMP2" gate="-2" x="193.04" y="-10.16" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="NAME" x="195.58" y="-10.922" size="1.524" layer="95"/>
-</instance>
-<instance part="12VPUMP2" gate="-1" x="193.04" y="0" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="NAME" x="195.58" y="-0.762" size="1.524" layer="95"/>
-</instance>
-<instance part="R4" gate="G$1" x="167.64" y="-22.86" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="NAME" x="163.83" y="-21.3614" size="1.778" layer="95"/>
-<attribute name="VALUE" x="163.83" y="-26.162" size="1.778" layer="96"/>
-</instance>
-<instance part="P+9" gate="1" x="160.02" y="-2.54" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
-<attribute name="VALUE" x="157.48" y="-7.62" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R11" gate="G$1" x="55.88" y="-86.36" smashed="yes" grouprefs="10A-IND-LOAD">
-<attribute name="NAME" x="52.07" y="-84.8614" size="1.778" layer="95"/>
-<attribute name="VALUE" x="52.07" y="-89.662" size="1.778" layer="96"/>
-</instance>
-<instance part="K2" gate="G$1" x="208.28" y="-91.44" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD1">
-<attribute name="NAME" x="203.2" y="-72.39" size="1.778" layer="95" rot="R90" align="center-left"/>
-<attribute name="VALUE" x="218.44" y="-85.09" size="1.778" layer="96" rot="R90" align="center-left"/>
-</instance>
-<instance part="Q4" gate="G$1" x="175.26" y="-88.9" smashed="yes" grouprefs="10A-IND-LOAD1">
-<attribute name="NAME" x="186.69" y="-85.09" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="186.69" y="-87.63" size="1.778" layer="96" align="center-left"/>
-</instance>
-<instance part="D4" gate="G$1" x="182.88" y="-71.12" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD1">
-<attribute name="NAME" x="179.8574" y="-73.66" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="187.7314" y="-73.66" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R7" gate="G$1" x="160.02" y="-73.66" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD1">
-<attribute name="NAME" x="158.5214" y="-77.47" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="163.322" y="-77.47" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="SUPPLY8" gate="GND" x="182.88" y="-99.06" smashed="yes" grouprefs="10A-IND-LOAD1">
-<attribute name="VALUE" x="180.975" y="-102.235" size="1.778" layer="96"/>
-</instance>
-<instance part="P+12" gate="1" x="182.88" y="-58.42" smashed="yes" grouprefs="10A-IND-LOAD1">
-<attribute name="VALUE" x="180.34" y="-63.5" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="UVLIGHT" gate="G$1" x="228.6" y="-73.66" smashed="yes" grouprefs="10A-IND-LOAD1">
-<attribute name="VALUE" x="227.33" y="-78.74" size="1.778" layer="96"/>
-<attribute name="NAME" x="227.33" y="-67.818" size="1.778" layer="95"/>
-</instance>
-<instance part="R12" gate="G$1" x="167.64" y="-88.9" smashed="yes" grouprefs="10A-IND-LOAD1">
-<attribute name="NAME" x="163.83" y="-87.4014" size="1.778" layer="95"/>
-<attribute name="VALUE" x="163.83" y="-92.202" size="1.778" layer="96"/>
+<instance part="R11" gate="G$1" x="88.9" y="-30.48" smashed="yes" grouprefs="10A-IND-LOAD">
+<attribute name="NAME" x="85.09" y="-28.9814" size="1.778" layer="95"/>
+<attribute name="VALUE" x="85.09" y="-33.782" size="1.778" layer="96"/>
 </instance>
 <instance part="IC1" gate="A" x="68.58" y="33.02" smashed="yes">
 <attribute name="NAME" x="71.12" y="36.195" size="1.778" layer="95"/>
@@ -1852,30 +1631,30 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <attribute name="NAME" x="149.86" y="36.195" size="1.778" layer="95"/>
 <attribute name="VALUE" x="149.86" y="27.94" size="1.778" layer="96"/>
 </instance>
-<instance part="IC1" gate="C" x="60.96" y="-22.86" smashed="yes">
-<attribute name="NAME" x="63.5" y="-19.685" size="1.778" layer="95"/>
-<attribute name="VALUE" x="63.5" y="-27.94" size="1.778" layer="96"/>
-</instance>
-<instance part="IC1" gate="D" x="147.32" y="-22.86" smashed="yes">
-<attribute name="NAME" x="149.86" y="-19.685" size="1.778" layer="95"/>
-<attribute name="VALUE" x="149.86" y="-27.94" size="1.778" layer="96"/>
-</instance>
-<instance part="IC1" gate="E" x="35.56" y="-86.36" smashed="yes" grouprefs="10A-IND-LOAD">
-<attribute name="NAME" x="38.1" y="-83.185" size="1.778" layer="95"/>
-<attribute name="VALUE" x="38.1" y="-91.44" size="1.778" layer="96"/>
-</instance>
-<instance part="IC1" gate="F" x="147.32" y="-88.9" smashed="yes" grouprefs="10A-IND-LOAD1">
-<attribute name="NAME" x="149.86" y="-85.725" size="1.778" layer="95"/>
-<attribute name="VALUE" x="149.86" y="-93.98" size="1.778" layer="96"/>
+<instance part="IC1" gate="E" x="68.58" y="-30.48" smashed="yes" grouprefs="10A-IND-LOAD">
+<attribute name="NAME" x="71.12" y="-27.305" size="1.778" layer="95"/>
+<attribute name="VALUE" x="71.12" y="-35.56" size="1.778" layer="96"/>
 </instance>
 <instance part="IC1" gate="P" x="7.62" y="7.62" smashed="yes">
 <attribute name="NAME" x="4.445" y="6.985" size="1.778" layer="95"/>
 </instance>
-<instance part="P+19" gate="1" x="48.26" y="-60.96" smashed="yes">
-<attribute name="VALUE" x="45.72" y="-66.04" size="1.778" layer="96" rot="R90"/>
+<instance part="P+19" gate="1" x="81.28" y="-5.08" smashed="yes" grouprefs="10A-IND-LOAD">
+<attribute name="VALUE" x="78.74" y="-10.16" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="P+20" gate="1" x="160.02" y="-63.5" smashed="yes">
-<attribute name="VALUE" x="157.48" y="-68.58" size="1.778" layer="96" rot="R90"/>
+<instance part="IC1" gate="C" x="187.96" y="-25.4" smashed="yes">
+<attribute name="NAME" x="190.5" y="-22.225" size="1.778" layer="95"/>
+<attribute name="VALUE" x="190.5" y="-30.48" size="1.778" layer="96"/>
+</instance>
+<instance part="IC1" gate="D" x="187.96" y="-38.1" smashed="yes">
+<attribute name="NAME" x="190.5" y="-34.925" size="1.778" layer="95"/>
+<attribute name="VALUE" x="190.5" y="-43.18" size="1.778" layer="96"/>
+</instance>
+<instance part="IC1" gate="F" x="187.96" y="-12.7" smashed="yes">
+<attribute name="NAME" x="190.5" y="-9.525" size="1.778" layer="95"/>
+<attribute name="VALUE" x="190.5" y="-17.78" size="1.778" layer="96"/>
+</instance>
+<instance part="SUPPLY7" gate="GND" x="177.8" y="-50.8" smashed="yes">
+<attribute name="VALUE" x="175.895" y="-53.975" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -1897,34 +1676,20 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <segment>
 <pinref part="PS1" gate="-1" pin="S"/>
 <pinref part="P+7" gate="1" pin="+5V"/>
-<wire x1="231.14" y1="2.54" x2="228.6" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="228.6" y1="2.54" x2="228.6" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="5.08" x2="175.26" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="5.08" x2="175.26" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="-66.04" x2="71.12" y2="-63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="71.12" y1="-63.5" x2="71.12" y2="-60.96" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="104.14" y1="-10.16" x2="104.14" y2="-7.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="104.14" y1="-7.62" x2="104.14" y2="-5.08" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="D6" gate="G$1" pin="C"/>
 <pinref part="P+11" gate="1" pin="+5V"/>
-<wire x1="71.12" y1="-58.42" x2="71.12" y2="-60.96" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="104.14" y1="-2.54" x2="104.14" y2="-5.08" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="K1" gate="G$1" pin="COIL_2"/>
-<wire x1="96.52" y1="-55.88" x2="91.44" y2="-55.88" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="91.44" y1="-55.88" x2="91.44" y2="-63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="91.44" y1="-63.5" x2="71.12" y2="-63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<junction x="71.12" y="-63.5" grouprefs="10A-IND-LOAD"/>
-</segment>
-<segment>
-<pinref part="DS3" gate="-1" pin="S"/>
-<wire x1="231.14" y1="30.48" x2="226.06" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="30.48" x2="226.06" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="DS2" gate="-1" pin="S"/>
-<wire x1="226.06" y1="45.72" x2="231.14" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="DS1" gate="-1" pin="S"/>
-<wire x1="231.14" y1="63.5" x2="226.06" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="63.5" x2="226.06" y2="45.72" width="0.1524" layer="91"/>
-<junction x="226.06" y="45.72"/>
-<pinref part="P+13" gate="1" pin="+5V"/>
-<wire x1="226.06" y1="66.04" x2="226.06" y2="63.5" width="0.1524" layer="91"/>
-<junction x="226.06" y="63.5"/>
+<wire x1="129.54" y1="0" x2="124.46" y2="0" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="124.46" y1="0" x2="124.46" y2="-7.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="124.46" y1="-7.62" x2="104.14" y2="-7.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<junction x="104.14" y="-7.62" grouprefs="10A-IND-LOAD"/>
 </segment>
 <segment>
 <pinref part="5VS" gate="G$1" pin="1"/>
@@ -1955,28 +1720,6 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="81.28" y1="50.8" x2="81.28" y2="48.26" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD"/>
 </segment>
-<segment>
-<wire x1="73.66" y1="-5.08" x2="73.66" y2="-7.62" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<pinref part="R9" gate="G$1" pin="2"/>
-<pinref part="P+18" gate="1" pin="+5V"/>
-</segment>
-<segment>
-<wire x1="160.02" y1="-5.08" x2="160.02" y2="-7.62" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="P+9" gate="1" pin="+12V"/>
-</segment>
-<segment>
-<wire x1="182.88" y1="-68.58" x2="182.88" y2="-66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="182.88" y1="-66.04" x2="182.88" y2="-63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="182.88" y1="-60.96" x2="182.88" y2="-63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="208.28" y1="-58.42" x2="203.2" y2="-58.42" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="203.2" y1="-58.42" x2="203.2" y2="-66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="203.2" y1="-66.04" x2="182.88" y2="-66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<junction x="182.88" y="-66.04" grouprefs="10A-IND-LOAD1"/>
-<pinref part="K2" gate="G$1" pin="COIL_2"/>
-<pinref part="D4" gate="G$1" pin="C"/>
-<pinref part="P+12" gate="1" pin="+5V"/>
-</segment>
 </net>
 <net name="GND" class="0">
 <segment>
@@ -1993,8 +1736,8 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <segment>
 <pinref part="PS1" gate="-2" pin="S"/>
 <pinref part="SUPPLY6" gate="GND" pin="GND"/>
-<wire x1="231.14" y1="0" x2="220.98" y2="0" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="0" x2="220.98" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="2.54" x2="167.64" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="2.54" x2="167.64" y2="0" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="182.88" y1="25.4" x2="182.88" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD4"/>
@@ -2002,7 +1745,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="71.12" y1="-93.98" x2="71.12" y2="-91.44" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="104.14" y1="-38.1" x2="104.14" y2="-35.56" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="Q6" gate="G$1" pin="S"/>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
 </segment>
@@ -2015,20 +1758,6 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <pinref part="12VS" gate="G$1" pin="2"/>
 <pinref part="SUPPLY4" gate="GND" pin="GND"/>
 <wire x1="76.2" y1="93.98" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="DS1" gate="-2" pin="S"/>
-<wire x1="231.14" y1="60.96" x2="223.52" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="60.96" x2="223.52" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="DS2" gate="-2" pin="S"/>
-<wire x1="223.52" y1="43.18" x2="231.14" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="DS3" gate="-2" pin="S"/>
-<wire x1="231.14" y1="27.94" x2="223.52" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="27.94" x2="223.52" y2="43.18" width="0.1524" layer="91"/>
-<junction x="223.52" y="43.18"/>
-<pinref part="SUPPLY12" gate="GND" pin="GND"/>
-<wire x1="223.52" y1="20.32" x2="223.52" y2="27.94" width="0.1524" layer="91"/>
-<junction x="223.52" y="27.94"/>
 </segment>
 <segment>
 <pinref part="SUPPLY9" gate="GND" pin="GND"/>
@@ -2050,19 +1779,25 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <wire x1="33.02" y1="66.04" x2="38.1" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="96.52" y1="-30.48" x2="96.52" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<pinref part="Q5" gate="G$1" pin="S"/>
-<pinref part="SUPPLY15" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<wire x1="182.88" y1="-30.48" x2="182.88" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<pinref part="Q3" gate="G$1" pin="S"/>
+<pinref part="IC1" gate="F" pin="I"/>
+<pinref part="IC1" gate="C" pin="I"/>
+<wire x1="177.8" y1="-12.7" x2="177.8" y2="-25.4" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="D" pin="I"/>
+<wire x1="177.8" y1="-25.4" x2="177.8" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="177.8" y="-25.4"/>
 <pinref part="SUPPLY7" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<wire x1="182.88" y1="-96.52" x2="182.88" y2="-93.98" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<pinref part="Q4" gate="G$1" pin="S"/>
-<pinref part="SUPPLY8" gate="GND" pin="GND"/>
+<wire x1="177.8" y1="-38.1" x2="177.8" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="177.8" y="-38.1"/>
+<pinref part="IC1" gate="F" pin="O"/>
+<pinref part="IC1" gate="C" pin="O"/>
+<wire x1="198.12" y1="-12.7" x2="198.12" y2="-25.4" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="D" pin="O"/>
+<wire x1="198.12" y1="-25.4" x2="198.12" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="198.12" y="-25.4"/>
+<wire x1="198.12" y1="-38.1" x2="198.12" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="-48.26" x2="177.8" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="198.12" y="-38.1"/>
+<junction x="177.8" y="-48.26"/>
 </segment>
 </net>
 <net name="+12V" class="4">
@@ -2092,34 +1827,9 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <wire x1="73.66" y1="93.98" x2="73.66" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="96.52" y1="2.54" x2="96.52" y2="5.08" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="96.52" y1="-2.54" x2="96.52" y2="0" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="96.52" y1="0" x2="96.52" y2="2.54" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="104.14" y1="0" x2="96.52" y2="0" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<junction x="96.52" y="0" grouprefs="2A-30V-IND-LOAD3"/>
-<pinref part="D5" gate="G$1" pin="C"/>
-<pinref part="P+17" gate="1" pin="+12V"/>
-<pinref part="12VPUMP1" gate="-1" pin="S"/>
-</segment>
-<segment>
-<wire x1="182.88" y1="2.54" x2="182.88" y2="5.08" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="182.88" y1="-2.54" x2="182.88" y2="0" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="182.88" y1="0" x2="182.88" y2="2.54" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="190.5" y1="0" x2="182.88" y2="0" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<junction x="182.88" y="0" grouprefs="2A-30V-IND-LOAD1"/>
-<pinref part="D3" gate="G$1" pin="C"/>
-<pinref part="P+8" gate="1" pin="+12V"/>
-<pinref part="12VPUMP2" gate="-1" pin="S"/>
-</segment>
-<segment>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="-66.04" x2="48.26" y2="-63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="81.28" y1="-10.16" x2="81.28" y2="-7.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="P+19" gate="1" pin="+12V"/>
-</segment>
-<segment>
-<wire x1="160.02" y1="-68.58" x2="160.02" y2="-66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<pinref part="R7" gate="G$1" pin="2"/>
-<pinref part="P+20" gate="1" pin="+12V"/>
 </segment>
 </net>
 <net name="N$10" class="6">
@@ -2148,8 +1858,8 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <net name="PS1S" class="0">
 <segment>
 <pinref part="PS1" gate="-3" pin="S"/>
-<wire x1="231.14" y1="-2.54" x2="223.52" y2="-2.54" width="0.1524" layer="91"/>
-<label x="223.52" y="-2.54" size="1.778" layer="95"/>
+<wire x1="177.8" y1="0" x2="170.18" y2="0" width="0.1524" layer="91"/>
+<label x="170.18" y="0" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="PCB1" gate="G$1" pin="A7"/>
@@ -2192,41 +1902,17 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <label x="-17.78" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="TP1CTL" class="0">
-<segment>
-<pinref part="PCB1" gate="G$1" pin="D8"/>
-<wire x1="-7.62" y1="43.18" x2="-17.78" y2="43.18" width="0.1524" layer="91"/>
-<label x="-17.78" y="43.18" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="50.8" y1="-22.86" x2="45.72" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<label x="45.72" y="-20.32" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD3"/>
-<pinref part="IC1" gate="C" pin="I"/>
-</segment>
-</net>
-<net name="TP2CTL" class="0">
-<segment>
-<pinref part="PCB1" gate="G$1" pin="D9"/>
-<wire x1="-7.62" y1="40.64" x2="-17.78" y2="40.64" width="0.1524" layer="91"/>
-<label x="-17.78" y="40.64" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="137.16" y1="-22.86" x2="132.08" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<label x="132.08" y="-20.32" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD1"/>
-<pinref part="IC1" gate="D" pin="I"/>
-</segment>
-</net>
 <net name="N$21" class="0">
 <segment>
-<wire x1="71.12" y1="-76.2" x2="71.12" y2="-73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="104.14" y1="-20.32" x2="104.14" y2="-17.78" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="Q6" gate="G$1" pin="D"/>
 <pinref part="K1" gate="G$1" pin="COIL_1"/>
-<wire x1="96.52" y1="-88.9" x2="91.44" y2="-88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="91.44" y1="-88.9" x2="91.44" y2="-73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="91.44" y1="-73.66" x2="71.12" y2="-73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="129.54" y1="-33.02" x2="124.46" y2="-33.02" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="124.46" y1="-33.02" x2="124.46" y2="-17.78" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="124.46" y1="-17.78" x2="104.14" y2="-17.78" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="D6" gate="G$1" pin="A"/>
-<wire x1="71.12" y1="-71.12" x2="71.12" y2="-73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<junction x="71.12" y="-73.66" grouprefs="10A-IND-LOAD"/>
+<wire x1="104.14" y1="-15.24" x2="104.14" y2="-17.78" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<junction x="104.14" y="-17.78" grouprefs="10A-IND-LOAD"/>
 </segment>
 </net>
 <net name="IPCTL" class="0">
@@ -2237,8 +1923,8 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </segment>
 <segment>
 <pinref part="IC1" gate="E" pin="I"/>
-<wire x1="25.4" y1="-86.36" x2="20.32" y2="-86.36" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<label x="20.32" y="-83.82" size="1.778" layer="95" grouprefs="10A-IND-LOAD"/>
+<wire x1="58.42" y1="-30.48" x2="53.34" y2="-30.48" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<label x="53.34" y="-27.94" size="1.778" layer="95" grouprefs="10A-IND-LOAD"/>
 </segment>
 </net>
 <net name="+24VAC" class="2">
@@ -2249,8 +1935,8 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </segment>
 <segment>
 <pinref part="K1" gate="G$1" pin="COM"/>
-<wire x1="99.06" y1="-55.88" x2="99.06" y2="-48.26" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<label x="99.06" y="-55.88" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD"/>
+<wire x1="132.08" y1="0" x2="132.08" y2="7.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<label x="132.08" y="0" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD"/>
 </segment>
 </net>
 <net name="-24VAC" class="2">
@@ -2261,127 +1947,18 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </segment>
 <segment>
 <pinref part="IPUMP" gate="G$1" pin="1"/>
-<wire x1="111.76" y1="-68.58" x2="109.22" y2="-68.58" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="109.22" y1="-68.58" x2="109.22" y2="-48.26" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<label x="109.22" y="-55.88" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD"/>
-</segment>
-</net>
-<net name="+240VAC" class="1">
-<segment>
-<pinref part="240ACVS" gate="G$1" pin="1"/>
-<wire x1="111.76" y1="93.98" x2="111.76" y2="86.36" width="0.1524" layer="91"/>
-<label x="111.76" y="81.28" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="K2" gate="G$1" pin="COM"/>
-<wire x1="210.82" y1="-58.42" x2="210.82" y2="-50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<label x="210.82" y="-58.42" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD1"/>
-</segment>
-</net>
-<net name="-240VAC" class="1">
-<segment>
-<pinref part="240ACVS" gate="G$1" pin="2"/>
-<wire x1="114.3" y1="93.98" x2="114.3" y2="86.36" width="0.1524" layer="91"/>
-<label x="114.3" y="81.28" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="UVLIGHT" gate="G$1" pin="1"/>
-<wire x1="223.52" y1="-71.12" x2="220.98" y2="-71.12" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="220.98" y1="-71.12" x2="220.98" y2="-50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<label x="220.98" y="-58.42" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD1"/>
+<wire x1="144.78" y1="-12.7" x2="142.24" y2="-12.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="142.24" y1="-12.7" x2="142.24" y2="7.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<label x="142.24" y="0" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD"/>
 </segment>
 </net>
 <net name="N$7" class="2">
 <segment>
 <pinref part="K1" gate="G$1" pin="NO"/>
-<wire x1="101.6" y1="-88.9" x2="109.22" y2="-88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="109.22" y1="-88.9" x2="109.22" y2="-71.12" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="134.62" y1="-33.02" x2="142.24" y2="-33.02" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="142.24" y1="-33.02" x2="142.24" y2="-15.24" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="IPUMP" gate="G$1" pin="2"/>
-<wire x1="109.22" y1="-71.12" x2="111.76" y2="-71.12" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-</segment>
-</net>
-<net name="UVLCTL" class="0">
-<segment>
-<pinref part="PCB1" gate="G$1" pin="D11"/>
-<wire x1="-7.62" y1="35.56" x2="-17.78" y2="35.56" width="0.1524" layer="91"/>
-<label x="-17.78" y="35.56" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="IC1" gate="F" pin="I"/>
-<wire x1="137.16" y1="-88.9" x2="132.08" y2="-88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<label x="132.08" y="-86.36" size="1.778" layer="95" grouprefs="10A-IND-LOAD1"/>
-</segment>
-</net>
-<net name="DS1RX" class="0">
-<segment>
-<pinref part="DS1" gate="-3" pin="S"/>
-<wire x1="231.14" y1="58.42" x2="228.6" y2="58.42" width="0.1524" layer="91"/>
-<label x="226.06" y="58.42" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PCB1" gate="G$1" pin="D2"/>
-<wire x1="-7.62" y1="58.42" x2="-17.78" y2="58.42" width="0.1524" layer="91"/>
-<label x="-17.78" y="58.42" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="DS1TX" class="0">
-<segment>
-<pinref part="DS1" gate="-4" pin="S"/>
-<wire x1="231.14" y1="55.88" x2="228.6" y2="55.88" width="0.1524" layer="91"/>
-<label x="226.06" y="55.88" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PCB1" gate="G$1" pin="D3"/>
-<wire x1="-7.62" y1="55.88" x2="-17.78" y2="55.88" width="0.1524" layer="91"/>
-<label x="-17.78" y="55.88" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="DS2RX" class="0">
-<segment>
-<pinref part="DS2" gate="-3" pin="S"/>
-<wire x1="231.14" y1="40.64" x2="228.6" y2="40.64" width="0.1524" layer="91"/>
-<label x="226.06" y="40.64" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PCB1" gate="G$1" pin="D4"/>
-<wire x1="-7.62" y1="53.34" x2="-17.78" y2="53.34" width="0.1524" layer="91"/>
-<label x="-17.78" y="53.34" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="DS2TX" class="0">
-<segment>
-<pinref part="DS2" gate="-4" pin="S"/>
-<wire x1="231.14" y1="38.1" x2="228.6" y2="38.1" width="0.1524" layer="91"/>
-<label x="226.06" y="38.1" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PCB1" gate="G$1" pin="D5"/>
-<wire x1="-7.62" y1="50.8" x2="-17.78" y2="50.8" width="0.1524" layer="91"/>
-<label x="-17.78" y="50.8" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="DS3RX" class="0">
-<segment>
-<pinref part="DS3" gate="-3" pin="S"/>
-<wire x1="231.14" y1="25.4" x2="228.6" y2="25.4" width="0.1524" layer="91"/>
-<label x="226.06" y="25.4" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PCB1" gate="G$1" pin="A5"/>
-<wire x1="33.02" y1="53.34" x2="38.1" y2="53.34" width="0.1524" layer="91"/>
-<label x="33.02" y="53.34" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="DS3TX" class="0">
-<segment>
-<pinref part="DS3" gate="-4" pin="S"/>
-<wire x1="231.14" y1="22.86" x2="228.6" y2="22.86" width="0.1524" layer="91"/>
-<label x="226.06" y="22.86" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PCB1" gate="G$1" pin="A4"/>
-<wire x1="33.02" y1="50.8" x2="38.1" y2="50.8" width="0.1524" layer="91"/>
-<label x="33.02" y="50.8" size="1.778" layer="95"/>
+<wire x1="142.24" y1="-15.24" x2="144.78" y2="-15.24" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -2420,120 +1997,22 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <pinref part="IC1" gate="B" pin="O"/>
 </segment>
 </net>
-<net name="N$14" class="5">
-<segment>
-<wire x1="96.52" y1="-12.7" x2="96.52" y2="-10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="104.14" y1="-10.16" x2="96.52" y2="-10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="96.52" y1="-7.62" x2="96.52" y2="-10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<junction x="96.52" y="-10.16" grouprefs="2A-30V-IND-LOAD3"/>
-<pinref part="Q5" gate="G$1" pin="D"/>
-<pinref part="D5" gate="G$1" pin="A"/>
-<pinref part="12VPUMP1" gate="-2" pin="S"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<wire x1="71.12" y1="-22.86" x2="73.66" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="73.66" y1="-22.86" x2="76.2" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="73.66" y1="-17.78" x2="73.66" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<junction x="73.66" y="-22.86" grouprefs="2A-30V-IND-LOAD3"/>
-<pinref part="R9" gate="G$1" pin="1"/>
-<pinref part="R10" gate="G$1" pin="1"/>
-<pinref part="IC1" gate="C" pin="O"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<wire x1="86.36" y1="-22.86" x2="88.9" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<pinref part="Q5" gate="G$1" pin="G"/>
-<pinref part="R10" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$2" class="5">
-<segment>
-<wire x1="182.88" y1="-12.7" x2="182.88" y2="-10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="190.5" y1="-10.16" x2="182.88" y2="-10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="182.88" y1="-7.62" x2="182.88" y2="-10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<junction x="182.88" y="-10.16" grouprefs="2A-30V-IND-LOAD1"/>
-<pinref part="Q3" gate="G$1" pin="D"/>
-<pinref part="D3" gate="G$1" pin="A"/>
-<pinref part="12VPUMP2" gate="-2" pin="S"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<wire x1="157.48" y1="-22.86" x2="160.02" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="160.02" y1="-22.86" x2="162.56" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="160.02" y1="-17.78" x2="160.02" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<junction x="160.02" y="-22.86" grouprefs="2A-30V-IND-LOAD1"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-<pinref part="IC1" gate="D" pin="O"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<wire x1="172.72" y1="-22.86" x2="175.26" y2="-22.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<pinref part="Q3" gate="G$1" pin="G"/>
-<pinref part="R4" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
 <pinref part="Q6" gate="G$1" pin="G"/>
-<wire x1="60.96" y1="-86.36" x2="63.5" y2="-86.36" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="93.98" y1="-30.48" x2="96.52" y2="-30.48" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="-86.36" x2="48.26" y2="-86.36" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="83.82" y1="-30.48" x2="81.28" y2="-30.48" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="-86.36" x2="45.72" y2="-86.36" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="48.26" y1="-76.2" x2="48.26" y2="-86.36" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<junction x="48.26" y="-86.36" grouprefs="10A-IND-LOAD"/>
+<wire x1="81.28" y1="-30.48" x2="78.74" y2="-30.48" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="81.28" y1="-20.32" x2="81.28" y2="-30.48" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<junction x="81.28" y="-30.48" grouprefs="10A-IND-LOAD"/>
 <pinref part="IC1" gate="E" pin="O"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<wire x1="182.88" y1="-78.74" x2="182.88" y2="-76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="208.28" y1="-91.44" x2="203.2" y2="-91.44" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="203.2" y1="-91.44" x2="203.2" y2="-76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="203.2" y1="-76.2" x2="182.88" y2="-76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="182.88" y1="-73.66" x2="182.88" y2="-76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<junction x="182.88" y="-76.2" grouprefs="10A-IND-LOAD1"/>
-<pinref part="K2" gate="G$1" pin="COIL_1"/>
-<pinref part="Q4" gate="G$1" pin="D"/>
-<pinref part="D4" gate="G$1" pin="A"/>
-</segment>
-</net>
-<net name="N$8" class="1">
-<segment>
-<wire x1="213.36" y1="-91.44" x2="220.98" y2="-91.44" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="220.98" y1="-91.44" x2="220.98" y2="-73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="220.98" y1="-73.66" x2="223.52" y2="-73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<pinref part="K2" gate="G$1" pin="NO"/>
-<pinref part="UVLIGHT" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<wire x1="172.72" y1="-88.9" x2="175.26" y2="-88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<pinref part="Q4" gate="G$1" pin="G"/>
-<pinref part="R12" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$19" class="0">
-<segment>
-<wire x1="162.56" y1="-88.9" x2="160.02" y2="-88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="160.02" y1="-88.9" x2="157.48" y2="-88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="160.02" y1="-78.74" x2="160.02" y2="-88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<junction x="160.02" y="-88.9" grouprefs="10A-IND-LOAD1"/>
-<pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="R12" gate="G$1" pin="1"/>
-<pinref part="IC1" gate="F" pin="O"/>
 </segment>
 </net>
 </nets>
@@ -2545,12 +2024,6 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <approved hash="204,1,33.02,60.96,PCB1,5V,,,,"/>
 <approved hash="104,1,33.02,68.58,PCB1,VIN,+5V,,,"/>
 <approved hash="104,1,7.62,15.24,IC1P,VCC,+5V,,,"/>
-<approved hash="113,1,115.828,-68.2904,IPUMP,,,,,"/>
-<approved hash="113,1,53.0504,96.4279,5VS,,,,,"/>
-<approved hash="113,1,73.3704,97.1375,12VS,,,,,"/>
-<approved hash="113,1,93.6904,98.9048,24ACVS,,,,,"/>
-<approved hash="113,1,111.47,99.6144,240ACVS,,,,,"/>
-<approved hash="113,1,229.079,-70.8304,UVLIGHT,,,,,"/>
 </errors>
 </schematic>
 </drawing>
