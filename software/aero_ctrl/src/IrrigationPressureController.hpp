@@ -3,7 +3,8 @@
 
 #include <Arduino.h>
 
-#include "util/AlarmGenerator.hpp"
+#include <AlarmGenerator.hpp>
+
 #include "PressureSensor.hpp"
 
 class IrrigationPressureController: public AlarmGenerator {

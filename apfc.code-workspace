@@ -9,6 +9,10 @@
 		{
 			"name": "pressure_cal",
 			"path": "software\\pressure_cal"
+		},
+		{
+			"name": "nutrient_ctrl",
+			"path": "software/nutrient_ctrl"
 		}
 	],
 	"settings": {}
