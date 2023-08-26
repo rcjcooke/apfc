@@ -43,7 +43,7 @@ AlarmGenerator** gAGs;
 SerialDebugger* mDebugger;
 
 // Last spray volume / millilitres
-double gLastSprayVolume = 0;
+double gLastSprayVolumeMl = 0;
 
 /*********************
  * Utility functions
@@ -84,7 +84,7 @@ void setup() {
   gIrrigationPressureController = new IrrigationPressureController(PS1S, IPRSVCTL, IPCTL);
 
   gSprayController->onSprayStop([]() {
-    gLastSprayVolume = gFlowSensor->getCumulativeVolumeMl();
+    gLastSprayVolumeMl = gFlowSensor->getCumulativeVolumeMl();
     gFlowSensor->resetCumulativeVolume();
   });
 
@@ -136,18 +136,20 @@ void loop() {
   // Communicate any updates needed
 	if (DEBUG_SOLO) {
 
-		PressureSensor* ps = gIrrigationPressureController->getPressureSensor();
 		String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
+		unsigned long nextSpraySecs = gSprayController->getNextSprayCountdownMillis()/1000;
 
-		mDebugger->updateValue("Calibration point 1 ADC value / bits", ps->getCalibationPoint1()[0]);
-		mDebugger->updateValue("Calibration point 1 pressure / PSI", ps->getCalibationPoint1()[1]);
-		mDebugger->updateValue("Calibration point 2 ADC value / bits", ps->getCalibationPoint2()[0]);
-		mDebugger->updateValue("Calibration point 2 pressure / PSI", ps->getCalibationPoint2()[1]);
-		mDebugger->updateValue("Raw pressure sensor ADC value / bits", ps->getLastRawADCValue());
-		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
+		// mDebugger->updateValue("Calibration point 1 ADC value / bits", ps->getCalibationPoint1()[0]);
+		// mDebugger->updateValue("Calibration point 1 pressure / PSI", ps->getCalibationPoint1()[1]);
+		// mDebugger->updateValue("Calibration point 2 ADC value / bits", ps->getCalibationPoint2()[0]);
+		// mDebugger->updateValue("Calibration point 2 pressure / PSI", ps->getCalibationPoint2()[1]);
+		// mDebugger->updateValue("Raw pressure sensor ADC value / bits", ps->getLastRawADCValue());
 		mDebugger->updateValue("Alarms", currentAlarms);
+		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
 		mDebugger->updateValue("Spray Valve open", gSprayController->isValveOpen());
 		mDebugger->updateValue("Compressor on", gIrrigationPressureController->isIrrigationPumpOn());
+		mDebugger->updateValue("Last spray volume / ml", gLastSprayVolumeMl);
+		mDebugger->updateValue("Next spray in / s", nextSpraySecs);
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
 		mDebugger->printUpdate();
 	
