@@ -24,6 +24,8 @@ public:
   unsigned long getSprayDurationMillis();
   // Set the duration of each spray / millis
   void setSprayDurationMillis(unsigned long duration);
+  // Get time to next spray / millis
+  unsigned long getNextSprayCountdownMillis();
 
   /*******************************
    * Event handling

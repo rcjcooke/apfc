@@ -41,6 +41,11 @@ void SprayController::setSprayDurationMillis(unsigned long duration) {
   mSprayDurationMillis = duration;
 }
 
+// Get time to next spray / millis
+unsigned long SprayController::getNextSprayCountdownMillis() {
+  return mLastSprayStartMillis + mSprayIntervalMillis - millis();
+}
+
 /*******************************
  * Event handling
  *******************************/
