@@ -1,21 +1,28 @@
 #include "SerialDebugger.hpp"
 
-SerialDebugger::SerialDebugger() : SerialDisplay(SerialDisplayType::ansi_vt100) {
-  Serial.begin(115200);
+SerialDebugger::SerialDebugger(unsigned long baud) : SerialDisplay(SerialDisplayType::ansi_vt100) {
+  Serial.begin(baud);
   mNextPrintMillis = millis();
   mStatusValues = HashMap<String, String, MAX_DEBUG_VALUES>();
 }
 
-void SerialDebugger::updateValue(String variable, String value) {
+bool SerialDebugger::updateValue(String variable, String value) {
+  return internalUpdateValue(variable, value);
+}
+
+bool SerialDebugger::updateValue(String variable, float value) {
+  return internalUpdateValue(variable, String(value));
+}
+
+bool SerialDebugger::updateValue(String variable, int value) {
+  return internalUpdateValue(variable, String(value));
+}
+
+bool SerialDebugger::internalUpdateValue(String variable, String value) {
+  // Check that we aren't going to add too many entries to the map
+  if (!mStatusValues.contains(variable) && mStatusValues.willOverflow()) return false;
   mStatusValues[variable] = value;
-}
-
-void SerialDebugger::updateValue(String variable, float value) {
-  mStatusValues[variable] = String(value);
-}
-
-void SerialDebugger::updateValue(String variable, int value) {
-  mStatusValues[variable] = String(value);
+  return true;
 }
 
 void SerialDebugger::printUpdate() {

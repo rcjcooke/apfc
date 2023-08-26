@@ -71,6 +71,14 @@ String createAlarmString(int numAGs, AlarmGenerator** ags) {
  *********************/
 void setup() {
 
+	if (DEBUG_SOLO) {
+		// Note: this also starts the serial interface at a baud rate of 115200 bps
+		mDebugger = new SerialDebugger(115200);
+	} else {
+		// TODO: Sort out serial comms interface
+		Serial.begin(115200);
+	}
+
   gSprayController = new SprayController(ISVCTL);
   gFlowSensor = new FlowSensor(FM1S);
   gIrrigationPressureController = new IrrigationPressureController(PS1S, IPRSVCTL, IPCTL);
@@ -82,14 +90,6 @@ void setup() {
 
 	// Record which controllers are alarm generators for future access
 	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gIrrigationPressureController};
-
-	if (DEBUG_SOLO) {
-		// Note: this also starts the serial interface at a baud rate of 115200 bps
-		mDebugger = new SerialDebugger();
-	} else {
-		// TODO: Sort out serial comms interface
-		Serial.begin(115200);
-	}
 
 }
 
@@ -146,6 +146,8 @@ void loop() {
 		mDebugger->updateValue("Raw pressure sensor ADC value / bits", ps->getLastRawADCValue());
 		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
 		mDebugger->updateValue("Alarms", currentAlarms);
+		mDebugger->updateValue("Spray Valve open", gSprayController->isValveOpen());
+		mDebugger->updateValue("Compressor on", gIrrigationPressureController->isIrrigationPumpOn());
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
 		mDebugger->printUpdate();
 	
