@@ -12,6 +12,7 @@ public:
   SerialDebugger(unsigned long baud);
 
   bool updateValue(String variable, String value);
+  bool updateValue(String variable, double value);
   bool updateValue(String variable, float value);
   bool updateValue(String variable, int value);
   
