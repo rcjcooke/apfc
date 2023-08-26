@@ -10,6 +10,10 @@ bool SerialDebugger::updateValue(String variable, String value) {
   return internalUpdateValue(variable, value);
 }
 
+bool SerialDebugger::updateValue(String variable, unsigned long value) {
+  return internalUpdateValue(variable, String(value));
+}
+
 bool SerialDebugger::updateValue(String variable, double value) {
   return internalUpdateValue(variable, String(value));
 }
