@@ -4,7 +4,7 @@
 const float ML_PER_PULSE = 0.438596;
 
 /**
- * Singleton namespace defined to aggregate Flow Sensor global variables / methods for interrups
+ * Singleton namespace defined to aggregate Flow Sensor global variables / methods for interrupts
  */
 namespace FlowSensorNS {
   
