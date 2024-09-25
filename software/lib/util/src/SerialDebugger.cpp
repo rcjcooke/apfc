@@ -2,6 +2,8 @@
 
 SerialDebugger::SerialDebugger(unsigned long baud) : SerialDisplay(SerialDisplayType::ansi_vt100) {
   Serial.begin(baud);
+  // Wait for initialisation of the serial interface
+  while(!Serial);
   mNextPrintMillis = millis();
   mStatusValues = HashMap<String, String, MAX_DEBUG_VALUES>();
 }

@@ -77,12 +77,14 @@ void setup() {
 	} else {
 		// TODO: Sort out serial comms interface
 		Serial.begin(115200);
+		// Wait for initialisation of the serial interface
+		while(!Serial);
 	}
 
-  gSprayController = new SprayController(ISVCTL);
-  gFlowSensor = new FlowSensor(FM1S);
   gIrrigationPressureController = new IrrigationPressureController(PS1S, IPRSVCTL, IPCTL);
-
+	gSprayController = new SprayController(ISVCTL);
+  gFlowSensor = new FlowSensor(FM1S);
+  
   gSprayController->onSprayStop([]() {
     gLastSprayVolumeMl = gFlowSensor->getCumulativeVolumeMl();
     gFlowSensor->resetCumulativeVolume();
@@ -147,6 +149,7 @@ void loop() {
 		mDebugger->updateValue("Alarms", currentAlarms);
 		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
 		mDebugger->updateValue("Spray Valve open", gSprayController->isValveOpen());
+		mDebugger->updateValue("Drain valve open", gIrrigationPressureController->isDrainValveOpen());
 		mDebugger->updateValue("Compressor on", gIrrigationPressureController->isIrrigationPumpOn());
 		mDebugger->updateValue("Last spray volume / ml", gLastSprayVolumeMl);
 		mDebugger->updateValue("Next spray in / s", nextSpraySecs);

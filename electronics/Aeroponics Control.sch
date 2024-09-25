@@ -1446,9 +1446,9 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <part name="IC1" library="Aeroponics Control" deviceset="74*07" device="N" package3d_urn="urn:adsk.eagle:package:16407/2"/>
 <part name="P+19" library="Aeroponics Control" deviceset="+12V" device=""/>
 <part name="SUPPLY7" library="Aeroponics Control" deviceset="GND" device=""/>
-<part name="R3" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
-<part name="R4" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
-<part name="R7" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
+<part name="R3" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1k"/>
+<part name="R4" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1k"/>
+<part name="R7" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1k"/>
 </parts>
 <sheets>
 <sheet>
