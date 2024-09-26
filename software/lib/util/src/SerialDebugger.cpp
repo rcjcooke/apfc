@@ -44,7 +44,7 @@ void SerialDebugger::printUpdate() {
     Serial.println("------ Now: " + String(millis()) + " ---------");
 
     for (unsigned int i=0; i<mStatusValues.size(); i++) {
-      Serial.println(mStatusValues.keyAt(i) + ": " + mStatusValues.valueAt(i));
+      Serial.println(i + ". " + mStatusValues.keyAt(i) + ": " + mStatusValues.valueAt(i));
     }
   }  
 }
