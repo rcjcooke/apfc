@@ -30,7 +30,7 @@ public:
   // True when the valve is open (i.e. draining is in progress)
   bool isDrainValveOpen() const;
   // True when the irrigation pump is on (building pressure)
-  bool isIrrigationPumpOn() const;
+  bool isIrrigationCompressorOn() const;
   // Get the current irrigation system pressure / PSI
   double getPressurePSI() const;
   // Get the PressureSensor - useful for debug purposes
@@ -46,9 +46,9 @@ public:
   // Close drain valve
   void closeDrainValve();
   // Turn on the Irrigation Pump (builds up pressure)
-  void turnOnIrrigationPump();
+  void turnOnIrrigationCompressor();
   // Turn off the Irrigation Pump
-  void turnOffIrrigationPump();
+  void turnOffIrrigationCompressor();
 
 private:
   /*******************************
@@ -57,13 +57,13 @@ private:
   // The microcontroller pin that controls the drain valve state
   uint8_t mDrainValveControlPin;
   // The microcontroller pin that controls the irrigation pump state
-  uint8_t mIrrigationPumpControlPin;
+  uint8_t mIrrigationCompressorControlPin;
   // The pressure sensor
   PressureSensor* mPressureSensor;
   // True when the valve is open (i.e. pressure is being released from the system)
   bool mDrainValveOpen;
   // True when the irrigation pump is running
-  bool mIrrigationPumpOn;
+  bool mIrrigationCompressorOn;
 
 };
 

@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include <SerialDebugger.hpp>
+#include <SerialDebuggerInput.hpp>
 
 #include "SprayController.hpp"
 #include "FlowSensor.hpp"
@@ -26,6 +26,9 @@ static const uint8_t PS1S = A7;
 // The total number of alarm generators
 static const int NUM_ALARM_GENERATORS = 1;
 
+// Debug keys
+static const String DEBUG_COMPRESSOR_ON_KEY = "Compressor on";
+
 /************************
  * Variables
  ************************/
@@ -39,8 +42,8 @@ IrrigationPressureController* gIrrigationPressureController;
 
 // The array of all alarm generators
 AlarmGenerator** gAGs;
-// The serial output interface
-SerialDebugger* mDebugger;
+// The serial debug interface (show values and allow control)
+SerialDebuggerInput* mDebugger;
 
 // Last spray volume / millilitres
 double gLastSprayVolumeMl = 0;
@@ -66,6 +69,16 @@ String createAlarmString(int numAGs, AlarmGenerator** ags) {
 	return alarmString;
 }
 
+void processDebugValueChangesFromUser(String key, String value) {
+	if (key.equals(DEBUG_COMPRESSOR_ON_KEY)) {
+		if (value.equals("1")) {
+			gIrrigationPressureController->turnOnIrrigationCompressor();
+		} else {
+			gIrrigationPressureController->turnOffIrrigationCompressor();
+		}
+	}
+}
+
 /*********************
  * Entry point methods
  *********************/
@@ -73,7 +86,8 @@ void setup() {
 
 	if (DEBUG_SOLO) {
 		// Note: this also starts the serial interface at a baud rate of 115200 bps
-		mDebugger = new SerialDebugger(115200);
+		mDebugger = new SerialDebuggerInput(115200);
+		mDebugger->onValueChanged(processDebugValueChangesFromUser);
 	} else {
 		// TODO: Sort out serial comms interface
 		Serial.begin(115200);
@@ -150,11 +164,12 @@ void loop() {
 		mDebugger->updateValue("Current calculated irrigation pressure / PSI", (float) gIrrigationPressureController->getPressurePSI());
 		mDebugger->updateValue("Spray Valve open", gSprayController->isValveOpen());
 		mDebugger->updateValue("Drain valve open", gIrrigationPressureController->isDrainValveOpen());
-		mDebugger->updateValue("Compressor on", gIrrigationPressureController->isIrrigationPumpOn());
+		mDebugger->updateValue(DEBUG_COMPRESSOR_ON_KEY, gIrrigationPressureController->isIrrigationCompressorOn());
 		mDebugger->updateValue("Last spray volume / ml", gLastSprayVolumeMl);
 		mDebugger->updateValue("Next spray in / s", nextSpraySecs);
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
 		mDebugger->printUpdate();
+		mDebugger->getAndProcessUserInputUpdates();
 	
 	} else {
 	  // TODO: Define comms protocol

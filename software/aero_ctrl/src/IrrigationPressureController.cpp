@@ -13,16 +13,16 @@ namespace IrrigationPressureControllerNS {
  * Constructors
  *******************************/
 // Basic constructor
-IrrigationPressureController::IrrigationPressureController(uint8_t pressureSensorPin, uint8_t drainValveControlPin, uint8_t irrigationPumpControlPin) : AlarmGenerator('I', 1) {
+IrrigationPressureController::IrrigationPressureController(uint8_t pressureSensorPin, uint8_t drainValveControlPin, uint8_t irrigationCompressorControlPin) : AlarmGenerator('I', 1) {
   mPressureSensor = new PressureSensor(pressureSensorPin, IrrigationPressureControllerNS::MAX_PRESSURE);
 
   mDrainValveControlPin = drainValveControlPin;
-  mIrrigationPumpControlPin = irrigationPumpControlPin;
+  mIrrigationCompressorControlPin = irrigationCompressorControlPin;
 
   pinMode(mDrainValveControlPin, OUTPUT);
-  pinMode(mIrrigationPumpControlPin, OUTPUT);
+  pinMode(mIrrigationCompressorControlPin, OUTPUT);
 
-  turnOffIrrigationPump();
+  turnOffIrrigationCompressor();
   closeDrainValve();
 }
 
@@ -35,8 +35,8 @@ bool IrrigationPressureController::isDrainValveOpen() const {
 };
 
 // True when the irrigation pump is on (building pressure)
-bool IrrigationPressureController::isIrrigationPumpOn() const {
-  return mIrrigationPumpOn;
+bool IrrigationPressureController::isIrrigationCompressorOn() const {
+  return mIrrigationCompressorOn;
 }
 
 // Get the current irrigation system pressure / PSI
@@ -65,10 +65,10 @@ void IrrigationPressureController::controlLoop() {
   
   if (pressurePSI <= 80) {
     closeDrainValve(); // Just in case it's open
-    turnOnIrrigationPump();
+    turnOnIrrigationCompressor();
   } else if (pressurePSI >= 100) {
     // Target pressure reached
-    turnOffIrrigationPump();
+    turnOffIrrigationCompressor();
   } else if (pressurePSI >= 120) {
     /*
     Something's gone wrong and the pressure is still building, 
@@ -93,14 +93,14 @@ void IrrigationPressureController::closeDrainValve() {
 }
 
 // Turn on the Irrigation Pump (builds up pressure)
-void IrrigationPressureController::turnOnIrrigationPump() {
-  digitalWrite(mIrrigationPumpControlPin, HIGH);
-  mIrrigationPumpOn = true;
+void IrrigationPressureController::turnOnIrrigationCompressor() {
+  digitalWrite(mIrrigationCompressorControlPin, HIGH);
+  mIrrigationCompressorOn = true;
 }
 
 // Turn off the Irrigation Pump
-void IrrigationPressureController::turnOffIrrigationPump() {
-  digitalWrite(mIrrigationPumpControlPin, LOW);
-  mIrrigationPumpOn = false;
+void IrrigationPressureController::turnOffIrrigationCompressor() {
+  digitalWrite(mIrrigationCompressorControlPin, LOW);
+  mIrrigationCompressorOn = false;
 }
 
