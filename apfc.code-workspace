@@ -13,6 +13,9 @@
 		{
 			"name": "nutrient_ctrl",
 			"path": "software/nutrient_ctrl"
+		},
+		{
+			"path": "software"
 		}
 	],
 	"settings": {}
