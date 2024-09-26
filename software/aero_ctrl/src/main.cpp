@@ -73,7 +73,7 @@ void processDebugValueChangesFromUser(String key, String value) {
 	if (key.equals(DEBUG_COMPRESSOR_ON_KEY)) {
 		if (value.equals("1")) {
 			gIrrigationPressureController->turnOnIrrigationCompressor();
-		} else {
+		} else if (value.equals("0")) {
 			gIrrigationPressureController->turnOffIrrigationCompressor();
 		}
 	}
@@ -168,7 +168,7 @@ void loop() {
 		mDebugger->updateValue("Last spray volume / ml", gLastSprayVolumeMl);
 		mDebugger->updateValue("Next spray in / s", nextSpraySecs);
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
-		mDebugger->printUpdate();
+		mDebugger->throttledPrintUpdate();
 		mDebugger->getAndProcessUserInputUpdates();
 	
 	} else {
