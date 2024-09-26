@@ -17,6 +17,9 @@ public:
   bool updateValue(String variable, float value);
   bool updateValue(String variable, int value);
   
+  // Print an update but make sure it's not too often
+  void throttledPrintUpdate();
+  // Prints the update to screen
   void printUpdate();
 
   unsigned long mNextPrintMillis;

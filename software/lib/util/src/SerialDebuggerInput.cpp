@@ -32,6 +32,17 @@ void SerialDebuggerInput::printUpdate() {
 }
 
 /**
+ * I don't like this - it's just a duplicate of the SerialDebugger method. Not sure what the
+ * better way is though
+ */
+void SerialDebuggerInput::throttledPrintUpdate() {
+  if (millis() > mNextPrintMillis) {
+    mNextPrintMillis = millis() + 200;
+    printUpdate();
+  }
+}
+
+/**
  * Processes what raw input is available and updates the referenced value.
  *  
  * Returns true if the termination character (\r) has been received. If there is more 

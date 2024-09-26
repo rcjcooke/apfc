@@ -36,15 +36,18 @@ bool SerialDebugger::internalUpdateValue(String variable, String value) {
 }
 
 void SerialDebugger::printUpdate() {
+  clearSerialDisplay();
+
+  Serial.println("------ Now: " + String(millis()) + " ---------");
+
+  for (unsigned int i=0; i<mStatusValues.size(); i++) {
+    Serial.println(String(i) + ". " + mStatusValues.keyAt(i) + ": " + mStatusValues.valueAt(i));
+  }
+}
+
+void SerialDebugger::throttledPrintUpdate() {
   if (millis() > mNextPrintMillis) {
     mNextPrintMillis = millis() + 200;
-    
-    clearSerialDisplay();
-
-    Serial.println("------ Now: " + String(millis()) + " ---------");
-
-    for (unsigned int i=0; i<mStatusValues.size(); i++) {
-      Serial.println(i + ". " + mStatusValues.keyAt(i) + ": " + mStatusValues.valueAt(i));
-    }
-  }  
+    printUpdate();
+  }
 }

@@ -26,8 +26,10 @@ public:
 
   // Get any additional user input since the last check. Non-blocking.
   void getAndProcessUserInputUpdates();
-  // Overridden to handle user input
+  // Overridden to add user input request string
   void printUpdate();
+  // Overriden to use this class' printUpdate
+  void throttledPrintUpdate();
 
   /*******************************
    * Event handling
