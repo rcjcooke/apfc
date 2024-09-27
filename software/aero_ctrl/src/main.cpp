@@ -16,10 +16,10 @@
 static const uint8_t ISVCTL = 6;
 // Irrigation pressure release solenoid valve control pin
 static const uint8_t IPRSVCTL = 7;
-// Irrigation Pump Control pin
+// Irrigation Compressor Control pin
 static const uint8_t IPCTL = 12;
 // Flowrate Meter Signal - PWM: F=(38*Q), Q=L / min
-static const uint8_t FM1S = A0;
+static const uint8_t FM1S = 2;
 // Pressure Sensor Signal - Analogue: 0-5VDC range
 static const uint8_t PS1S = A7;
 
@@ -51,6 +51,7 @@ double gLastSprayVolumeMl = 0;
 /*********************
  * Utility functions
  *********************/
+// Creates a human readable alarm string used for debug
 String createAlarmString(int numAGs, AlarmGenerator** ags) {
 	String alarmString = "";
 	for (int agi = 0; agi < numAGs; agi++) {
@@ -69,7 +70,9 @@ String createAlarmString(int numAGs, AlarmGenerator** ags) {
 	return alarmString;
 }
 
+// Process change requests made on the debug serial interface
 void processDebugValueChangesFromUser(String key, String value) {
+	// At present this debug interface only supports one value being changed
 	if (key.equals(DEBUG_COMPRESSOR_ON_KEY)) {
 		if (value.equals("1")) {
 			gIrrigationPressureController->turnOnIrrigationCompressor();
@@ -147,7 +150,7 @@ void loop() {
   // Flow sensing
   gFlowSensor->controlLoop();
   // Pressure management
-  gIrrigationPressureController->controlLoop();
+	gIrrigationPressureController->controlLoop();
 
   // Communicate any updates needed
 	if (DEBUG_SOLO) {
@@ -165,6 +168,7 @@ void loop() {
 		mDebugger->updateValue("Spray Valve open", gSprayController->isValveOpen());
 		mDebugger->updateValue("Drain valve open", gIrrigationPressureController->isDrainValveOpen());
 		mDebugger->updateValue(DEBUG_COMPRESSOR_ON_KEY, gIrrigationPressureController->isIrrigationCompressorOn());
+		mDebugger->updateValue("Flow sensor pulse count", gFlowSensor->getFlowSensorPulseCount());
 		mDebugger->updateValue("Last spray volume / ml", gLastSprayVolumeMl);
 		mDebugger->updateValue("Next spray in / s", nextSpraySecs);
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);

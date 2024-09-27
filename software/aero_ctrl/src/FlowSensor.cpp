@@ -45,6 +45,12 @@ double FlowSensor::getCumulativeVolumeMl() {
   return FlowSensorNS::gFlowSensorPulseCountSinceReset * ML_PER_PULSE;
 }
 
+// Get the current raw pulse count recorded from the sensor
+unsigned long FlowSensor::getFlowSensorPulseCount() {
+  return FlowSensorNS::gFlowSensorPulseCount;
+}
+
+
 /*******************************
  * Actions
  *******************************/

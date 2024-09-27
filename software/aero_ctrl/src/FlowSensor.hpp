@@ -18,6 +18,8 @@ public:
   double getCurrentFlowRate();
   // Get the cumulative volume since the last reset / millilitres
   double getCumulativeVolumeMl();
+  // Get the current raw pulse count recorded from the sensor
+  unsigned long getFlowSensorPulseCount();
 
   /*******************************
    * Actions
