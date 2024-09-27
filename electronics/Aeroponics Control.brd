@@ -144,7 +144,7 @@
 <hole x="97.79" y="68.58" drill="2.99999375"/>
 <hole x="97.79" y="2.54" drill="2.99999375"/>
 <hole x="40.64" y="2.54" drill="2.99999375"/>
-<text x="39.37" y="25.4" size="1.778" layer="25" rot="R270">APFC ACTL V0.2</text>
+<text x="39.37" y="25.4" size="1.778" layer="25" rot="R270">APFC ACTL V0.3</text>
 <text x="92.71" y="44.45" size="1.778" layer="25" rot="R90">IPUMP</text>
 <text x="92.71" y="63.5" size="1.778" layer="25" rot="R180">24VAC</text>
 <text x="78.74" y="63.5" size="1.778" layer="25" rot="R180">12V</text>
@@ -1177,11 +1177,13 @@ design rules under a new name.</description>
 </signal>
 <signal name="FM1S">
 <contactref element="FM1" pad="3"/>
-<contactref element="PCB1" pad="4"/>
-<wire x1="68.58" y1="12.6873" x2="61.0362" y2="12.6873" width="0.2032" layer="1"/>
-<wire x1="77.3811" y1="3.8862" x2="68.58" y2="12.6873" width="0.2032" layer="1"/>
-<wire x1="61.0362" y1="12.6873" x2="60.96" y2="12.7" width="0.2032" layer="1"/>
-<wire x1="77.3811" y1="3.8862" x2="77.47" y2="3.81" width="0.2032" layer="1"/>
+<contactref element="PCB1" pad="20"/>
+<wire x1="45.72" y1="30.48" x2="52.07" y2="30.48" width="0.2032" layer="1"/>
+<wire x1="52.07" y1="30.48" x2="58.42" y2="24.13" width="0.2032" layer="1"/>
+<wire x1="58.42" y1="24.13" x2="63.5" y2="24.13" width="0.2032" layer="1"/>
+<wire x1="63.5" y1="24.13" x2="68.58" y2="19.05" width="0.2032" layer="1"/>
+<wire x1="68.58" y1="19.05" x2="68.58" y2="12.7" width="0.2032" layer="1"/>
+<wire x1="68.58" y1="12.7" x2="77.47" y2="3.81" width="0.2032" layer="1"/>
 </signal>
 <signal name="PS1S">
 <contactref element="PS1" pad="3"/>
@@ -1242,17 +1244,12 @@ design rules under a new name.</description>
 <contactref element="Q6" pad="2"/>
 <contactref element="K1" pad="1"/>
 <contactref element="D6" pad="A"/>
-<wire x1="70.6374" y1="58.8645" x2="67.3227" y2="58.8645" width="0.2032" layer="1"/>
-<wire x1="73.6092" y1="55.8927" x2="70.6374" y2="58.8645" width="0.2032" layer="1"/>
-<wire x1="67.3227" y1="58.8645" x2="67.31" y2="58.935" width="0.2032" layer="1"/>
-<wire x1="73.6092" y1="55.8927" x2="73.66" y2="55.88" width="0.2032" layer="1"/>
-<wire x1="66.9798" y1="32.9184" x2="66.0654" y2="32.004" width="0.2032" layer="1"/>
-<wire x1="67.0941" y1="32.9184" x2="66.9798" y2="32.9184" width="0.2032" layer="1"/>
-<wire x1="72.2376" y1="38.0619" x2="67.0941" y2="32.9184" width="0.2032" layer="1"/>
-<wire x1="72.2376" y1="54.4068" x2="72.2376" y2="38.0619" width="0.2032" layer="1"/>
-<wire x1="73.6092" y1="55.7784" x2="72.2376" y2="54.4068" width="0.2032" layer="1"/>
-<wire x1="66.0654" y1="32.004" x2="66.04" y2="32" width="0.2032" layer="1"/>
-<wire x1="73.6092" y1="55.7784" x2="73.66" y2="55.88" width="0.2032" layer="1"/>
+<wire x1="66.04" y1="32" x2="67.56" y2="32" width="0.2032" layer="1"/>
+<wire x1="71.12" y1="53.34" x2="73.66" y2="55.88" width="0.2032" layer="1"/>
+<wire x1="67.56" y1="32" x2="71.12" y2="35.56" width="0.2032" layer="1"/>
+<wire x1="71.12" y1="35.56" x2="71.12" y2="53.34" width="0.2032" layer="1"/>
+<wire x1="73.66" y1="55.88" x2="70.365" y2="55.88" width="0.2032" layer="1"/>
+<wire x1="70.365" y1="55.88" x2="67.31" y2="58.935" width="0.2032" layer="1"/>
 </signal>
 <signal name="IPCTL">
 <contactref element="PCB1" pad="30"/>
@@ -1288,12 +1285,11 @@ design rules under a new name.</description>
 <wire x1="90.17" y1="57.15" x2="86.13" y2="61.19" width="0.762" layer="16"/>
 </signal>
 <signal name="N$7" class="2">
-<contactref element="K1" pad="3"/>
+<contactref element="K1" pad="2"/>
 <contactref element="IPUMP" pad="P$2"/>
-<wire x1="92.9259" y1="50.9778" x2="96.4692" y2="50.9778" width="0.762" layer="1"/>
-<wire x1="85.725" y1="43.7769" x2="92.9259" y2="50.9778" width="0.762" layer="1"/>
 <wire x1="96.4692" y1="50.9778" x2="96.52" y2="51.03" width="0.762" layer="1"/>
-<wire x1="85.725" y1="43.7769" x2="85.66" y2="43.68" width="0.762" layer="1"/>
+<wire x1="73.66" y1="43.68" x2="80.9578" y2="50.9778" width="0.762" layer="1"/>
+<wire x1="80.9578" y1="50.9778" x2="96.4692" y2="50.9778" width="0.762" layer="1"/>
 </signal>
 <signal name="5V">
 <contactref element="PCB1" pad="12"/>

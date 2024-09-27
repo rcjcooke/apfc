@@ -1040,8 +1040,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <connect gate="G$1" pin="COIL_1" pad="1"/>
 <connect gate="G$1" pin="COIL_2" pad="4"/>
 <connect gate="G$1" pin="COM" pad="5"/>
-<connect gate="G$1" pin="NC" pad="2"/>
-<connect gate="G$1" pin="NO" pad="3"/>
+<connect gate="G$1" pin="NC" pad="3"/>
+<connect gate="G$1" pin="NO" pad="2"/>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:37207205/2"/>
@@ -1602,7 +1602,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <attribute name="VALUE" x="-26.035" y="62.865" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="P+14" gate="1" x="45.72" y="38.1" smashed="yes" rot="R270">
-<attribute name="VALUE" x="40.64" y="40.64" size="1.778" layer="96"/>
+<attribute name="VALUE" x="43.18" y="40.64" size="1.778" layer="96"/>
 </instance>
 <instance part="C1" gate="G$1" x="15.24" y="7.62" smashed="yes">
 <attribute name="NAME" x="16.764" y="8.001" size="1.778" layer="95"/>
@@ -1880,9 +1880,9 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <label x="137.16" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="PCB1" gate="G$1" pin="A0"/>
-<wire x1="33.02" y1="40.64" x2="38.1" y2="40.64" width="0.1524" layer="91"/>
-<label x="33.02" y="40.64" size="1.778" layer="95"/>
+<pinref part="PCB1" gate="G$1" pin="D2"/>
+<wire x1="-7.62" y1="58.42" x2="-17.78" y2="58.42" width="0.1524" layer="91"/>
+<label x="-17.78" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PS1S" class="0">
