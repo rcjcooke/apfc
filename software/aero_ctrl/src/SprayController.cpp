@@ -9,9 +9,7 @@ SprayController::SprayController(uint8_t valveControlPin) {
   mLastSprayStartMillis = 0;
   // Set defaults
   stopSpraying();
-  // mSprayIntervalMillis = (unsigned long) 4*60*1000;
-  // TODO: Shorter default duration used below for debug purposes. Change this back once I'm happy. 
-  mSprayIntervalMillis = (unsigned long) 30*1000;
+  mSprayIntervalMillis = (unsigned long) 4*60*1000;
   mSprayDurationMillis = 1*1000;
 }
 
