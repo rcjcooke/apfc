@@ -27,9 +27,8 @@ namespace FlowSensorNS {
 FlowSensor::FlowSensor(uint8_t flowSensorPin) {
   // Flowrate Meter Signal - PWM: F=(38*Q), Q=L / min
   mFlowSensorPin = flowSensorPin;
-    // Set up Interrupts
+  // Set up Interrupts
   attachInterrupt(digitalPinToInterrupt(flowSensorPin), FlowSensorNS::flowSensorPulsedISR, RISING);
-
 }
 
 /*******************************

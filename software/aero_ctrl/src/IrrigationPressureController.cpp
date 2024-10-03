@@ -66,13 +66,13 @@ void IrrigationPressureController::controlLoop() {
   if (pressurePSI <= 80) {
     closeDrainValve(); // Just in case it's open
     turnOnIrrigationCompressor();
-  } else if (pressurePSI >= 100) {
+  } else if (pressurePSI >= 95) { // While I would like this to be 100 PSI, the compressor I have just can't seem to achieve it. 
     // Target pressure reached
     turnOffIrrigationCompressor();
   } else if (pressurePSI >= 120) {
     /*
     Something's gone wrong and the pressure is still building, 
-    open the drain valve to releave pressure and raise the alarm
+    open the drain valve to relieve pressure and raise the alarm
     */
     openDrainValve();
     triggerAlarm(OVER_PRESSURE_ALARM);
