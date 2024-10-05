@@ -11,13 +11,17 @@ public:
   /*******************************
    * Constructors
    *******************************/
-  A02YYUWDistanceSensor(uint8_t txFromuCPin, uint8_t rxTouCPin);
+  A02YYUWDistanceSensor(uint8_t txFromuCPin, uint8_t rxTouCPin, bool processed);
 
   /*******************************
    * Getters / Setters
    *******************************/
   // Get the last measured distance / mm
   double getDistance();
+  // Returns true if the sensor is returning processed data, otherwise its returning real-time data
+  bool isProcessed();
+  // Set processed = true to get the sensor do some pre-processing to reduce noise, otherwise the sensor will return real-time data
+  void setProcessed(bool processed);
 
   /*******************************
    * Actions
@@ -35,6 +39,8 @@ private:
   uint8_t mRXTouCPin;
   // The last measured distance / mm
   double mLastMeasuredDistance;
+  // If true the sensor is set to return processed data, otherwise its returning real-time data
+  bool mProcessed;
 
   /* Serial interfaces */
   // The interface to the distance sensor

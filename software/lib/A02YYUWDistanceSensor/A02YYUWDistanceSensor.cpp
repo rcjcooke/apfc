@@ -3,9 +3,15 @@
 /*******************************
  * Constructors
  *******************************/
-A02YYUWDistanceSensor::A02YYUWDistanceSensor(uint8_t txFromuCPin, uint8_t rxTouCPin) {
+A02YYUWDistanceSensor::A02YYUWDistanceSensor(uint8_t txFromuCPin, uint8_t rxTouCPin, bool processed) {
   mTXFromuCPin = txFromuCPin;
   mRXTouCPin = rxTouCPin;
+  pinMode(mTXFromuCPin, OUTPUT);
+  pinMode(mRXTouCPin, INPUT);
+
+  // Set up the UART interface - The sensor supports a 9600 baud rate
+  mSensorUART = new SoftwareSerial(mRXTouCPin, mTXFromuCPin); // RX, TX
+  mSensorUART->begin(9600);
 
   /* 
   The distance sensor has two operating modes, "processed" or "real-time". 
@@ -15,12 +21,8 @@ A02YYUWDistanceSensor::A02YYUWDistanceSensor(uint8_t txFromuCPin, uint8_t rxTouC
   HIGH (or floating) = Processed
   LOW = real-time
   */
-  pinMode(mTXFromuCPin, OUTPUT);
-  pinMode(mRXTouCPin, INPUT);
-
-  // Set up the UART interface - The sensor supports a 9600 baud rate
-  mSensorUART = new SoftwareSerial(mRXTouCPin, mTXFromuCPin); // RX, TX
-  mSensorUART->begin(9600);
+  // Define what mode to operate the sensor in - NOTE: This has to occur AFTER the SoftwareSerial setup
+  setProcessed(processed);
 }
 
 /*******************************
@@ -30,6 +32,18 @@ A02YYUWDistanceSensor::A02YYUWDistanceSensor(uint8_t txFromuCPin, uint8_t rxTouC
 double A02YYUWDistanceSensor::getDistance() {
   return mLastMeasuredDistance;
 }
+
+// Returns true if the sensor is returning processed data, otherwise its returning real-time data
+bool A02YYUWDistanceSensor::isProcessed() {
+  return mProcessed;
+}
+
+// Set processed = true to get the sensor do some pre-processing to reduce noise, otherwise the sensor will return real-time data
+void A02YYUWDistanceSensor::setProcessed(bool processed) {
+  mProcessed = processed;
+  digitalWrite(mTXFromuCPin, processed ? HIGH : LOW);
+}
+
 
 /*******************************
  * Actions
