@@ -12,24 +12,31 @@
 /************************
  * Constants
  ************************/
-// Tank 1 pump control pin
-static const uint8_t TP1CTL = 8;
-// Tank 2 pump control pin
-static const uint8_t TP2CTL = 9;
+// Runoff Recycling Pump control pin
+static const uint8_t RRPCTL = 4;
+// Irrigation Supply Pump control pin
+static const uint8_t ISPCTL = 9; // TODO
 // UV Sterilisation Lamp Control pin
-static const uint8_t UVLCTL = 11;
-// Tank Depth Sensor 1: Processed Value/Real-time Value Output Selection
-static const uint8_t DS1RX = 2;
-// Tank Depth Sensor 1: UART TX: Depth data
-static const uint8_t DS1TX = 3;
-// Tank Depth Sensor 2: Processed Value/Real-time Value Output Selection
-static const uint8_t DS2RX = 4;
-// Tank Depth Sensor 2: UART TX: Depth data
-static const uint8_t DS2TX = 5;
-// Tank Depth Sensor 3: Processed Value/Real-time Value Output Selection
-static const uint8_t DS3RX = A5;
-// Tank Depth Sensor 3: UART TX: Depth data
-static const uint8_t DS3TX = A4;
+static const uint8_t UVLCTL = 11; // TODO
+/*
+ * WARNING: Not all pins on the Mega and Mega 2560 boards support change
+ * interrupts, so only the following can be used for RX: 10, 11, 12, 13, 14, 15,
+ * 50, 51, 52, 53, A8 (62), A9 (63), A10 (64), A11 (65), A12 (66), A13 (67), A14
+ * (68), A15 (69)
+ */
+// Runoff Recycling Tank Depth Sensor: Processed Value/Real-time Value Output
+// Selection pin
+static const uint8_t RRT_DSMS = 49;
+// Runoff Recycling Tank Depth Sensor: Depth data pin
+static const uint8_t RRT_DSO = 53;
+// Irrigation Supply Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
+static const uint8_t IST_DSMS = 47;
+// Irrigation Supply Tank Depth Sensor: Depth data pin
+static const uint8_t IST_DSO = 51;
+// Mixing Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
+static const uint8_t MT_DSMS = 2; // TODO
+// Mixing Tank Depth Sensor: Depth data pin
+static const uint8_t MT_DSO = 3; // TODO
 
 // The total number of alarm generators
 static const int NUM_ALARM_GENERATORS = 1;
@@ -77,7 +84,7 @@ void processDebugValueChangesFromUser(String key, String value) {
  *********************/
 void setup() {
 
-  gSolutionTanksController = new SolutionTanksController(TP1CTL, TP2CTL, UVLCTL, LED_UVC, DS1RX, DS2RX, DS3RX, DS1TX, DS2TX, DS3TX);
+  gSolutionTanksController = new SolutionTanksController(RRPCTL, ISPCTL, UVLCTL, LED_UVC, RRT_DSMS, IST_DSMS, MT_DSMS, RRT_DSO, IST_DSO, MT_DSO);
 
 	// Record which controllers are alarm generators for future access
 	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gSolutionTanksController};
@@ -133,8 +140,12 @@ void loop() {
 		String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
 
 		mDebugger->updateValue("Alarms", currentAlarms);
+		mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
+		mDebugger->updateValue("Runoff Recycling Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
+		mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
 		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
-		mDebugger->printUpdate();
+		mDebugger->throttledPrintUpdate();
+		// mDebugger->getAndProcessUserInputUpdates(); - This is broken - don't know why yet but I don't need it to work yet anyway
 	
 	} else {
 	  // TODO: Define comms protocol

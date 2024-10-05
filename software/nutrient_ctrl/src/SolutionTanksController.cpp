@@ -13,13 +13,13 @@ namespace SolutionTanksControllerNS {
   // The distance measured for a completely empty tank
   static const int EMPTY_TANK_DISTANCE_MM = 150;
   
-  // Depth above which runoff solution gets transferred back to the mixing tank
-  static const int RUNOFF_SOLUTION_TANK_TRANSFER_DEPTH_MM = 50;
-  // Minimum depth for the runoff solution tank
-  static const int RUNOFF_SOLUTION_MIN_TANK_DEPTH_MM = 10;
-  // The minimum depth available across the mixing and runoff solution tanks
+  // Depth above which runoff recycling gets transferred back to the mixing tank
+  static const int RUNOFF_RECYCLING_TANK_TRANSFER_DEPTH_MM = 50;
+  // Minimum depth for the runoff recycling tank
+  static const int RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM = 10;
+  // The minimum depth available across the mixing and runoff recycling tanks
   static const int IN_SYSTEM_SOLUTION_MIN_DEPTH_MM = 50;
-  // The maximum depth that should be available across the mixing and runoff solution tanks
+  // The maximum depth that should be available across the mixing and runoff recycling tanks
   static const int IN_SYSTEM_SOLUTION_MAX_DEPTH_MM = 90;
 
   // The minimum depth the irrigationsupply tank should be allowed to get to
@@ -37,27 +37,28 @@ namespace SolutionTanksControllerNS {
  * Constructors
  *******************************/
 SolutionTanksController::SolutionTanksController(
-    uint8_t runoffSolutionPumpControlPin,
+    uint8_t runoffRecyclingPumpControlPin,
     uint8_t irrigationsupplyPumpControlPin, uint8_t uvControlPin, bool ledUVC,
-    uint8_t runoffSolutionTankDepthModeSelectPin,
-    uint8_t mixingTankDepthModeSelectPin,
+    uint8_t runoffRecyclingTankDepthModeSelectPin,
     uint8_t irrigationsupplyTankDepthModeSelectPin,
-    uint8_t runoffSolutionTankDepthSensorPin, uint8_t mixingTankDepthSensorPin,
-    uint8_t irrigationsupplyTankDepthSensorPin)
+    uint8_t mixingTankDepthModeSelectPin,
+    uint8_t runoffRecyclingTankDepthSensorPin,
+    uint8_t irrigationsupplyTankDepthSensorPin,
+    uint8_t mixingTankDepthSensorPin)
     : AlarmGenerator('S', 7) {
 
   // Sort out the control pins
-  mRunoffSolutionPumpControlPin = runoffSolutionPumpControlPin;
+  mRunoffRecyclingPumpControlPin = runoffRecyclingPumpControlPin;
   mIrrigationSupplyPumpControlPin = irrigationsupplyPumpControlPin;
   mUVControlPin = uvControlPin;
-  pinMode(mRunoffSolutionPumpControlPin, OUTPUT);
+  pinMode(mRunoffRecyclingPumpControlPin, OUTPUT);
   pinMode(mIrrigationSupplyPumpControlPin, OUTPUT);
   pinMode(mUVControlPin, OUTPUT);
 
   // Set up the tank depth (distance) sensors
-  mIrrigationSupplyTankDepthSensor = new A02YYUWDistanceSensor(irrigationsupplyTankDepthModeSelectPin, irrigationsupplyTankDepthSensorPin);
-  mMixingTankDepthSensor = new A02YYUWDistanceSensor(mixingTankDepthModeSelectPin, mixingTankDepthSensorPin);
-  mRunoffSolutionTankDepthSensor = new A02YYUWDistanceSensor(runoffSolutionTankDepthModeSelectPin, runoffSolutionTankDepthSensorPin);
+  mIrrigationSupplyTankDepthSensor = new A02YYUWDistanceSensor(irrigationsupplyTankDepthModeSelectPin, irrigationsupplyTankDepthSensorPin, true);
+  // mMixingTankDepthSensor = new A02YYUWDistanceSensor(mixingTankDepthModeSelectPin, mixingTankDepthSensorPin);
+  mRunoffRecyclingTankDepthSensor = new A02YYUWDistanceSensor(runoffRecyclingTankDepthModeSelectPin, runoffRecyclingTankDepthSensorPin, true);
 
   mLEDUVC = ledUVC;
 
@@ -67,7 +68,7 @@ SolutionTanksController::SolutionTanksController(
 
   // Make sure all the pumps are off
   turnOffIrrigationSupplyPump();
-  turnOffRunoffSolutionPump();
+  turnOffRunoffRecyclingPump();
 }
 
 /*******************************
@@ -78,9 +79,9 @@ bool SolutionTanksController::isIrrigationSupplyPumpOn() const {
   return mIrrigationSupplyPumpOn;
 }
 
-// True when the runoff solution tank pump is on
-bool SolutionTanksController::isRunoffSolutionPumpOn() const {
-  return mRunoffSolutionPumpOn;
+// True when the runoff recycling tank pump is on
+bool SolutionTanksController::isRunoffRecyclingPumpOn() const {
+  return mRunoffRecyclingPumpOn;
 }
 
 // True when the UV steriliser lamp is on
@@ -98,9 +99,9 @@ double SolutionTanksController::getMixingTankDepth() {
   return mMixingTankDepth;
 }
 
-// Get the current runoff solution tank depth / mm
-double SolutionTanksController::getRunoffSolutionTankDepth() {
-  return mRunoffSolutionTankDepth;
+// Get the current runoff recycling tank depth / mm
+double SolutionTanksController::getRunoffRecyclingTankDepth() {
+  return mRunoffRecyclingTankDepth;
 }
 
 /*******************************
@@ -113,8 +114,8 @@ void SolutionTanksController::controlLoop() {
   static bool irrigationSupplyTopupRequested = false;
 
   // Read all the depths
-  if (mRunoffSolutionTankDepthSensor->readDistance() != 0) {
-    triggerAlarm(ALARM_RUNOFF_SOLUTION_TANK_DEPTH_SENSOR_COMMS_ERROR);
+  if (mRunoffRecyclingTankDepthSensor->readDistance() != 0) {
+    triggerAlarm(ALARM_RUNOFF_RECYCLING_TANK_DEPTH_SENSOR_COMMS_ERROR);
     emergencyStop();
     return;
   }
@@ -129,7 +130,7 @@ void SolutionTanksController::controlLoop() {
     return;
   }
 
-  mRunoffSolutionTankDepth = convertDistanceToDepth(mRunoffSolutionTankDepthSensor->getDistance());
+  mRunoffRecyclingTankDepth = convertDistanceToDepth(mRunoffRecyclingTankDepthSensor->getDistance());
   mMixingTankDepth = convertDistanceToDepth(mMixingTankDepthSensor->getDistance());
   mIrrigationSupplyTankDepth = convertDistanceToDepth(mIrrigationSupplyTankDepthSensor->getDistance());
 
@@ -152,28 +153,28 @@ void SolutionTanksController::controlLoop() {
 
   /* V2.1 - no mixing tank, runoff goes direct to supply tank, all water still, so no sterilisation etc. */
   // If we need more solution and it's available, then top it up
-  if (irrigationSupplyTopupRequested && mRunoffSolutionTankDepth > SolutionTanksControllerNS::RUNOFF_SOLUTION_MIN_TANK_DEPTH_MM) {
-    turnOnRunoffSolutionPump();
+  if (irrigationSupplyTopupRequested && mRunoffRecyclingTankDepth > SolutionTanksControllerNS::RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM) {
+    turnOnRunoffRecyclingPump();
   } else {
-    turnOffRunoffSolutionPump();
+    turnOffRunoffRecyclingPump();
   }
 
   // if the runoff tank has filled up excessively, then something's gone wrong. Raise the alarm
-  if (mRunoffSolutionTankDepth > SolutionTanksControllerNS::WARNING_TANK_MAX_DEPTH_MM) {
-    triggerAlarm(ALARM_RUNOFF_SOLUTION_TANK_OVER_FULL);
+  if (mRunoffRecyclingTankDepth > SolutionTanksControllerNS::WARNING_TANK_MAX_DEPTH_MM) {
+    triggerAlarm(ALARM_RUNOFF_RECYCLING_TANK_OVER_FULL);
   }
 
-  // if (mRunoffSolutionTankDepth > SolutionTanksControllerNS::RUNOFF_SOLUTION_TANK_TRANSFER_DEPTH_MM) {
+  // if (mRunoffRecyclingTankDepth > SolutionTanksControllerNS::RUNOFF_RECYCLING_TANK_TRANSFER_DEPTH_MM) {
   //   if (mLEDUVC) turnOnUVC();
-  //   turnOnRunoffSolutionPump();
-  // } else if (mRunoffSolutionTankDepth > SolutionTanksControllerNS::WARNING_TANK_MAX_DEPTH_MM) {
-  //   triggerAlarm(ALARM_RUNOFF_SOLUTION_TANK_OVER_FULL);
-  // } else if (mRunoffSolutionTankDepth < SolutionTanksControllerNS::RUNOFF_SOLUTION_MIN_TANK_DEPTH_MM) {
-  //   turnOffRunoffSolutionPump();
+  //   turnOnRunoffRecyclingPump();
+  // } else if (mRunoffRecyclingTankDepth > SolutionTanksControllerNS::WARNING_TANK_MAX_DEPTH_MM) {
+  //   triggerAlarm(ALARM_RUNOFF_RECYCLING_TANK_OVER_FULL);
+  // } else if (mRunoffRecyclingTankDepth < SolutionTanksControllerNS::RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM) {
+  //   turnOffRunoffRecyclingPump();
   //   if (mLEDUVC) turnOffUVC();
   // }
 
-  // int systemSolutionDepth = mMixingTankDepth + mRunoffSolutionTankDepth;
+  // int systemSolutionDepth = mMixingTankDepth + mRunoffRecyclingTankDepth;
   // if (mMixingTankDepth > SolutionTanksControllerNS::WARNING_TANK_MAX_DEPTH_MM) {
   //   triggerAlarm(ALARM_MIXING_TANK_OVER_FULL);
   // }
@@ -187,16 +188,16 @@ void SolutionTanksController::controlLoop() {
 
 }
 
-// Turn on the Runoff Solution Tank Pump
-void SolutionTanksController::turnOnRunoffSolutionPump() {
-  if (!mRunoffSolutionPumpOn) digitalWrite(mRunoffSolutionPumpControlPin, HIGH);
-  mRunoffSolutionPumpOn = true;
+// Turn on the Runoff recycling Tank Pump
+void SolutionTanksController::turnOnRunoffRecyclingPump() {
+  if (!mRunoffRecyclingPumpOn) digitalWrite(mRunoffRecyclingPumpControlPin, HIGH);
+  mRunoffRecyclingPumpOn = true;
 }
 
-// Turn on the Runoff Solution Tank Pump
-void SolutionTanksController::turnOffRunoffSolutionPump() {
-  if (mRunoffSolutionPumpOn) digitalWrite(mRunoffSolutionPumpControlPin, LOW);
-  mRunoffSolutionPumpOn = false;
+// Turn on the Runoff recycling Tank Pump
+void SolutionTanksController::turnOffRunoffRecyclingPump() {
+  if (mRunoffRecyclingPumpOn) digitalWrite(mRunoffRecyclingPumpControlPin, LOW);
+  mRunoffRecyclingPumpOn = false;
 }
 
 // Turn on the IrrigationSupply Tank Pump
@@ -225,7 +226,7 @@ void SolutionTanksController::turnOffUVC() {
 
 // Called internally in the event of a sensor communication error - if we don't know how deep the tanks are, we shouldn't be moving anything around
 void SolutionTanksController::emergencyStop() {
-  turnOffRunoffSolutionPump();
+  turnOffRunoffRecyclingPump();
   turnOffIrrigationSupplyPump();
   if (mLEDUVC) turnOffUVC();
 }

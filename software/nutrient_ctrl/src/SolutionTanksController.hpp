@@ -14,8 +14,8 @@ public:
   /*******************************
    * Constants
    *******************************/
-  // Alarm code triggered when runoff solution tank is too full
-  static const int ALARM_RUNOFF_SOLUTION_TANK_OVER_FULL = 0;
+  // Alarm code triggered when runoff recycling tank is too full
+  static const int ALARM_RUNOFF_RECYCLING_TANK_OVER_FULL = 0;
   // Alarm code triggered when mixing tank is too full
   static const int ALARM_MIXING_TANK_OVER_FULL = 1;
   // Alarm code triggered when irrigationsupply tank is too low
@@ -23,8 +23,8 @@ public:
   // Alarm code triggered when irrigationsupply tank is too low
   static const int ALARM_IRRIGATIONSUPPLY_TANK_OVER_FULL = 3;
 
-  // Alarm code triggered if there are communication problems with the runoff solution tank depth sensor
-  static const int ALARM_RUNOFF_SOLUTION_TANK_DEPTH_SENSOR_COMMS_ERROR = 4;
+  // Alarm code triggered if there are communication problems with the runoff recycling tank depth sensor
+  static const int ALARM_RUNOFF_RECYCLING_TANK_DEPTH_SENSOR_COMMS_ERROR = 4;
   // Alarm code triggered if there are communication problems with the mixing tank depth sensor
   static const int ALARM_MIXING_TANK_DEPTH_SENSOR_COMMS_ERROR = 5;
   // Alarm code triggered if there are communication problems with the irrigationsupply tank depth sensor
@@ -33,26 +33,31 @@ public:
   /*******************************
    * Constructors
    *******************************/
-  SolutionTanksController(uint8_t runoffSolutionPumpControlPin, uint8_t irrigationsupplyPumpControlPin, 
-                          uint8_t uvControlPin, bool ledUVC,
-                          uint8_t runoffSolutionTankDepthModeSelectPin, uint8_t mixingTankDepthModeSelectPin, uint8_t irrigationsupplyTankDepthModeSelectPin,
-                          uint8_t runoffSolutionTankDepthSensorPin, uint8_t mixingTankDepthSensorPin, uint8_t irrigationsupplyTankDepthSensorPin);
+  SolutionTanksController(
+      uint8_t runoffRecyclingPumpControlPin,
+      uint8_t irrigationsupplyPumpControlPin, uint8_t uvControlPin, bool ledUVC,
+      uint8_t runoffRecyclingTankDepthModeSelectPin,
+      uint8_t irrigationsupplyTankDepthModeSelectPin,
+      uint8_t mixingTankDepthModeSelectPin,
+      uint8_t runoffRecyclingTankDepthSensorPin,
+      uint8_t irrigationsupplyTankDepthSensorPin,
+      uint8_t mixingTankDepthSensorPin);
 
   /*******************************
    * Getters / Setters
    *******************************/
   // True when the irrigationsupply tank pump is on
   bool isIrrigationSupplyPumpOn() const;
-  // True when the runoff solution tank pump is on
-  bool isRunoffSolutionPumpOn() const;
+  // True when the runoff recycling tank pump is on
+  bool isRunoffRecyclingPumpOn() const;
   // True when the UV steriliser lamp is on
   bool isUVSteriliserOn() const;
   // Get the current irrigationsupply tank depth / mm
   double getIrrigationSupplyTankDepth();
   // Get the current mixing tank depth / mm
   double getMixingTankDepth();
-  // Get the current runoff solution tank depth / mm
-  double getRunoffSolutionTankDepth();
+  // Get the current runoff recycling tank depth / mm
+  double getRunoffRecyclingTankDepth();
 
   /*******************************
    * Actions
@@ -60,10 +65,10 @@ public:
   // Called every microcontroller main program loop - moves solution between tanks as required
   void controlLoop();
 
-  // Turn on the Runoff Solution Tank Pump
-  void turnOnRunoffSolutionPump();
-  // Turn on the Runoff Solution Tank Pump
-  void turnOffRunoffSolutionPump();
+  // Turn on the Runoff recycling Tank Pump
+  void turnOnRunoffRecyclingPump();
+  // Turn on the Runoff recycling Tank Pump
+  void turnOffRunoffRecyclingPump();
   // Turn on the IrrigationSupply Tank Pump
   void turnOnIrrigationSupplyPump();
   // Turn off the IrrigationSupply Tank Pump
@@ -86,8 +91,8 @@ private:
   /*******************************
    * Member variables
    *******************************/
-  // The microcontroller pin that controls the runoff solution pump state
-  uint8_t mRunoffSolutionPumpControlPin;
+  // The microcontroller pin that controls the runoff recycling pump state
+  uint8_t mRunoffRecyclingPumpControlPin;
   // The microcontroller pin that controls the irrigationsupply pump state
   uint8_t mIrrigationSupplyPumpControlPin;
   // The microcontroller pin that controls the UV steriliser light state
@@ -98,24 +103,24 @@ private:
 
   // True when the irrigationsupply tank pump is on
   bool mIrrigationSupplyPumpOn;
-  // True when the runoff solution tank pump is on
-  bool mRunoffSolutionPumpOn;
+  // True when the runoff recycling tank pump is on
+  bool mRunoffRecyclingPumpOn;
   // True when the UV steriliser lamp is on
   bool mUVSteriliserOn;
   // The current irrigationsupply tank depth / mm
   double mIrrigationSupplyTankDepth;
   // The current mixing tank depth / mm
   double mMixingTankDepth;
-  // The current runoff solution tank depth / mm
-  double mRunoffSolutionTankDepth;
+  // The current runoff recycling tank depth / mm
+  double mRunoffRecyclingTankDepth;
 
   /** Depth sensors */
   // The irrigationsupply tank depth sensor
   A02YYUWDistanceSensor* mIrrigationSupplyTankDepthSensor;
   // The mixing tank depth sensor
   A02YYUWDistanceSensor* mMixingTankDepthSensor;
-  // The runoff solution tank depth sensor
-  A02YYUWDistanceSensor* mRunoffSolutionTankDepthSensor;
+  // The runoff recycling tank depth sensor
+  A02YYUWDistanceSensor* mRunoffRecyclingTankDepthSensor;
 
 };
 
