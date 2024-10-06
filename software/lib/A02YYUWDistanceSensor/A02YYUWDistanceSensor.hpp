@@ -17,7 +17,7 @@ public:
    * Getters / Setters
    *******************************/
   // Get the last measured distance / mm
-  double getDistance();
+  float getDistance();
   // Returns true if the sensor is returning processed data, otherwise its returning real-time data
   bool isProcessed();
   // Set processed = true to get the sensor do some pre-processing to reduce noise, otherwise the sensor will return real-time data
@@ -38,9 +38,11 @@ private:
   // The microcontroller pin that receives from the Distance sensor's UART interface
   uint8_t mRXTouCPin;
   // The last measured distance / mm
-  double mLastMeasuredDistance;
+  float mLastMeasuredDistance;
   // If true the sensor is set to return processed data, otherwise its returning real-time data
   bool mProcessed;
+  // The next time we should take a reading / ms since last reset
+  unsigned long mNextReadTime = 0;
 
   /* Serial interfaces */
   // The interface to the distance sensor
