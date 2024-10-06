@@ -1,11 +1,9 @@
 #include <Arduino.h>
 
-#include <SerialDebuggerInput.hpp>
+#include <SerialDebugger.hpp>
 
 #include "SolutionTanksController.hpp"
 
-// Set to true if the UV Steriliser light is LED based - if LED it will turn the light off when not needed to save power
-#define LED_UVC false
 // If true, serial output from the Arduino is in human readable form - this means comms with the Raspberry Pi controller won't work
 #define DEBUG_SOLO true
 
@@ -14,10 +12,6 @@
  ************************/
 // Runoff Recycling Pump control pin
 static const uint8_t RRPCTL = 4;
-// Irrigation Supply Pump control pin
-static const uint8_t ISPCTL = 9; // TODO
-// UV Sterilisation Lamp Control pin
-static const uint8_t UVLCTL = 11; // TODO
 /*
  * WARNING: Not all pins on the Mega and Mega 2560 boards support change
  * interrupts, so only the following can be used for RX: 10, 11, 12, 13, 14, 15,
@@ -33,10 +27,6 @@ static const uint8_t RRT_DSO = 53;
 static const uint8_t IST_DSMS = 47;
 // Irrigation Supply Tank Depth Sensor: Depth data pin
 static const uint8_t IST_DSO = 51;
-// Mixing Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
-static const uint8_t MT_DSMS = 2; // TODO
-// Mixing Tank Depth Sensor: Depth data pin
-static const uint8_t MT_DSO = 3; // TODO
 
 // The total number of alarm generators
 static const int NUM_ALARM_GENERATORS = 1;
@@ -51,7 +41,7 @@ SolutionTanksController* gSolutionTanksController;
 // The array of all alarm generators
 AlarmGenerator** gAGs;
 // The serial debug interface
-SerialDebuggerInput* mDebugger;
+SerialDebugger* mDebugger;
 
 /*********************
  * Utility functions
@@ -84,15 +74,17 @@ void processDebugValueChangesFromUser(String key, String value) {
  *********************/
 void setup() {
 
-  gSolutionTanksController = new SolutionTanksController(RRPCTL, ISPCTL, UVLCTL, LED_UVC, RRT_DSMS, IST_DSMS, MT_DSMS, RRT_DSO, IST_DSO, MT_DSO);
+  gSolutionTanksController = new SolutionTanksController(RRPCTL, RRT_DSMS, IST_DSMS, RRT_DSO, IST_DSO);
 
 	// Record which controllers are alarm generators for future access
 	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gSolutionTanksController};
 
 	if (DEBUG_SOLO) {
 		// Note: this also starts the serial interface at a baud rate of 115200 bps
-		mDebugger = new SerialDebuggerInput(115200);
+		mDebugger = new SerialDebugger(115200);
 		mDebugger->onValueChanged(processDebugValueChangesFromUser);
+		// Serial.begin(115200);
+		// while(!Serial);
 	} else {
 		// TODO: Sort out serial comms interface
 		Serial.begin(115200);
@@ -128,8 +120,10 @@ void setup() {
 */
 void loop() {
 
-  unsigned long startOfControlLoopMillis = millis();
-	static unsigned long controlLoopDurationMillis = 0;
+	// static unsigned long controlLoopDurationMillis = 0;
+	static unsigned long lastSerialWrite = 0;
+	unsigned long startOfControlLoopMillis = millis();
+
 
   // Solution tank management
   gSolutionTanksController->controlLoop();
@@ -137,20 +131,27 @@ void loop() {
   // Communicate any updates needed
 	if (DEBUG_SOLO) {
 
-		String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
+		// String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
 
-		mDebugger->updateValue("Alarms", currentAlarms);
-		mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
-		mDebugger->updateValue("Runoff Recycling Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
-		mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
-		mDebugger->updateValue("Control loop duration / ms", (int) controlLoopDurationMillis);
-		mDebugger->throttledPrintUpdate();
-		// mDebugger->getAndProcessUserInputUpdates(); - This is broken - don't know why yet but I don't need it to work yet anyway
+		// mDebugger->updateValue("Alarms", currentAlarms);
+		// mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
+		// mDebugger->updateValue("Runoff Recycling Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
+		// mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
+		// mDebugger->updateValue("Control loop duration / ms", (unsigned long) controlLoopDurationMillis);
+		// mDebugger->throttledPrintUpdate();
+		if (startOfControlLoopMillis > lastSerialWrite + 200) {
+			Serial.println("Now: " + String(startOfControlLoopMillis));
+			Serial.println("Irrigation Supply Tank Depth / mm: " + String(gSolutionTanksController->getIrrigationSupplyTankDepth()));
+			lastSerialWrite = startOfControlLoopMillis;
+		}
+
+
+		// mDebugger->getAndProcessUserInputUpdates(); // FIXME: something to do with how I'm reading off serial appears to be putting me in a 1 second reset loop randomly 
 	
 	} else {
 	  // TODO: Define comms protocol
 	}
 
-  controlLoopDurationMillis = millis() - startOfControlLoopMillis;
+  // controlLoopDurationMillis = millis() - startOfControlLoopMillis;
 
 }
