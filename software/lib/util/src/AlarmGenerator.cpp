@@ -47,6 +47,7 @@ void AlarmGenerator::onClear(volatile AlarmGeneratorPtrCharIntFuncPtr onClearFun
 
 // Called when triggering an alarm
 void AlarmGenerator::triggerAlarm(int alarmCode) {
+  // TODO: Add bound checking here to make sure we're not trying to access an index that doesn't exist 
   // Make sure it hasn't been triggered already
   if (!mAlarmStates[alarmCode]) {
     mAlarmStates[alarmCode] = true;
@@ -56,6 +57,7 @@ void AlarmGenerator::triggerAlarm(int alarmCode) {
 
 // Called when clearing an alarm
 void AlarmGenerator::clearAlarm(int alarmCode) {
+  // TODO: Add bound checking here to make sure we're not trying to access an index that doesn't exist 
   // Make sure it has been triggered
   if (mAlarmStates[alarmCode]) {
     mAlarmStates[alarmCode] = false;
