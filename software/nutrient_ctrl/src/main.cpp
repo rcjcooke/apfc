@@ -120,38 +120,28 @@ void setup() {
 */
 void loop() {
 
-	// static unsigned long controlLoopDurationMillis = 0;
-	static unsigned long lastSerialWrite = 0;
+	static unsigned long controlLoopDurationMillis = 0;
+	// static unsigned long lastSerialWrite = 0;
 	unsigned long startOfControlLoopMillis = millis();
-
-
   // Solution tank management
   gSolutionTanksController->controlLoop();
 
   // Communicate any updates needed
 	if (DEBUG_SOLO) {
 
-		// String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
+		String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
 
-		// mDebugger->updateValue("Alarms", currentAlarms);
-		// mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
-		// mDebugger->updateValue("Runoff Recycling Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
-		// mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
-		// mDebugger->updateValue("Control loop duration / ms", (unsigned long) controlLoopDurationMillis);
-		// mDebugger->throttledPrintUpdate();
-		if (startOfControlLoopMillis > lastSerialWrite + 200) {
-			Serial.println("Now: " + String(startOfControlLoopMillis));
-			Serial.println("Irrigation Supply Tank Depth / mm: " + String(gSolutionTanksController->getIrrigationSupplyTankDepth()));
-			lastSerialWrite = startOfControlLoopMillis;
-		}
-
-
-		// mDebugger->getAndProcessUserInputUpdates(); // FIXME: something to do with how I'm reading off serial appears to be putting me in a 1 second reset loop randomly 
+		mDebugger->updateValue("Alarms", currentAlarms);
+		mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
+		mDebugger->updateValue("Runoff Recycling Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
+		mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
+		mDebugger->updateValue("Control loop duration / ms", (unsigned long) controlLoopDurationMillis);
+		mDebugger->throttledPrintUpdate();
 	
 	} else {
 	  // TODO: Define comms protocol
 	}
 
-  // controlLoopDurationMillis = millis() - startOfControlLoopMillis;
+  controlLoopDurationMillis = millis() - startOfControlLoopMillis;
 
 }
