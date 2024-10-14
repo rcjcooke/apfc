@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include <SerialDebuggerInput.hpp>
+#include <SerialDebugger.hpp>
 
 #include "SprayController.hpp"
 #include "FlowSensor.hpp"
@@ -43,7 +43,7 @@ IrrigationPressureController* gIrrigationPressureController;
 // The array of all alarm generators
 AlarmGenerator** gAGs;
 // The serial debug interface (show values and allow control)
-SerialDebuggerInput* mDebugger;
+SerialDebugger* mDebugger;
 
 // Last spray volume / millilitres
 double gLastSprayVolumeMl = 0;
@@ -89,7 +89,7 @@ void setup() {
 
 	if (DEBUG_SOLO) {
 		// Note: this also starts the serial interface at a baud rate of 115200 bps
-		mDebugger = new SerialDebuggerInput(115200);
+		mDebugger = new SerialDebugger(115200);
 		mDebugger->onValueChanged(processDebugValueChangesFromUser);
 	} else {
 		// TODO: Sort out serial comms interface
