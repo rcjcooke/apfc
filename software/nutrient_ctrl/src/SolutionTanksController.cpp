@@ -11,25 +11,25 @@ namespace SolutionTanksControllerNS {
   static const uint8_t REALTIME = LOW;
 
   // The distance measured for a completely empty tank
-  static const int EMPTY_TANK_DISTANCE_MM = 150;
+  static const float EMPTY_TANK_DISTANCE_MM = 150.0f;
   
   // Depth above which runoff recycling gets transferred back to the mixing tank
-  static const int RUNOFF_RECYCLING_TANK_TRANSFER_DEPTH_MM = 50;
+  static const float RUNOFF_RECYCLING_TANK_TRANSFER_DEPTH_MM = 50.0f;
   // Minimum depth for the runoff recycling tank
-  static const int RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM = 10;
+  static const float RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM = 10.0f;
   // The minimum depth available across the mixing and runoff recycling tanks
-  static const int IN_SYSTEM_SOLUTION_MIN_DEPTH_MM = 50;
+  static const float IN_SYSTEM_SOLUTION_MIN_DEPTH_MM = 50.0f;
   // The maximum depth that should be available across the mixing and runoff recycling tanks
-  static const int IN_SYSTEM_SOLUTION_MAX_DEPTH_MM = 90;
+  static const float IN_SYSTEM_SOLUTION_MAX_DEPTH_MM = 90.0f;
 
   // The minimum depth the irrigationsupply tank should be allowed to get to
-  static const int IRRIGATIONSUPPLY_TANK_MIN_DEPTH_MM = 40;
+  static const float IRRIGATIONSUPPLY_TANK_MIN_DEPTH_MM = 40.0f;
   // The operating minimum depth of the irrigationsupply tank. If the depth goes below this figure, it should be topped up
-  static const int IRRIGATIONSUPPLY_TANK_OPS_MIN_DEPTH_MM = 60;
+  static const float IRRIGATIONSUPPLY_TANK_OPS_MIN_DEPTH_MM = 60.0f;
   // The operating maximum depth of the irrigationsupply tank. This is the depth to which the tank should be topped up when necessary
-  static const int IRRIGATIONSUPPLY_TANK_OPS_MAX_DEPTH_MM = 80;
+  static const float IRRIGATIONSUPPLY_TANK_OPS_MAX_DEPTH_MM = 80.0f;
   // At this depth, there's too much in the tank
-  static const int WARNING_TANK_MAX_DEPTH_MM = 100;
+  static const float WARNING_TANK_MAX_DEPTH_MM = 100.0f;
 
 }
 
@@ -52,8 +52,8 @@ SolutionTanksController::SolutionTanksController(
   mIrrigationSupplyTankDepthSensor = new A02YYUWDistanceSensor(irrigationsupplyTankDepthModeSelectPin, irrigationsupplyTankDepthSensorPin, true);
   mRunoffRecyclingTankDepthSensor = new A02YYUWDistanceSensor(runoffRecyclingTankDepthModeSelectPin, runoffRecyclingTankDepthSensorPin, true);
 
-  // Make sure all the pumps are off
-  turnOffRunoffRecyclingPump();
+  // Make sure all the pumps are off (WARNING: Don't use the standard on/off methods here)
+  changeRunoffRecyclingPumpControlPin(LOW);
 }
 
 /*******************************
@@ -117,7 +117,7 @@ void SolutionTanksController::controlLoop() {
 
   /* V2.1 - no mixing tank, runoff goes direct to supply tank, all water still, so no sterilisation etc. */
   // If we need more solution and it's available, then top it up
-  if (irrigationSupplyTopupRequested && mRunoffRecyclingTankDepth > SolutionTanksControllerNS::RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM) {
+  if (irrigationSupplyTopupRequested && (mRunoffRecyclingTankDepth > SolutionTanksControllerNS::RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM)) {
     turnOnRunoffRecyclingPump();
   } else {
     turnOffRunoffRecyclingPump();
@@ -132,13 +132,13 @@ void SolutionTanksController::controlLoop() {
 
 // Turn on the Runoff recycling Tank Pump
 void SolutionTanksController::turnOnRunoffRecyclingPump() {
-  if (!mRunoffRecyclingPumpOn) digitalWrite(mRunoffRecyclingPumpControlPin, HIGH);
+  if (!mRunoffRecyclingPumpOn) changeRunoffRecyclingPumpControlPin(HIGH);
   mRunoffRecyclingPumpOn = true;
 }
 
 // Turn on the Runoff recycling Tank Pump
 void SolutionTanksController::turnOffRunoffRecyclingPump() {
-  if (mRunoffRecyclingPumpOn) digitalWrite(mRunoffRecyclingPumpControlPin, LOW);
+  if (mRunoffRecyclingPumpOn) changeRunoffRecyclingPumpControlPin(LOW);
   mRunoffRecyclingPumpOn = false;
 }
 
@@ -147,12 +147,16 @@ void SolutionTanksController::emergencyStop() {
   turnOffRunoffRecyclingPump();
 }
 
+void SolutionTanksController::changeRunoffRecyclingPumpControlPin(uint8_t state) {
+  digitalWrite(mRunoffRecyclingPumpControlPin, state);
+}
+
 /*******************************
  * Utilities
  *******************************/
 // Converts a distance sensor reading into a tank depth
 float SolutionTanksController::convertDistanceToDepth(float distance) {
   // Bound the distance as the sensor doesn't work under 30 mm - if it gets this close we're in trouble
-  if (distance < 30) distance = 30;
+  if (distance < 30.0f) distance = 30.0f;
   return SolutionTanksControllerNS::EMPTY_TANK_DISTANCE_MM - distance;
 }

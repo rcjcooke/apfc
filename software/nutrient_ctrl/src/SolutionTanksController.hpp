@@ -58,8 +58,13 @@ public:
   void turnOffRunoffRecyclingPump();
 
 private:
+  /*******************************
+   * Actions
+   *******************************/
   // Called internally in the event of a sensor communication error - if we don't know how deep the tanks are, we shouldn't be moving anything around
   void emergencyStop();
+  // Change state of the Runoff recycling Tank Pump
+  void changeRunoffRecyclingPumpControlPin(uint8_t state);
 
   /*******************************
    * Utilities
@@ -74,11 +79,11 @@ private:
   uint8_t mRunoffRecyclingPumpControlPin;
 
   // True when the runoff recycling tank pump is on
-  bool mRunoffRecyclingPumpOn;
+  bool mRunoffRecyclingPumpOn = false;
   // The current irrigationsupply tank depth / mm
-  float mIrrigationSupplyTankDepth;
+  float mIrrigationSupplyTankDepth = 0.0f;
   // The current runoff recycling tank depth / mm
-  float mRunoffRecyclingTankDepth;
+  float mRunoffRecyclingTankDepth = 0.0f;
 
   /** Depth sensors */
   // The irrigationsupply tank depth sensor
