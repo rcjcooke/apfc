@@ -2057,18 +2057,18 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <groups>
 <schematic_group name="2A-30V-IND-LOAD_MIXING_PUMP"/>
 <schematic_group name="2A-30V-IND-LOAD_SUPPLY_PUMP"/>
-<schematic_group name="10A-IND-LOAD"/>
-<schematic_group name="2A-30V-IND-LOAD1"/>
-<schematic_group name="2A-30V-IND-LOAD2"/>
-<schematic_group name="2A-30V-IND-LOAD3"/>
-<schematic_group name="2A-30V-IND-LOAD5"/>
-<schematic_group name="2A-30V-IND-LOAD6"/>
-<schematic_group name="2A-30V-IND-LOAD7"/>
-<schematic_group name="2A-30V-IND-LOAD8"/>
-<schematic_group name="2A-30V-IND-LOAD9"/>
+<schematic_group name="10A-IND-LOAD_UV"/>
+<schematic_group name="2A-30V-IND-LOAD_NP1"/>
+<schematic_group name="2A-30V-IND-LOAD_NP3"/>
+<schematic_group name="2A-30V-IND-LOAD_NP5"/>
+<schematic_group name="2A-30V-IND-LOAD_PHDP"/>
+<schematic_group name="2A-30V-IND-LOAD_NP2"/>
+<schematic_group name="2A-30V-IND-LOAD_NP4"/>
+<schematic_group name="2A-30V-IND-LOAD_NP6"/>
+<schematic_group name="2A-30V-IND-LOAD_PHUP"/>
 <schematic_group name="2A-30V-IND-LOAD_RUNOFF_RECYCLING_PUMP"/>
 <schematic_group name="2A-30V-IND-LOAD_WATER_VALVE"/>
-<schematic_group name="10A-IND-LOAD1"/>
+<schematic_group name="10A-IND-LOAD_HEAT"/>
 </groups>
 <parts>
 <part name="Q1" library="Aeroponics Control" deviceset="FQP30N06L" device="" package3d_urn="urn:adsk.eagle:package:37207079/2"/>
@@ -2104,9 +2104,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <part name="12VS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
 <part name="240ACVS" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
 <part name="P+5" library="Aeroponics Control" deviceset="+12V" device=""/>
-<part name="DS1" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
-<part name="DS2" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
-<part name="DS3" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
+<part name="MTDS" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
+<part name="STDS" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
+<part name="RRTDS" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
 <part name="P+13" library="Aeroponics Control" deviceset="+5V" device=""/>
 <part name="SUPPLY12" library="Aeroponics Control" deviceset="GND" device=""/>
 <part name="P+10" library="Aeroponics Control" deviceset="+5V" device=""/>
@@ -2215,8 +2215,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <part name="TDS2" library="Aeroponics Control" deviceset="JST-XH-03-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207161/2"/>
 <part name="P+37" library="Aeroponics Control" deviceset="+5V" device=""/>
 <part name="SUPPLY23" library="Aeroponics Control" deviceset="GND" device=""/>
-<part name="DS4" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
-<part name="DS5" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
+<part name="WWTDS" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
+<part name="SWTDS" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
 <part name="ISEC" library="Aeroponics Control" deviceset="JST-XH-04-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207154/2"/>
 <part name="P+38" library="Aeroponics Control" deviceset="+5V" device=""/>
 <part name="SUPPLY24" library="Aeroponics Control" deviceset="GND" device=""/>
@@ -2326,29 +2326,29 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <instance part="MIXP" gate="-1" x="53.34" y="149.86" smashed="yes" grouprefs="2A-30V-IND-LOAD_MIXING_PUMP">
 <attribute name="NAME" x="55.88" y="149.098" size="1.524" layer="95"/>
 </instance>
-<instance part="K1" gate="G$1" x="248.92" y="114.3" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
+<instance part="K1" gate="G$1" x="248.92" y="114.3" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD_UV">
 <attribute name="NAME" x="243.84" y="133.35" size="1.778" layer="95" rot="R90" align="center-left"/>
 <attribute name="VALUE" x="259.08" y="120.65" size="1.778" layer="96" rot="R90" align="center-left"/>
 </instance>
-<instance part="Q6" gate="G$1" x="215.9" y="116.84" smashed="yes" grouprefs="10A-IND-LOAD">
+<instance part="Q6" gate="G$1" x="215.9" y="116.84" smashed="yes" grouprefs="10A-IND-LOAD_UV">
 <attribute name="NAME" x="227.33" y="120.65" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="227.33" y="118.11" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D6" gate="G$1" x="223.52" y="134.62" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
+<instance part="D6" gate="G$1" x="223.52" y="134.62" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD_UV">
 <attribute name="NAME" x="220.4974" y="132.08" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="228.3714" y="132.08" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R6" gate="G$1" x="200.66" y="132.08" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD">
+<instance part="R6" gate="G$1" x="200.66" y="132.08" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD_UV">
 <attribute name="NAME" x="199.1614" y="128.27" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="203.962" y="128.27" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY10" gate="GND" x="223.52" y="106.68" smashed="yes" grouprefs="10A-IND-LOAD">
+<instance part="SUPPLY10" gate="GND" x="223.52" y="106.68" smashed="yes" grouprefs="10A-IND-LOAD_UV">
 <attribute name="VALUE" x="221.615" y="103.505" size="1.778" layer="96"/>
 </instance>
-<instance part="P+11" gate="1" x="223.52" y="147.32" smashed="yes" grouprefs="10A-IND-LOAD">
+<instance part="P+11" gate="1" x="223.52" y="147.32" smashed="yes" grouprefs="10A-IND-LOAD_UV">
 <attribute name="VALUE" x="220.98" y="142.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="UV" gate="G$1" x="269.24" y="132.08" smashed="yes" grouprefs="10A-IND-LOAD">
+<instance part="UV" gate="G$1" x="269.24" y="132.08" smashed="yes" grouprefs="10A-IND-LOAD_UV">
 <attribute name="VALUE" x="267.97" y="127" size="1.778" layer="96"/>
 <attribute name="NAME" x="267.97" y="137.922" size="1.778" layer="95"/>
 </instance>
@@ -2367,43 +2367,43 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <instance part="P+5" gate="1" x="88.9" y="30.48" smashed="yes" rot="R180">
 <attribute name="VALUE" x="83.82" y="33.02" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="DS1" gate="-1" x="248.92" y="-15.24" smashed="yes">
+<instance part="MTDS" gate="-1" x="248.92" y="-15.24" smashed="yes">
 <attribute name="NAME" x="251.46" y="-16.002" size="1.524" layer="95"/>
 <attribute name="VALUE" x="248.158" y="-13.843" size="1.778" layer="96"/>
 </instance>
-<instance part="DS1" gate="-2" x="248.92" y="-17.78" smashed="yes">
+<instance part="MTDS" gate="-2" x="248.92" y="-17.78" smashed="yes">
 <attribute name="NAME" x="251.46" y="-18.542" size="1.524" layer="95"/>
 </instance>
-<instance part="DS1" gate="-3" x="248.92" y="-20.32" smashed="yes">
+<instance part="MTDS" gate="-3" x="248.92" y="-20.32" smashed="yes">
 <attribute name="NAME" x="251.46" y="-21.082" size="1.524" layer="95"/>
 </instance>
-<instance part="DS1" gate="-4" x="248.92" y="-22.86" smashed="yes">
+<instance part="MTDS" gate="-4" x="248.92" y="-22.86" smashed="yes">
 <attribute name="NAME" x="251.46" y="-23.622" size="1.524" layer="95"/>
 </instance>
-<instance part="DS2" gate="-1" x="248.92" y="-33.02" smashed="yes">
+<instance part="STDS" gate="-1" x="248.92" y="-33.02" smashed="yes">
 <attribute name="NAME" x="251.46" y="-33.782" size="1.524" layer="95"/>
 <attribute name="VALUE" x="248.158" y="-31.623" size="1.778" layer="96"/>
 </instance>
-<instance part="DS2" gate="-2" x="248.92" y="-35.56" smashed="yes">
+<instance part="STDS" gate="-2" x="248.92" y="-35.56" smashed="yes">
 <attribute name="NAME" x="251.46" y="-36.322" size="1.524" layer="95"/>
 </instance>
-<instance part="DS2" gate="-3" x="248.92" y="-38.1" smashed="yes">
+<instance part="STDS" gate="-3" x="248.92" y="-38.1" smashed="yes">
 <attribute name="NAME" x="251.46" y="-38.862" size="1.524" layer="95"/>
 </instance>
-<instance part="DS2" gate="-4" x="248.92" y="-40.64" smashed="yes">
+<instance part="STDS" gate="-4" x="248.92" y="-40.64" smashed="yes">
 <attribute name="NAME" x="251.46" y="-41.402" size="1.524" layer="95"/>
 </instance>
-<instance part="DS3" gate="-1" x="248.92" y="-48.26" smashed="yes">
+<instance part="RRTDS" gate="-1" x="248.92" y="-48.26" smashed="yes">
 <attribute name="NAME" x="251.46" y="-49.022" size="1.524" layer="95"/>
 <attribute name="VALUE" x="248.158" y="-46.863" size="1.778" layer="96"/>
 </instance>
-<instance part="DS3" gate="-2" x="248.92" y="-50.8" smashed="yes">
+<instance part="RRTDS" gate="-2" x="248.92" y="-50.8" smashed="yes">
 <attribute name="NAME" x="251.46" y="-51.562" size="1.524" layer="95"/>
 </instance>
-<instance part="DS3" gate="-3" x="248.92" y="-53.34" smashed="yes">
+<instance part="RRTDS" gate="-3" x="248.92" y="-53.34" smashed="yes">
 <attribute name="NAME" x="251.46" y="-54.102" size="1.524" layer="95"/>
 </instance>
-<instance part="DS3" gate="-4" x="248.92" y="-55.88" smashed="yes">
+<instance part="RRTDS" gate="-4" x="248.92" y="-55.88" smashed="yes">
 <attribute name="NAME" x="251.46" y="-56.642" size="1.524" layer="95"/>
 </instance>
 <instance part="P+13" gate="1" x="236.22" y="-10.16" smashed="yes">
@@ -2442,7 +2442,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <instance part="P+16" gate="1" x="109.22" y="147.32" smashed="yes" grouprefs="2A-30V-IND-LOAD_SUPPLY_PUMP">
 <attribute name="VALUE" x="106.68" y="142.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R11" gate="G$1" x="208.28" y="116.84" smashed="yes" grouprefs="10A-IND-LOAD">
+<instance part="R11" gate="G$1" x="208.28" y="116.84" smashed="yes" grouprefs="10A-IND-LOAD_UV">
 <attribute name="NAME" x="204.47" y="118.3386" size="1.778" layer="95"/>
 <attribute name="VALUE" x="204.47" y="113.538" size="1.778" layer="96"/>
 </instance>
@@ -2454,293 +2454,293 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <attribute name="NAME" x="10.16" y="130.175" size="1.778" layer="95"/>
 <attribute name="VALUE" x="10.16" y="121.92" size="1.778" layer="96"/>
 </instance>
-<instance part="IC3" gate="A" x="187.96" y="116.84" smashed="yes" grouprefs="10A-IND-LOAD">
+<instance part="IC3" gate="A" x="187.96" y="116.84" smashed="yes" grouprefs="10A-IND-LOAD_UV">
 <attribute name="NAME" x="190.5" y="120.015" size="1.778" layer="95"/>
 <attribute name="VALUE" x="190.5" y="111.76" size="1.778" layer="96"/>
 </instance>
 <instance part="IC1" gate="P" x="45.72" y="35.56" smashed="yes">
 <attribute name="NAME" x="42.545" y="34.925" size="1.778" layer="95"/>
 </instance>
-<instance part="P+19" gate="1" x="200.66" y="142.24" smashed="yes" grouprefs="10A-IND-LOAD">
+<instance part="P+19" gate="1" x="200.66" y="142.24" smashed="yes" grouprefs="10A-IND-LOAD_UV">
 <attribute name="VALUE" x="198.12" y="137.16" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="Q3" gate="G$1" x="337.82" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="Q3" gate="G$1" x="337.82" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="NAME" x="349.25" y="130.81" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="349.25" y="128.27" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D3" gate="G$1" x="345.44" y="144.78" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD1">
+<instance part="D3" gate="G$1" x="345.44" y="144.78" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="NAME" x="342.4174" y="142.24" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="350.2914" y="142.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R3" gate="G$1" x="322.58" y="137.16" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD1">
+<instance part="R3" gate="G$1" x="322.58" y="137.16" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="NAME" x="321.0814" y="133.35" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="325.882" y="133.35" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY7" gate="GND" x="345.44" y="116.84" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="SUPPLY7" gate="GND" x="345.44" y="116.84" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="VALUE" x="343.535" y="113.665" size="1.778" layer="96"/>
 </instance>
-<instance part="P+8" gate="1" x="345.44" y="157.48" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="P+8" gate="1" x="345.44" y="157.48" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="VALUE" x="342.9" y="152.4" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="NP1" gate="-2" x="355.6" y="139.7" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="NP1" gate="-2" x="355.6" y="139.7" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="NAME" x="358.14" y="138.938" size="1.524" layer="95"/>
 </instance>
-<instance part="NP1" gate="-1" x="355.6" y="149.86" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="NP1" gate="-1" x="355.6" y="149.86" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="NAME" x="358.14" y="149.098" size="1.524" layer="95"/>
 </instance>
-<instance part="R4" gate="G$1" x="330.2" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="R4" gate="G$1" x="330.2" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="NAME" x="326.39" y="128.4986" size="1.778" layer="95"/>
 <attribute name="VALUE" x="326.39" y="123.698" size="1.778" layer="96"/>
 </instance>
-<instance part="P+9" gate="1" x="322.58" y="147.32" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="P+9" gate="1" x="322.58" y="147.32" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="VALUE" x="320.04" y="142.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC1" gate="A" x="309.88" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD1">
+<instance part="IC1" gate="A" x="309.88" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP1">
 <attribute name="NAME" x="312.42" y="130.175" size="1.778" layer="95"/>
 <attribute name="VALUE" x="312.42" y="121.92" size="1.778" layer="96"/>
 </instance>
-<instance part="Q4" gate="G$1" x="337.82" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="Q4" gate="G$1" x="337.82" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="NAME" x="349.25" y="74.93" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="349.25" y="72.39" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D4" gate="G$1" x="345.44" y="88.9" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD2">
+<instance part="D4" gate="G$1" x="345.44" y="88.9" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="NAME" x="342.4174" y="86.36" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="350.2914" y="86.36" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R7" gate="G$1" x="322.58" y="81.28" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD2">
+<instance part="R7" gate="G$1" x="322.58" y="81.28" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="NAME" x="321.0814" y="77.47" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="325.882" y="77.47" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY8" gate="GND" x="345.44" y="60.96" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="SUPPLY8" gate="GND" x="345.44" y="60.96" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="VALUE" x="343.535" y="57.785" size="1.778" layer="96"/>
 </instance>
-<instance part="P+12" gate="1" x="345.44" y="101.6" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="P+12" gate="1" x="345.44" y="101.6" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="VALUE" x="342.9" y="96.52" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="NP3" gate="-2" x="355.6" y="83.82" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="NP3" gate="-2" x="355.6" y="83.82" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="NAME" x="358.14" y="83.058" size="1.524" layer="95"/>
 </instance>
-<instance part="NP3" gate="-1" x="355.6" y="93.98" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="NP3" gate="-1" x="355.6" y="93.98" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="NAME" x="358.14" y="93.218" size="1.524" layer="95"/>
 </instance>
-<instance part="R9" gate="G$1" x="330.2" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="R9" gate="G$1" x="330.2" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="NAME" x="326.39" y="72.6186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="326.39" y="67.818" size="1.778" layer="96"/>
 </instance>
-<instance part="P+17" gate="1" x="322.58" y="91.44" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="P+17" gate="1" x="322.58" y="91.44" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="VALUE" x="320.04" y="86.36" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC1" gate="C" x="309.88" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD2">
+<instance part="IC1" gate="C" x="309.88" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP3">
 <attribute name="NAME" x="312.42" y="74.295" size="1.778" layer="95"/>
 <attribute name="VALUE" x="312.42" y="66.04" size="1.778" layer="96"/>
 </instance>
-<instance part="Q5" gate="G$1" x="337.82" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="Q5" gate="G$1" x="337.82" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="NAME" x="349.25" y="19.05" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="349.25" y="16.51" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D5" gate="G$1" x="345.44" y="33.02" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD3">
+<instance part="D5" gate="G$1" x="345.44" y="33.02" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="NAME" x="342.4174" y="30.48" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="350.2914" y="30.48" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R10" gate="G$1" x="322.58" y="25.4" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD3">
+<instance part="R10" gate="G$1" x="322.58" y="25.4" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="NAME" x="321.0814" y="21.59" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="325.882" y="21.59" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY11" gate="GND" x="345.44" y="5.08" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="SUPPLY11" gate="GND" x="345.44" y="5.08" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="VALUE" x="343.535" y="1.905" size="1.778" layer="96"/>
 </instance>
-<instance part="P+18" gate="1" x="345.44" y="45.72" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="P+18" gate="1" x="345.44" y="45.72" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="VALUE" x="342.9" y="40.64" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="NP5" gate="-2" x="355.6" y="27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="NP5" gate="-2" x="355.6" y="27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="NAME" x="358.14" y="27.178" size="1.524" layer="95"/>
 </instance>
-<instance part="NP5" gate="-1" x="355.6" y="38.1" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="NP5" gate="-1" x="355.6" y="38.1" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="NAME" x="358.14" y="37.338" size="1.524" layer="95"/>
 </instance>
-<instance part="R12" gate="G$1" x="330.2" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="R12" gate="G$1" x="330.2" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="NAME" x="326.39" y="16.7386" size="1.778" layer="95"/>
 <attribute name="VALUE" x="326.39" y="11.938" size="1.778" layer="96"/>
 </instance>
-<instance part="P+20" gate="1" x="322.58" y="35.56" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="P+20" gate="1" x="322.58" y="35.56" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="VALUE" x="320.04" y="30.48" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC1" gate="E" x="309.88" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD3">
+<instance part="IC1" gate="E" x="309.88" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP5">
 <attribute name="NAME" x="312.42" y="18.415" size="1.778" layer="95"/>
 <attribute name="VALUE" x="312.42" y="10.16" size="1.778" layer="96"/>
 </instance>
-<instance part="Q7" gate="G$1" x="337.82" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="Q7" gate="G$1" x="337.82" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="NAME" x="349.25" y="-36.83" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="349.25" y="-39.37" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D7" gate="G$1" x="345.44" y="-22.86" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD5">
+<instance part="D7" gate="G$1" x="345.44" y="-22.86" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="NAME" x="342.4174" y="-25.4" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="350.2914" y="-25.4" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R13" gate="G$1" x="322.58" y="-30.48" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD5">
+<instance part="R13" gate="G$1" x="322.58" y="-30.48" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="NAME" x="321.0814" y="-34.29" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="325.882" y="-34.29" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY15" gate="GND" x="345.44" y="-50.8" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="SUPPLY15" gate="GND" x="345.44" y="-50.8" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="VALUE" x="343.535" y="-53.975" size="1.778" layer="96"/>
 </instance>
-<instance part="P+21" gate="1" x="345.44" y="-10.16" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="P+21" gate="1" x="345.44" y="-10.16" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="VALUE" x="342.9" y="-15.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="PHDPP" gate="-2" x="355.6" y="-27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="PHDPP" gate="-2" x="355.6" y="-27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="NAME" x="358.14" y="-28.702" size="1.524" layer="95"/>
 </instance>
-<instance part="PHDPP" gate="-1" x="355.6" y="-17.78" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="PHDPP" gate="-1" x="355.6" y="-17.78" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="NAME" x="358.14" y="-18.542" size="1.524" layer="95"/>
 </instance>
-<instance part="R14" gate="G$1" x="330.2" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="R14" gate="G$1" x="330.2" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="NAME" x="326.39" y="-39.1414" size="1.778" layer="95"/>
 <attribute name="VALUE" x="326.39" y="-43.942" size="1.778" layer="96"/>
 </instance>
-<instance part="P+22" gate="1" x="322.58" y="-20.32" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="P+22" gate="1" x="322.58" y="-20.32" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="VALUE" x="320.04" y="-25.4" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC2" gate="A" x="309.88" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD5">
+<instance part="IC2" gate="A" x="309.88" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHDP">
 <attribute name="NAME" x="312.42" y="-37.465" size="1.778" layer="95"/>
 <attribute name="VALUE" x="312.42" y="-45.72" size="1.778" layer="96"/>
 </instance>
-<instance part="Q8" gate="G$1" x="421.64" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="Q8" gate="G$1" x="421.64" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="NAME" x="433.07" y="130.81" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="433.07" y="128.27" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D8" gate="G$1" x="429.26" y="144.78" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD6">
+<instance part="D8" gate="G$1" x="429.26" y="144.78" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="NAME" x="426.2374" y="142.24" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="434.1114" y="142.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R15" gate="G$1" x="406.4" y="137.16" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD6">
+<instance part="R15" gate="G$1" x="406.4" y="137.16" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="NAME" x="404.9014" y="133.35" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="409.702" y="133.35" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY16" gate="GND" x="429.26" y="116.84" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="SUPPLY16" gate="GND" x="429.26" y="116.84" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="VALUE" x="427.355" y="113.665" size="1.778" layer="96"/>
 </instance>
-<instance part="P+23" gate="1" x="429.26" y="157.48" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="P+23" gate="1" x="429.26" y="157.48" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="VALUE" x="426.72" y="152.4" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="NP2" gate="-2" x="439.42" y="139.7" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="NP2" gate="-2" x="439.42" y="139.7" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="NAME" x="441.96" y="138.938" size="1.524" layer="95"/>
 </instance>
-<instance part="NP2" gate="-1" x="439.42" y="149.86" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="NP2" gate="-1" x="439.42" y="149.86" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="NAME" x="441.96" y="149.098" size="1.524" layer="95"/>
 </instance>
-<instance part="R16" gate="G$1" x="414.02" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="R16" gate="G$1" x="414.02" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="NAME" x="410.21" y="128.4986" size="1.778" layer="95"/>
 <attribute name="VALUE" x="410.21" y="123.698" size="1.778" layer="96"/>
 </instance>
-<instance part="P+24" gate="1" x="406.4" y="147.32" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="P+24" gate="1" x="406.4" y="147.32" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="VALUE" x="403.86" y="142.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC1" gate="B" x="393.7" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD6">
+<instance part="IC1" gate="B" x="393.7" y="127" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP2">
 <attribute name="NAME" x="396.24" y="130.175" size="1.778" layer="95"/>
 <attribute name="VALUE" x="396.24" y="121.92" size="1.778" layer="96"/>
 </instance>
-<instance part="Q9" gate="G$1" x="421.64" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="Q9" gate="G$1" x="421.64" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="NAME" x="433.07" y="74.93" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="433.07" y="72.39" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D9" gate="G$1" x="429.26" y="88.9" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD7">
+<instance part="D9" gate="G$1" x="429.26" y="88.9" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="NAME" x="426.2374" y="86.36" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="434.1114" y="86.36" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R17" gate="G$1" x="406.4" y="81.28" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD7">
+<instance part="R17" gate="G$1" x="406.4" y="81.28" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="NAME" x="404.9014" y="77.47" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="409.702" y="77.47" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY17" gate="GND" x="429.26" y="60.96" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="SUPPLY17" gate="GND" x="429.26" y="60.96" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="VALUE" x="427.355" y="57.785" size="1.778" layer="96"/>
 </instance>
-<instance part="P+25" gate="1" x="429.26" y="101.6" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="P+25" gate="1" x="429.26" y="101.6" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="VALUE" x="426.72" y="96.52" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="NP4" gate="-2" x="439.42" y="83.82" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="NP4" gate="-2" x="439.42" y="83.82" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="NAME" x="441.96" y="83.058" size="1.524" layer="95"/>
 </instance>
-<instance part="NP4" gate="-1" x="439.42" y="93.98" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="NP4" gate="-1" x="439.42" y="93.98" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="NAME" x="441.96" y="93.218" size="1.524" layer="95"/>
 </instance>
-<instance part="R18" gate="G$1" x="414.02" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="R18" gate="G$1" x="414.02" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="NAME" x="410.21" y="72.6186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="410.21" y="67.818" size="1.778" layer="96"/>
 </instance>
-<instance part="P+26" gate="1" x="406.4" y="91.44" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="P+26" gate="1" x="406.4" y="91.44" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="VALUE" x="403.86" y="86.36" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC1" gate="D" x="393.7" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD7">
+<instance part="IC1" gate="D" x="393.7" y="71.12" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP4">
 <attribute name="NAME" x="396.24" y="74.295" size="1.778" layer="95"/>
 <attribute name="VALUE" x="396.24" y="66.04" size="1.778" layer="96"/>
 </instance>
-<instance part="Q10" gate="G$1" x="421.64" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="Q10" gate="G$1" x="421.64" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="NAME" x="433.07" y="19.05" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="433.07" y="16.51" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D10" gate="G$1" x="429.26" y="33.02" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD8">
+<instance part="D10" gate="G$1" x="429.26" y="33.02" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="NAME" x="426.2374" y="30.48" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="434.1114" y="30.48" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R19" gate="G$1" x="406.4" y="25.4" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD8">
+<instance part="R19" gate="G$1" x="406.4" y="25.4" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="NAME" x="404.9014" y="21.59" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="409.702" y="21.59" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY18" gate="GND" x="429.26" y="5.08" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="SUPPLY18" gate="GND" x="429.26" y="5.08" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="VALUE" x="427.355" y="1.905" size="1.778" layer="96"/>
 </instance>
-<instance part="P+27" gate="1" x="429.26" y="45.72" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="P+27" gate="1" x="429.26" y="45.72" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="VALUE" x="426.72" y="40.64" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="NP6" gate="-2" x="439.42" y="27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="NP6" gate="-2" x="439.42" y="27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="NAME" x="441.96" y="27.178" size="1.524" layer="95"/>
 </instance>
-<instance part="NP6" gate="-1" x="439.42" y="38.1" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="NP6" gate="-1" x="439.42" y="38.1" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="NAME" x="441.96" y="37.338" size="1.524" layer="95"/>
 </instance>
-<instance part="R20" gate="G$1" x="414.02" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="R20" gate="G$1" x="414.02" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="NAME" x="410.21" y="16.7386" size="1.778" layer="95"/>
 <attribute name="VALUE" x="410.21" y="11.938" size="1.778" layer="96"/>
 </instance>
-<instance part="P+28" gate="1" x="406.4" y="35.56" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="P+28" gate="1" x="406.4" y="35.56" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="VALUE" x="403.86" y="30.48" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC1" gate="F" x="393.7" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD8">
+<instance part="IC1" gate="F" x="393.7" y="15.24" smashed="yes" grouprefs="2A-30V-IND-LOAD_NP6">
 <attribute name="NAME" x="396.24" y="18.415" size="1.778" layer="95"/>
 <attribute name="VALUE" x="396.24" y="10.16" size="1.778" layer="96"/>
 </instance>
-<instance part="Q11" gate="G$1" x="421.64" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="Q11" gate="G$1" x="421.64" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="NAME" x="433.07" y="-36.83" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="433.07" y="-39.37" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D11" gate="G$1" x="429.26" y="-22.86" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD9">
+<instance part="D11" gate="G$1" x="429.26" y="-22.86" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="NAME" x="426.2374" y="-25.4" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="434.1114" y="-25.4" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R21" gate="G$1" x="406.4" y="-30.48" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD9">
+<instance part="R21" gate="G$1" x="406.4" y="-30.48" smashed="yes" rot="R90" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="NAME" x="404.9014" y="-34.29" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="409.702" y="-34.29" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY19" gate="GND" x="429.26" y="-50.8" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="SUPPLY19" gate="GND" x="429.26" y="-50.8" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="VALUE" x="427.355" y="-53.975" size="1.778" layer="96"/>
 </instance>
-<instance part="P+29" gate="1" x="429.26" y="-10.16" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="P+29" gate="1" x="429.26" y="-10.16" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="VALUE" x="426.72" y="-15.24" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="PHUPP" gate="-2" x="439.42" y="-27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="PHUPP" gate="-2" x="439.42" y="-27.94" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="NAME" x="441.96" y="-28.702" size="1.524" layer="95"/>
 </instance>
-<instance part="PHUPP" gate="-1" x="439.42" y="-17.78" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="PHUPP" gate="-1" x="439.42" y="-17.78" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="NAME" x="441.96" y="-18.542" size="1.524" layer="95"/>
 </instance>
-<instance part="R22" gate="G$1" x="414.02" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="R22" gate="G$1" x="414.02" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="NAME" x="410.21" y="-39.1414" size="1.778" layer="95"/>
 <attribute name="VALUE" x="410.21" y="-43.942" size="1.778" layer="96"/>
 </instance>
-<instance part="P+30" gate="1" x="406.4" y="-20.32" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="P+30" gate="1" x="406.4" y="-20.32" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="VALUE" x="403.86" y="-25.4" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC2" gate="B" x="393.7" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD9">
+<instance part="IC2" gate="B" x="393.7" y="-40.64" smashed="yes" grouprefs="2A-30V-IND-LOAD_PHUP">
 <attribute name="NAME" x="396.24" y="-37.465" size="1.778" layer="95"/>
 <attribute name="VALUE" x="396.24" y="-45.72" size="1.778" layer="96"/>
 </instance>
@@ -2814,41 +2814,41 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <attribute name="NAME" x="99.06" y="74.295" size="1.778" layer="95"/>
 <attribute name="VALUE" x="99.06" y="66.04" size="1.778" layer="96"/>
 </instance>
-<instance part="K2" gate="G$1" x="248.92" y="48.26" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD1">
+<instance part="K2" gate="G$1" x="248.92" y="48.26" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="NAME" x="243.84" y="67.31" size="1.778" layer="95" rot="R90" align="center-left"/>
 <attribute name="VALUE" x="259.08" y="54.61" size="1.778" layer="96" rot="R90" align="center-left"/>
 </instance>
-<instance part="Q14" gate="G$1" x="215.9" y="50.8" smashed="yes" grouprefs="10A-IND-LOAD1">
+<instance part="Q14" gate="G$1" x="215.9" y="50.8" smashed="yes" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="NAME" x="227.33" y="54.61" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="227.33" y="52.07" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D14" gate="G$1" x="223.52" y="68.58" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD1">
+<instance part="D14" gate="G$1" x="223.52" y="68.58" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="NAME" x="220.4974" y="66.04" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="228.3714" y="66.04" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R27" gate="G$1" x="200.66" y="66.04" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD1">
+<instance part="R27" gate="G$1" x="200.66" y="66.04" smashed="yes" rot="R90" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="NAME" x="199.1614" y="62.23" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="203.962" y="62.23" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY22" gate="GND" x="223.52" y="40.64" smashed="yes" grouprefs="10A-IND-LOAD1">
+<instance part="SUPPLY22" gate="GND" x="223.52" y="40.64" smashed="yes" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="VALUE" x="221.615" y="37.465" size="1.778" layer="96"/>
 </instance>
-<instance part="P+35" gate="1" x="223.52" y="81.28" smashed="yes" grouprefs="10A-IND-LOAD1">
+<instance part="P+35" gate="1" x="223.52" y="81.28" smashed="yes" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="VALUE" x="220.98" y="76.2" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="HEAT" gate="G$1" x="269.24" y="66.04" smashed="yes" grouprefs="10A-IND-LOAD1">
+<instance part="HEAT" gate="G$1" x="269.24" y="66.04" smashed="yes" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="VALUE" x="267.97" y="60.96" size="1.778" layer="96"/>
 <attribute name="NAME" x="267.97" y="71.882" size="1.778" layer="95"/>
 </instance>
-<instance part="R28" gate="G$1" x="208.28" y="50.8" smashed="yes" grouprefs="10A-IND-LOAD1">
+<instance part="R28" gate="G$1" x="208.28" y="50.8" smashed="yes" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="NAME" x="204.47" y="52.2986" size="1.778" layer="95"/>
 <attribute name="VALUE" x="204.47" y="47.498" size="1.778" layer="96"/>
 </instance>
-<instance part="IC3" gate="B" x="187.96" y="50.8" smashed="yes" grouprefs="10A-IND-LOAD1">
+<instance part="IC3" gate="B" x="187.96" y="50.8" smashed="yes" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="NAME" x="190.5" y="53.975" size="1.778" layer="95"/>
 <attribute name="VALUE" x="190.5" y="45.72" size="1.778" layer="96"/>
 </instance>
-<instance part="P+36" gate="1" x="200.66" y="76.2" smashed="yes" grouprefs="10A-IND-LOAD1">
+<instance part="P+36" gate="1" x="200.66" y="76.2" smashed="yes" grouprefs="10A-IND-LOAD_HEAT">
 <attribute name="VALUE" x="198.12" y="71.12" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="TDS2" gate="-1" x="248.92" y="5.08" smashed="yes">
@@ -2867,30 +2867,30 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <instance part="SUPPLY23" gate="GND" x="236.22" y="-2.54" smashed="yes">
 <attribute name="VALUE" x="234.315" y="-5.715" size="1.778" layer="96"/>
 </instance>
-<instance part="DS4" gate="-1" x="248.92" y="-63.5" smashed="yes">
+<instance part="WWTDS" gate="-1" x="248.92" y="-63.5" smashed="yes">
 <attribute name="NAME" x="251.46" y="-64.262" size="1.524" layer="95"/>
 <attribute name="VALUE" x="248.158" y="-62.103" size="1.778" layer="96"/>
 </instance>
-<instance part="DS4" gate="-2" x="248.92" y="-66.04" smashed="yes">
+<instance part="WWTDS" gate="-2" x="248.92" y="-66.04" smashed="yes">
 <attribute name="NAME" x="251.46" y="-66.802" size="1.524" layer="95"/>
 </instance>
-<instance part="DS4" gate="-3" x="248.92" y="-68.58" smashed="yes">
+<instance part="WWTDS" gate="-3" x="248.92" y="-68.58" smashed="yes">
 <attribute name="NAME" x="251.46" y="-69.342" size="1.524" layer="95"/>
 </instance>
-<instance part="DS4" gate="-4" x="248.92" y="-71.12" smashed="yes">
+<instance part="WWTDS" gate="-4" x="248.92" y="-71.12" smashed="yes">
 <attribute name="NAME" x="251.46" y="-71.882" size="1.524" layer="95"/>
 </instance>
-<instance part="DS5" gate="-1" x="248.92" y="-78.74" smashed="yes">
+<instance part="SWTDS" gate="-1" x="248.92" y="-78.74" smashed="yes">
 <attribute name="NAME" x="251.46" y="-79.502" size="1.524" layer="95"/>
 <attribute name="VALUE" x="248.158" y="-77.343" size="1.778" layer="96"/>
 </instance>
-<instance part="DS5" gate="-2" x="248.92" y="-81.28" smashed="yes">
+<instance part="SWTDS" gate="-2" x="248.92" y="-81.28" smashed="yes">
 <attribute name="NAME" x="251.46" y="-82.042" size="1.524" layer="95"/>
 </instance>
-<instance part="DS5" gate="-3" x="248.92" y="-83.82" smashed="yes">
+<instance part="SWTDS" gate="-3" x="248.92" y="-83.82" smashed="yes">
 <attribute name="NAME" x="251.46" y="-84.582" size="1.524" layer="95"/>
 </instance>
-<instance part="DS5" gate="-4" x="248.92" y="-86.36" smashed="yes">
+<instance part="SWTDS" gate="-4" x="248.92" y="-86.36" smashed="yes">
 <attribute name="NAME" x="251.46" y="-87.122" size="1.524" layer="95"/>
 </instance>
 <instance part="ISEC" gate="-1" x="195.58" y="2.54" smashed="yes">
@@ -2970,25 +2970,25 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <wire x1="190.5" y1="17.78" x2="190.5" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="223.52" y1="137.16" x2="223.52" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="223.52" y1="139.7" x2="223.52" y2="142.24" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="223.52" y1="137.16" x2="223.52" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="223.52" y1="139.7" x2="223.52" y2="142.24" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="D6" gate="G$1" pin="C"/>
 <pinref part="P+11" gate="1" pin="+5V"/>
-<wire x1="223.52" y1="144.78" x2="223.52" y2="142.24" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="223.52" y1="144.78" x2="223.52" y2="142.24" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="K1" gate="G$1" pin="COIL_2"/>
-<wire x1="248.92" y1="147.32" x2="243.84" y2="147.32" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="243.84" y1="147.32" x2="243.84" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="243.84" y1="139.7" x2="223.52" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<junction x="223.52" y="139.7" grouprefs="10A-IND-LOAD"/>
+<wire x1="248.92" y1="147.32" x2="243.84" y2="147.32" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="243.84" y1="147.32" x2="243.84" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="243.84" y1="139.7" x2="223.52" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<junction x="223.52" y="139.7" grouprefs="10A-IND-LOAD_UV"/>
 </segment>
 <segment>
-<pinref part="DS3" gate="-1" pin="S"/>
+<pinref part="RRTDS" gate="-1" pin="S"/>
 <wire x1="246.38" y1="-48.26" x2="236.22" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-48.26" x2="236.22" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="DS2" gate="-1" pin="S"/>
+<pinref part="STDS" gate="-1" pin="S"/>
 <wire x1="236.22" y1="-38.1" x2="236.22" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-33.02" x2="246.38" y2="-33.02" width="0.1524" layer="91"/>
-<pinref part="DS1" gate="-1" pin="S"/>
+<pinref part="MTDS" gate="-1" pin="S"/>
 <wire x1="246.38" y1="-15.24" x2="236.22" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-15.24" x2="236.22" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="236.22" y="-33.02"/>
@@ -2996,29 +2996,29 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <wire x1="236.22" y1="-20.32" x2="236.22" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-12.7" x2="236.22" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="236.22" y="-15.24"/>
-<pinref part="DS4" gate="-1" pin="S"/>
+<pinref part="WWTDS" gate="-1" pin="S"/>
 <wire x1="246.38" y1="-63.5" x2="236.22" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-63.5" x2="236.22" y2="-53.34" width="0.1524" layer="91"/>
 <junction x="236.22" y="-48.26"/>
-<pinref part="DS5" gate="-1" pin="S"/>
+<pinref part="SWTDS" gate="-1" pin="S"/>
 <wire x1="236.22" y1="-53.34" x2="236.22" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="-78.74" x2="236.22" y2="-78.74" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-78.74" x2="236.22" y2="-68.58" width="0.1524" layer="91"/>
 <junction x="236.22" y="-63.5"/>
-<pinref part="DS1" gate="-3" pin="S"/>
+<pinref part="MTDS" gate="-3" pin="S"/>
 <wire x1="236.22" y1="-68.58" x2="236.22" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="-20.32" x2="236.22" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="236.22" y="-20.32"/>
-<pinref part="DS2" gate="-3" pin="S"/>
+<pinref part="STDS" gate="-3" pin="S"/>
 <wire x1="246.38" y1="-38.1" x2="236.22" y2="-38.1" width="0.1524" layer="91"/>
 <junction x="236.22" y="-38.1"/>
-<pinref part="DS3" gate="-3" pin="S"/>
+<pinref part="RRTDS" gate="-3" pin="S"/>
 <wire x1="246.38" y1="-53.34" x2="236.22" y2="-53.34" width="0.1524" layer="91"/>
 <junction x="236.22" y="-53.34"/>
-<pinref part="DS4" gate="-3" pin="S"/>
+<pinref part="WWTDS" gate="-3" pin="S"/>
 <wire x1="246.38" y1="-68.58" x2="236.22" y2="-68.58" width="0.1524" layer="91"/>
 <junction x="236.22" y="-68.58"/>
-<pinref part="DS5" gate="-3" pin="S"/>
+<pinref part="SWTDS" gate="-3" pin="S"/>
 <wire x1="246.38" y1="-83.82" x2="236.22" y2="-83.82" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-83.82" x2="236.22" y2="-78.74" width="0.1524" layer="91"/>
 <junction x="236.22" y="-78.74"/>
@@ -3048,42 +3048,42 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <wire x1="109.22" y1="144.78" x2="109.22" y2="142.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_SUPPLY_PUMP"/>
 </segment>
 <segment>
-<wire x1="322.58" y1="144.78" x2="322.58" y2="142.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
+<wire x1="322.58" y1="144.78" x2="322.58" y2="142.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="P+9" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="322.58" y1="88.9" x2="322.58" y2="86.36" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
+<wire x1="322.58" y1="88.9" x2="322.58" y2="86.36" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
 <pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="P+17" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="322.58" y1="33.02" x2="322.58" y2="30.48" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
+<wire x1="322.58" y1="33.02" x2="322.58" y2="30.48" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
 <pinref part="R10" gate="G$1" pin="2"/>
 <pinref part="P+20" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="322.58" y1="-22.86" x2="322.58" y2="-25.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
+<wire x1="322.58" y1="-22.86" x2="322.58" y2="-25.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
 <pinref part="R13" gate="G$1" pin="2"/>
 <pinref part="P+22" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="406.4" y1="144.78" x2="406.4" y2="142.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
+<wire x1="406.4" y1="144.78" x2="406.4" y2="142.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="P+24" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="406.4" y1="88.9" x2="406.4" y2="86.36" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
+<wire x1="406.4" y1="88.9" x2="406.4" y2="86.36" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
 <pinref part="R17" gate="G$1" pin="2"/>
 <pinref part="P+26" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="406.4" y1="33.02" x2="406.4" y2="30.48" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
+<wire x1="406.4" y1="33.02" x2="406.4" y2="30.48" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
 <pinref part="R19" gate="G$1" pin="2"/>
 <pinref part="P+28" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="406.4" y1="-22.86" x2="406.4" y2="-25.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
+<wire x1="406.4" y1="-22.86" x2="406.4" y2="-25.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
 <pinref part="R21" gate="G$1" pin="2"/>
 <pinref part="P+30" gate="1" pin="+5V"/>
 </segment>
@@ -3098,13 +3098,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <pinref part="P+34" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<wire x1="223.52" y1="71.12" x2="223.52" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="223.52" y1="73.66" x2="223.52" y2="76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="223.52" y1="78.74" x2="223.52" y2="76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="248.92" y1="81.28" x2="243.84" y2="81.28" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="243.84" y1="81.28" x2="243.84" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="243.84" y1="73.66" x2="223.52" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<junction x="223.52" y="73.66" grouprefs="10A-IND-LOAD1"/>
+<wire x1="223.52" y1="71.12" x2="223.52" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="223.52" y1="73.66" x2="223.52" y2="76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="223.52" y1="78.74" x2="223.52" y2="76.2" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="248.92" y1="81.28" x2="243.84" y2="81.28" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="243.84" y1="81.28" x2="243.84" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="243.84" y1="73.66" x2="223.52" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<junction x="223.52" y="73.66" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="K2" gate="G$1" pin="COIL_2"/>
 <pinref part="D14" gate="G$1" pin="C"/>
 <pinref part="P+35" gate="1" pin="+5V"/>
@@ -3170,7 +3170,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="223.52" y1="109.22" x2="223.52" y2="111.76" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="223.52" y1="109.22" x2="223.52" y2="111.76" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="Q6" gate="G$1" pin="S"/>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
 </segment>
@@ -3185,24 +3185,24 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <wire x1="91.44" y1="35.56" x2="91.44" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="DS1" gate="-2" pin="S"/>
+<pinref part="MTDS" gate="-2" pin="S"/>
 <wire x1="246.38" y1="-17.78" x2="233.68" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-17.78" x2="233.68" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="DS2" gate="-2" pin="S"/>
+<pinref part="STDS" gate="-2" pin="S"/>
 <wire x1="233.68" y1="-35.56" x2="246.38" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="DS3" gate="-2" pin="S"/>
+<pinref part="RRTDS" gate="-2" pin="S"/>
 <wire x1="246.38" y1="-50.8" x2="233.68" y2="-50.8" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-50.8" x2="233.68" y2="-35.56" width="0.1524" layer="91"/>
 <junction x="233.68" y="-35.56"/>
 <pinref part="SUPPLY12" gate="GND" pin="GND"/>
 <wire x1="233.68" y1="-88.9" x2="233.68" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="233.68" y="-50.8"/>
-<pinref part="DS4" gate="-2" pin="S"/>
+<pinref part="WWTDS" gate="-2" pin="S"/>
 <wire x1="233.68" y1="-81.28" x2="233.68" y2="-66.04" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-66.04" x2="233.68" y2="-50.8" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="-66.04" x2="233.68" y2="-66.04" width="0.1524" layer="91"/>
 <junction x="233.68" y="-66.04"/>
-<pinref part="DS5" gate="-2" pin="S"/>
+<pinref part="SWTDS" gate="-2" pin="S"/>
 <wire x1="246.38" y1="-81.28" x2="233.68" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="233.68" y="-81.28"/>
 </segment>
@@ -3216,42 +3216,42 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <junction x="45.72" y="27.94"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="119.38" x2="345.44" y2="121.92" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
+<wire x1="345.44" y1="119.38" x2="345.44" y2="121.92" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
 <pinref part="Q3" gate="G$1" pin="S"/>
 <pinref part="SUPPLY7" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="63.5" x2="345.44" y2="66.04" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
+<wire x1="345.44" y1="63.5" x2="345.44" y2="66.04" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
 <pinref part="Q4" gate="G$1" pin="S"/>
 <pinref part="SUPPLY8" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="7.62" x2="345.44" y2="10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
+<wire x1="345.44" y1="7.62" x2="345.44" y2="10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
 <pinref part="Q5" gate="G$1" pin="S"/>
 <pinref part="SUPPLY11" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="-48.26" x2="345.44" y2="-45.72" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
+<wire x1="345.44" y1="-48.26" x2="345.44" y2="-45.72" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
 <pinref part="Q7" gate="G$1" pin="S"/>
 <pinref part="SUPPLY15" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="119.38" x2="429.26" y2="121.92" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
+<wire x1="429.26" y1="119.38" x2="429.26" y2="121.92" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
 <pinref part="Q8" gate="G$1" pin="S"/>
 <pinref part="SUPPLY16" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="63.5" x2="429.26" y2="66.04" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
+<wire x1="429.26" y1="63.5" x2="429.26" y2="66.04" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
 <pinref part="Q9" gate="G$1" pin="S"/>
 <pinref part="SUPPLY17" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="7.62" x2="429.26" y2="10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
+<wire x1="429.26" y1="7.62" x2="429.26" y2="10.16" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
 <pinref part="Q10" gate="G$1" pin="S"/>
 <pinref part="SUPPLY18" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="-48.26" x2="429.26" y2="-45.72" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
+<wire x1="429.26" y1="-48.26" x2="429.26" y2="-45.72" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
 <pinref part="Q11" gate="G$1" pin="S"/>
 <pinref part="SUPPLY19" gate="GND" pin="GND"/>
 </segment>
@@ -3266,7 +3266,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <pinref part="SUPPLY21" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="223.52" y1="43.18" x2="223.52" y2="45.72" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
+<wire x1="223.52" y1="43.18" x2="223.52" y2="45.72" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="Q14" gate="G$1" pin="S"/>
 <pinref part="SUPPLY22" gate="GND" pin="GND"/>
 </segment>
@@ -3357,85 +3357,85 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="200.66" y1="137.16" x2="200.66" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="200.66" y1="137.16" x2="200.66" y2="139.7" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="P+19" gate="1" pin="+12V"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="152.4" x2="345.44" y2="154.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="345.44" y1="147.32" x2="345.44" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="345.44" y1="149.86" x2="345.44" y2="152.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="353.06" y1="149.86" x2="345.44" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<junction x="345.44" y="149.86" grouprefs="2A-30V-IND-LOAD1"/>
+<wire x1="345.44" y1="152.4" x2="345.44" y2="154.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<wire x1="345.44" y1="147.32" x2="345.44" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<wire x1="345.44" y1="149.86" x2="345.44" y2="152.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<wire x1="353.06" y1="149.86" x2="345.44" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<junction x="345.44" y="149.86" grouprefs="2A-30V-IND-LOAD_NP1"/>
 <pinref part="D3" gate="G$1" pin="C"/>
 <pinref part="P+8" gate="1" pin="+12V"/>
 <pinref part="NP1" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="96.52" x2="345.44" y2="99.06" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<wire x1="345.44" y1="91.44" x2="345.44" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<wire x1="345.44" y1="93.98" x2="345.44" y2="96.52" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<wire x1="353.06" y1="93.98" x2="345.44" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<junction x="345.44" y="93.98" grouprefs="2A-30V-IND-LOAD2"/>
+<wire x1="345.44" y1="96.52" x2="345.44" y2="99.06" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<wire x1="345.44" y1="91.44" x2="345.44" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<wire x1="345.44" y1="93.98" x2="345.44" y2="96.52" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<wire x1="353.06" y1="93.98" x2="345.44" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<junction x="345.44" y="93.98" grouprefs="2A-30V-IND-LOAD_NP3"/>
 <pinref part="D4" gate="G$1" pin="C"/>
 <pinref part="P+12" gate="1" pin="+12V"/>
 <pinref part="NP3" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="40.64" x2="345.44" y2="43.18" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="345.44" y1="35.56" x2="345.44" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="345.44" y1="38.1" x2="345.44" y2="40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="353.06" y1="38.1" x2="345.44" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<junction x="345.44" y="38.1" grouprefs="2A-30V-IND-LOAD3"/>
+<wire x1="345.44" y1="40.64" x2="345.44" y2="43.18" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<wire x1="345.44" y1="35.56" x2="345.44" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<wire x1="345.44" y1="38.1" x2="345.44" y2="40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<wire x1="353.06" y1="38.1" x2="345.44" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<junction x="345.44" y="38.1" grouprefs="2A-30V-IND-LOAD_NP5"/>
 <pinref part="D5" gate="G$1" pin="C"/>
 <pinref part="P+18" gate="1" pin="+12V"/>
 <pinref part="NP5" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="345.44" y1="-15.24" x2="345.44" y2="-12.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<wire x1="345.44" y1="-20.32" x2="345.44" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<wire x1="345.44" y1="-17.78" x2="345.44" y2="-15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<wire x1="353.06" y1="-17.78" x2="345.44" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<junction x="345.44" y="-17.78" grouprefs="2A-30V-IND-LOAD5"/>
+<wire x1="345.44" y1="-15.24" x2="345.44" y2="-12.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<wire x1="345.44" y1="-20.32" x2="345.44" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<wire x1="345.44" y1="-17.78" x2="345.44" y2="-15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<wire x1="353.06" y1="-17.78" x2="345.44" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<junction x="345.44" y="-17.78" grouprefs="2A-30V-IND-LOAD_PHDP"/>
 <pinref part="D7" gate="G$1" pin="C"/>
 <pinref part="P+21" gate="1" pin="+12V"/>
 <pinref part="PHDPP" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="152.4" x2="429.26" y2="154.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<wire x1="429.26" y1="147.32" x2="429.26" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<wire x1="429.26" y1="149.86" x2="429.26" y2="152.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<wire x1="436.88" y1="149.86" x2="429.26" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<junction x="429.26" y="149.86" grouprefs="2A-30V-IND-LOAD6"/>
+<wire x1="429.26" y1="152.4" x2="429.26" y2="154.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<wire x1="429.26" y1="147.32" x2="429.26" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<wire x1="429.26" y1="149.86" x2="429.26" y2="152.4" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<wire x1="436.88" y1="149.86" x2="429.26" y2="149.86" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<junction x="429.26" y="149.86" grouprefs="2A-30V-IND-LOAD_NP2"/>
 <pinref part="D8" gate="G$1" pin="C"/>
 <pinref part="P+23" gate="1" pin="+12V"/>
 <pinref part="NP2" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="96.52" x2="429.26" y2="99.06" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<wire x1="429.26" y1="91.44" x2="429.26" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<wire x1="429.26" y1="93.98" x2="429.26" y2="96.52" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<wire x1="436.88" y1="93.98" x2="429.26" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<junction x="429.26" y="93.98" grouprefs="2A-30V-IND-LOAD7"/>
+<wire x1="429.26" y1="96.52" x2="429.26" y2="99.06" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<wire x1="429.26" y1="91.44" x2="429.26" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<wire x1="429.26" y1="93.98" x2="429.26" y2="96.52" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<wire x1="436.88" y1="93.98" x2="429.26" y2="93.98" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<junction x="429.26" y="93.98" grouprefs="2A-30V-IND-LOAD_NP4"/>
 <pinref part="D9" gate="G$1" pin="C"/>
 <pinref part="P+25" gate="1" pin="+12V"/>
 <pinref part="NP4" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="40.64" x2="429.26" y2="43.18" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<wire x1="429.26" y1="35.56" x2="429.26" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<wire x1="429.26" y1="38.1" x2="429.26" y2="40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<wire x1="436.88" y1="38.1" x2="429.26" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<junction x="429.26" y="38.1" grouprefs="2A-30V-IND-LOAD8"/>
+<wire x1="429.26" y1="40.64" x2="429.26" y2="43.18" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<wire x1="429.26" y1="35.56" x2="429.26" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<wire x1="429.26" y1="38.1" x2="429.26" y2="40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<wire x1="436.88" y1="38.1" x2="429.26" y2="38.1" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<junction x="429.26" y="38.1" grouprefs="2A-30V-IND-LOAD_NP6"/>
 <pinref part="D10" gate="G$1" pin="C"/>
 <pinref part="P+27" gate="1" pin="+12V"/>
 <pinref part="NP6" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="429.26" y1="-15.24" x2="429.26" y2="-12.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<wire x1="429.26" y1="-20.32" x2="429.26" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<wire x1="429.26" y1="-17.78" x2="429.26" y2="-15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<wire x1="436.88" y1="-17.78" x2="429.26" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<junction x="429.26" y="-17.78" grouprefs="2A-30V-IND-LOAD9"/>
+<wire x1="429.26" y1="-15.24" x2="429.26" y2="-12.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<wire x1="429.26" y1="-20.32" x2="429.26" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<wire x1="429.26" y1="-17.78" x2="429.26" y2="-15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<wire x1="436.88" y1="-17.78" x2="429.26" y2="-17.78" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<junction x="429.26" y="-17.78" grouprefs="2A-30V-IND-LOAD_PHUP"/>
 <pinref part="D11" gate="G$1" pin="C"/>
 <pinref part="P+29" gate="1" pin="+12V"/>
 <pinref part="PHUPP" gate="-1" pin="S"/>
@@ -3461,7 +3461,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <pinref part="WV" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="200.66" y1="71.12" x2="200.66" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
+<wire x1="200.66" y1="71.12" x2="200.66" y2="73.66" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="R27" gate="G$1" pin="2"/>
 <pinref part="P+36" gate="1" pin="+12V"/>
 </segment>
@@ -3490,15 +3490,15 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$21" class="0">
 <segment>
-<wire x1="223.52" y1="127" x2="223.52" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="223.52" y1="127" x2="223.52" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="Q6" gate="G$1" pin="D"/>
 <pinref part="K1" gate="G$1" pin="COIL_1"/>
-<wire x1="248.92" y1="114.3" x2="243.84" y2="114.3" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="243.84" y1="114.3" x2="243.84" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="243.84" y1="129.54" x2="223.52" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="248.92" y1="114.3" x2="243.84" y2="114.3" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="243.84" y1="114.3" x2="243.84" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="243.84" y1="129.54" x2="223.52" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="D6" gate="G$1" pin="A"/>
-<wire x1="223.52" y1="132.08" x2="223.52" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<junction x="223.52" y="129.54" grouprefs="10A-IND-LOAD"/>
+<wire x1="223.52" y1="132.08" x2="223.52" y2="129.54" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<junction x="223.52" y="129.54" grouprefs="10A-IND-LOAD_UV"/>
 </segment>
 </net>
 <net name="+240VAC" class="1">
@@ -3509,13 +3509,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </segment>
 <segment>
 <pinref part="K1" gate="G$1" pin="COM"/>
-<wire x1="251.46" y1="147.32" x2="251.46" y2="154.94" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<label x="251.46" y="147.32" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD"/>
+<wire x1="251.46" y1="147.32" x2="251.46" y2="154.94" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<label x="251.46" y="147.32" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD_UV"/>
 </segment>
 <segment>
 <pinref part="K2" gate="G$1" pin="COM"/>
-<wire x1="251.46" y1="81.28" x2="251.46" y2="88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<label x="251.46" y="81.28" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD1"/>
+<wire x1="251.46" y1="81.28" x2="251.46" y2="88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<label x="251.46" y="81.28" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD_HEAT"/>
 </segment>
 </net>
 <net name="-240VAC" class="1">
@@ -3526,24 +3526,24 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </segment>
 <segment>
 <pinref part="UV" gate="G$1" pin="1"/>
-<wire x1="264.16" y1="134.62" x2="261.62" y2="134.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="261.62" y1="134.62" x2="261.62" y2="154.94" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<label x="261.62" y="147.32" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD"/>
+<wire x1="264.16" y1="134.62" x2="261.62" y2="134.62" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="261.62" y1="134.62" x2="261.62" y2="154.94" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<label x="261.62" y="147.32" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD_UV"/>
 </segment>
 <segment>
-<wire x1="264.16" y1="68.58" x2="261.62" y2="68.58" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="261.62" y1="68.58" x2="261.62" y2="88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<label x="261.62" y="81.28" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD1"/>
+<wire x1="264.16" y1="68.58" x2="261.62" y2="68.58" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="261.62" y1="68.58" x2="261.62" y2="88.9" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<label x="261.62" y="81.28" size="1.778" layer="95" rot="R90" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="HEAT" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$7" class="2">
 <segment>
 <pinref part="K1" gate="G$1" pin="NO"/>
-<wire x1="254" y1="114.3" x2="261.62" y2="114.3" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="261.62" y1="114.3" x2="261.62" y2="132.08" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="254" y1="114.3" x2="261.62" y2="114.3" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="261.62" y1="114.3" x2="261.62" y2="132.08" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="UV" gate="G$1" pin="2"/>
-<wire x1="261.62" y1="132.08" x2="264.16" y2="132.08" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="261.62" y1="132.08" x2="264.16" y2="132.08" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -3586,26 +3586,26 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
 <pinref part="Q6" gate="G$1" pin="G"/>
-<wire x1="213.36" y1="116.84" x2="215.9" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="213.36" y1="116.84" x2="215.9" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="203.2" y1="116.84" x2="200.66" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
+<wire x1="203.2" y1="116.84" x2="200.66" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="200.66" y1="116.84" x2="198.12" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<wire x1="200.66" y1="127" x2="200.66" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<junction x="200.66" y="116.84" grouprefs="10A-IND-LOAD"/>
+<wire x1="200.66" y1="116.84" x2="198.12" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<wire x1="200.66" y1="127" x2="200.66" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<junction x="200.66" y="116.84" grouprefs="10A-IND-LOAD_UV"/>
 <pinref part="IC3" gate="A" pin="O"/>
 </segment>
 </net>
 <net name="N$2" class="6">
 <segment>
-<wire x1="345.44" y1="137.16" x2="345.44" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="353.06" y1="139.7" x2="345.44" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="345.44" y1="142.24" x2="345.44" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<junction x="345.44" y="139.7" grouprefs="2A-30V-IND-LOAD1"/>
+<wire x1="345.44" y1="137.16" x2="345.44" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<wire x1="353.06" y1="139.7" x2="345.44" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<wire x1="345.44" y1="142.24" x2="345.44" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<junction x="345.44" y="139.7" grouprefs="2A-30V-IND-LOAD_NP1"/>
 <pinref part="Q3" gate="G$1" pin="D"/>
 <pinref part="D3" gate="G$1" pin="A"/>
 <pinref part="NP1" gate="-2" pin="S"/>
@@ -3613,10 +3613,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$6" class="0">
 <segment>
-<wire x1="320.04" y1="127" x2="322.58" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="322.58" y1="127" x2="325.12" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<wire x1="322.58" y1="132.08" x2="322.58" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<junction x="322.58" y="127" grouprefs="2A-30V-IND-LOAD1"/>
+<wire x1="320.04" y1="127" x2="322.58" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<wire x1="322.58" y1="127" x2="325.12" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<wire x1="322.58" y1="132.08" x2="322.58" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<junction x="322.58" y="127" grouprefs="2A-30V-IND-LOAD_NP1"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="R4" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="A" pin="O"/>
@@ -3624,17 +3624,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$8" class="0">
 <segment>
-<wire x1="335.28" y1="127" x2="337.82" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
+<wire x1="335.28" y1="127" x2="337.82" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
 <pinref part="Q3" gate="G$1" pin="G"/>
 <pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$11" class="6">
 <segment>
-<wire x1="345.44" y1="81.28" x2="345.44" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<wire x1="353.06" y1="83.82" x2="345.44" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<wire x1="345.44" y1="86.36" x2="345.44" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<junction x="345.44" y="83.82" grouprefs="2A-30V-IND-LOAD2"/>
+<wire x1="345.44" y1="81.28" x2="345.44" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<wire x1="353.06" y1="83.82" x2="345.44" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<wire x1="345.44" y1="86.36" x2="345.44" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<junction x="345.44" y="83.82" grouprefs="2A-30V-IND-LOAD_NP3"/>
 <pinref part="Q4" gate="G$1" pin="D"/>
 <pinref part="D4" gate="G$1" pin="A"/>
 <pinref part="NP3" gate="-2" pin="S"/>
@@ -3642,10 +3642,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$12" class="0">
 <segment>
-<wire x1="320.04" y1="71.12" x2="322.58" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<wire x1="322.58" y1="71.12" x2="325.12" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<wire x1="322.58" y1="76.2" x2="322.58" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<junction x="322.58" y="71.12" grouprefs="2A-30V-IND-LOAD2"/>
+<wire x1="320.04" y1="71.12" x2="322.58" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<wire x1="322.58" y1="71.12" x2="325.12" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<wire x1="322.58" y1="76.2" x2="322.58" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<junction x="322.58" y="71.12" grouprefs="2A-30V-IND-LOAD_NP3"/>
 <pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="C" pin="O"/>
@@ -3653,17 +3653,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$14" class="0">
 <segment>
-<wire x1="335.28" y1="71.12" x2="337.82" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
+<wire x1="335.28" y1="71.12" x2="337.82" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
 <pinref part="Q4" gate="G$1" pin="G"/>
 <pinref part="R9" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$15" class="6">
 <segment>
-<wire x1="345.44" y1="25.4" x2="345.44" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="353.06" y1="27.94" x2="345.44" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="345.44" y1="30.48" x2="345.44" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<junction x="345.44" y="27.94" grouprefs="2A-30V-IND-LOAD3"/>
+<wire x1="345.44" y1="25.4" x2="345.44" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<wire x1="353.06" y1="27.94" x2="345.44" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<wire x1="345.44" y1="30.48" x2="345.44" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<junction x="345.44" y="27.94" grouprefs="2A-30V-IND-LOAD_NP5"/>
 <pinref part="Q5" gate="G$1" pin="D"/>
 <pinref part="D5" gate="G$1" pin="A"/>
 <pinref part="NP5" gate="-2" pin="S"/>
@@ -3671,10 +3671,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$16" class="0">
 <segment>
-<wire x1="320.04" y1="15.24" x2="322.58" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="322.58" y1="15.24" x2="325.12" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<wire x1="322.58" y1="20.32" x2="322.58" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<junction x="322.58" y="15.24" grouprefs="2A-30V-IND-LOAD3"/>
+<wire x1="320.04" y1="15.24" x2="322.58" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<wire x1="322.58" y1="15.24" x2="325.12" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<wire x1="322.58" y1="20.32" x2="322.58" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<junction x="322.58" y="15.24" grouprefs="2A-30V-IND-LOAD_NP5"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="E" pin="O"/>
@@ -3682,17 +3682,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$18" class="0">
 <segment>
-<wire x1="335.28" y1="15.24" x2="337.82" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
+<wire x1="335.28" y1="15.24" x2="337.82" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
 <pinref part="Q5" gate="G$1" pin="G"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$19" class="6">
 <segment>
-<wire x1="345.44" y1="-30.48" x2="345.44" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<wire x1="353.06" y1="-27.94" x2="345.44" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<wire x1="345.44" y1="-25.4" x2="345.44" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<junction x="345.44" y="-27.94" grouprefs="2A-30V-IND-LOAD5"/>
+<wire x1="345.44" y1="-30.48" x2="345.44" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<wire x1="353.06" y1="-27.94" x2="345.44" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<wire x1="345.44" y1="-25.4" x2="345.44" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<junction x="345.44" y="-27.94" grouprefs="2A-30V-IND-LOAD_PHDP"/>
 <pinref part="Q7" gate="G$1" pin="D"/>
 <pinref part="D7" gate="G$1" pin="A"/>
 <pinref part="PHDPP" gate="-2" pin="S"/>
@@ -3700,10 +3700,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$20" class="0">
 <segment>
-<wire x1="320.04" y1="-40.64" x2="322.58" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<wire x1="322.58" y1="-40.64" x2="325.12" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<wire x1="322.58" y1="-35.56" x2="322.58" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<junction x="322.58" y="-40.64" grouprefs="2A-30V-IND-LOAD5"/>
+<wire x1="320.04" y1="-40.64" x2="322.58" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<wire x1="322.58" y1="-40.64" x2="325.12" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<wire x1="322.58" y1="-35.56" x2="322.58" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<junction x="322.58" y="-40.64" grouprefs="2A-30V-IND-LOAD_PHDP"/>
 <pinref part="R13" gate="G$1" pin="1"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 <pinref part="IC2" gate="A" pin="O"/>
@@ -3711,17 +3711,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$22" class="0">
 <segment>
-<wire x1="335.28" y1="-40.64" x2="337.82" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
+<wire x1="335.28" y1="-40.64" x2="337.82" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
 <pinref part="Q7" gate="G$1" pin="G"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$23" class="6">
 <segment>
-<wire x1="429.26" y1="137.16" x2="429.26" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<wire x1="436.88" y1="139.7" x2="429.26" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<wire x1="429.26" y1="142.24" x2="429.26" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<junction x="429.26" y="139.7" grouprefs="2A-30V-IND-LOAD6"/>
+<wire x1="429.26" y1="137.16" x2="429.26" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<wire x1="436.88" y1="139.7" x2="429.26" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<wire x1="429.26" y1="142.24" x2="429.26" y2="139.7" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<junction x="429.26" y="139.7" grouprefs="2A-30V-IND-LOAD_NP2"/>
 <pinref part="Q8" gate="G$1" pin="D"/>
 <pinref part="D8" gate="G$1" pin="A"/>
 <pinref part="NP2" gate="-2" pin="S"/>
@@ -3729,10 +3729,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$24" class="0">
 <segment>
-<wire x1="403.86" y1="127" x2="406.4" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<wire x1="406.4" y1="127" x2="408.94" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<wire x1="406.4" y1="132.08" x2="406.4" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<junction x="406.4" y="127" grouprefs="2A-30V-IND-LOAD6"/>
+<wire x1="403.86" y1="127" x2="406.4" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<wire x1="406.4" y1="127" x2="408.94" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<wire x1="406.4" y1="132.08" x2="406.4" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<junction x="406.4" y="127" grouprefs="2A-30V-IND-LOAD_NP2"/>
 <pinref part="R15" gate="G$1" pin="1"/>
 <pinref part="R16" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="B" pin="O"/>
@@ -3740,17 +3740,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$25" class="0">
 <segment>
-<wire x1="419.1" y1="127" x2="421.64" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
+<wire x1="419.1" y1="127" x2="421.64" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
 <pinref part="Q8" gate="G$1" pin="G"/>
 <pinref part="R16" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$26" class="6">
 <segment>
-<wire x1="429.26" y1="81.28" x2="429.26" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<wire x1="436.88" y1="83.82" x2="429.26" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<wire x1="429.26" y1="86.36" x2="429.26" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<junction x="429.26" y="83.82" grouprefs="2A-30V-IND-LOAD7"/>
+<wire x1="429.26" y1="81.28" x2="429.26" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<wire x1="436.88" y1="83.82" x2="429.26" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<wire x1="429.26" y1="86.36" x2="429.26" y2="83.82" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<junction x="429.26" y="83.82" grouprefs="2A-30V-IND-LOAD_NP4"/>
 <pinref part="Q9" gate="G$1" pin="D"/>
 <pinref part="D9" gate="G$1" pin="A"/>
 <pinref part="NP4" gate="-2" pin="S"/>
@@ -3758,10 +3758,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$27" class="0">
 <segment>
-<wire x1="403.86" y1="71.12" x2="406.4" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<wire x1="406.4" y1="71.12" x2="408.94" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<wire x1="406.4" y1="76.2" x2="406.4" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<junction x="406.4" y="71.12" grouprefs="2A-30V-IND-LOAD7"/>
+<wire x1="403.86" y1="71.12" x2="406.4" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<wire x1="406.4" y1="71.12" x2="408.94" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<wire x1="406.4" y1="76.2" x2="406.4" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<junction x="406.4" y="71.12" grouprefs="2A-30V-IND-LOAD_NP4"/>
 <pinref part="R17" gate="G$1" pin="1"/>
 <pinref part="R18" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="D" pin="O"/>
@@ -3769,17 +3769,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$28" class="0">
 <segment>
-<wire x1="419.1" y1="71.12" x2="421.64" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
+<wire x1="419.1" y1="71.12" x2="421.64" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
 <pinref part="Q9" gate="G$1" pin="G"/>
 <pinref part="R18" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$29" class="6">
 <segment>
-<wire x1="429.26" y1="25.4" x2="429.26" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<wire x1="436.88" y1="27.94" x2="429.26" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<wire x1="429.26" y1="30.48" x2="429.26" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<junction x="429.26" y="27.94" grouprefs="2A-30V-IND-LOAD8"/>
+<wire x1="429.26" y1="25.4" x2="429.26" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<wire x1="436.88" y1="27.94" x2="429.26" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<wire x1="429.26" y1="30.48" x2="429.26" y2="27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<junction x="429.26" y="27.94" grouprefs="2A-30V-IND-LOAD_NP6"/>
 <pinref part="Q10" gate="G$1" pin="D"/>
 <pinref part="D10" gate="G$1" pin="A"/>
 <pinref part="NP6" gate="-2" pin="S"/>
@@ -3787,10 +3787,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$30" class="0">
 <segment>
-<wire x1="403.86" y1="15.24" x2="406.4" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<wire x1="406.4" y1="15.24" x2="408.94" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<wire x1="406.4" y1="20.32" x2="406.4" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<junction x="406.4" y="15.24" grouprefs="2A-30V-IND-LOAD8"/>
+<wire x1="403.86" y1="15.24" x2="406.4" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<wire x1="406.4" y1="15.24" x2="408.94" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<wire x1="406.4" y1="20.32" x2="406.4" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<junction x="406.4" y="15.24" grouprefs="2A-30V-IND-LOAD_NP6"/>
 <pinref part="R19" gate="G$1" pin="1"/>
 <pinref part="R20" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="F" pin="O"/>
@@ -3798,17 +3798,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$31" class="0">
 <segment>
-<wire x1="419.1" y1="15.24" x2="421.64" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
+<wire x1="419.1" y1="15.24" x2="421.64" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
 <pinref part="Q10" gate="G$1" pin="G"/>
 <pinref part="R20" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$32" class="6">
 <segment>
-<wire x1="429.26" y1="-30.48" x2="429.26" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<wire x1="436.88" y1="-27.94" x2="429.26" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<wire x1="429.26" y1="-25.4" x2="429.26" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<junction x="429.26" y="-27.94" grouprefs="2A-30V-IND-LOAD9"/>
+<wire x1="429.26" y1="-30.48" x2="429.26" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<wire x1="436.88" y1="-27.94" x2="429.26" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<wire x1="429.26" y1="-25.4" x2="429.26" y2="-27.94" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<junction x="429.26" y="-27.94" grouprefs="2A-30V-IND-LOAD_PHUP"/>
 <pinref part="Q11" gate="G$1" pin="D"/>
 <pinref part="D11" gate="G$1" pin="A"/>
 <pinref part="PHUPP" gate="-2" pin="S"/>
@@ -3816,10 +3816,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$33" class="0">
 <segment>
-<wire x1="403.86" y1="-40.64" x2="406.4" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<wire x1="406.4" y1="-40.64" x2="408.94" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<wire x1="406.4" y1="-35.56" x2="406.4" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<junction x="406.4" y="-40.64" grouprefs="2A-30V-IND-LOAD9"/>
+<wire x1="403.86" y1="-40.64" x2="406.4" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<wire x1="406.4" y1="-40.64" x2="408.94" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<wire x1="406.4" y1="-35.56" x2="406.4" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<junction x="406.4" y="-40.64" grouprefs="2A-30V-IND-LOAD_PHUP"/>
 <pinref part="R21" gate="G$1" pin="1"/>
 <pinref part="R22" gate="G$1" pin="1"/>
 <pinref part="IC2" gate="B" pin="O"/>
@@ -3827,7 +3827,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$34" class="0">
 <segment>
-<wire x1="419.1" y1="-40.64" x2="421.64" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
+<wire x1="419.1" y1="-40.64" x2="421.64" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
 <pinref part="Q11" gate="G$1" pin="G"/>
 <pinref part="R22" gate="G$1" pin="2"/>
 </segment>
@@ -3892,12 +3892,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$41" class="0">
 <segment>
-<wire x1="223.52" y1="60.96" x2="223.52" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="248.92" y1="48.26" x2="243.84" y2="48.26" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="243.84" y1="48.26" x2="243.84" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="243.84" y1="63.5" x2="223.52" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="223.52" y1="66.04" x2="223.52" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<junction x="223.52" y="63.5" grouprefs="10A-IND-LOAD1"/>
+<wire x1="223.52" y1="60.96" x2="223.52" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="248.92" y1="48.26" x2="243.84" y2="48.26" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="243.84" y1="48.26" x2="243.84" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="243.84" y1="63.5" x2="223.52" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="223.52" y1="66.04" x2="223.52" y2="63.5" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<junction x="223.52" y="63.5" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="K2" gate="G$1" pin="COIL_1"/>
 <pinref part="Q14" gate="G$1" pin="D"/>
 <pinref part="D14" gate="G$1" pin="A"/>
@@ -3905,26 +3905,26 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$42" class="2">
 <segment>
-<wire x1="254" y1="48.26" x2="261.62" y2="48.26" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="261.62" y1="48.26" x2="261.62" y2="66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="261.62" y1="66.04" x2="264.16" y2="66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
+<wire x1="254" y1="48.26" x2="261.62" y2="48.26" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="261.62" y1="48.26" x2="261.62" y2="66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="261.62" y1="66.04" x2="264.16" y2="66.04" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="K2" gate="G$1" pin="NO"/>
 <pinref part="HEAT" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$43" class="0">
 <segment>
-<wire x1="213.36" y1="50.8" x2="215.9" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
+<wire x1="213.36" y1="50.8" x2="215.9" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="Q14" gate="G$1" pin="G"/>
 <pinref part="R28" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$44" class="0">
 <segment>
-<wire x1="203.2" y1="50.8" x2="200.66" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="200.66" y1="50.8" x2="198.12" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<wire x1="200.66" y1="60.96" x2="200.66" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<junction x="200.66" y="50.8" grouprefs="10A-IND-LOAD1"/>
+<wire x1="203.2" y1="50.8" x2="200.66" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="200.66" y1="50.8" x2="198.12" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<wire x1="200.66" y1="60.96" x2="200.66" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<junction x="200.66" y="50.8" grouprefs="10A-IND-LOAD_HEAT"/>
 <pinref part="R27" gate="G$1" pin="1"/>
 <pinref part="R28" gate="G$1" pin="1"/>
 <pinref part="IC3" gate="B" pin="O"/>
@@ -3932,7 +3932,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="WWTDO" class="0">
 <segment>
-<pinref part="DS4" gate="-4" pin="S"/>
+<pinref part="WWTDS" gate="-4" pin="S"/>
 <wire x1="246.38" y1="-71.12" x2="243.84" y2="-71.12" width="0.1524" layer="91"/>
 <wire x1="243.84" y1="-71.12" x2="238.76" y2="-71.12" width="0.1524" layer="91"/>
 <label x="238.76" y="-71.12" size="1.778" layer="95"/>
@@ -3945,7 +3945,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="SWTDO" class="0">
 <segment>
-<pinref part="DS5" gate="-4" pin="S"/>
+<pinref part="SWTDS" gate="-4" pin="S"/>
 <wire x1="246.38" y1="-86.36" x2="243.84" y2="-86.36" width="0.1524" layer="91"/>
 <wire x1="243.84" y1="-86.36" x2="238.76" y2="-86.36" width="0.1524" layer="91"/>
 <label x="238.76" y="-86.36" size="1.778" layer="95"/>
@@ -3958,7 +3958,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="MTDO" class="0">
 <segment>
-<pinref part="DS1" gate="-4" pin="S"/>
+<pinref part="MTDS" gate="-4" pin="S"/>
 <wire x1="246.38" y1="-22.86" x2="243.84" y2="-22.86" width="0.1524" layer="91"/>
 <label x="238.76" y="-22.86" size="1.778" layer="95"/>
 <wire x1="243.84" y1="-22.86" x2="238.76" y2="-22.86" width="0.1524" layer="91"/>
@@ -3971,7 +3971,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="STDO" class="0">
 <segment>
-<pinref part="DS2" gate="-4" pin="S"/>
+<pinref part="STDS" gate="-4" pin="S"/>
 <wire x1="246.38" y1="-40.64" x2="243.84" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="243.84" y1="-40.64" x2="238.76" y2="-40.64" width="0.1524" layer="91"/>
 <label x="238.76" y="-40.64" size="1.778" layer="95"/>
@@ -3984,7 +3984,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="RRTDO" class="0">
 <segment>
-<pinref part="DS3" gate="-4" pin="S"/>
+<pinref part="RRTDS" gate="-4" pin="S"/>
 <wire x1="246.38" y1="-55.88" x2="243.84" y2="-55.88" width="0.1524" layer="91"/>
 <wire x1="243.84" y1="-55.88" x2="238.76" y2="-55.88" width="0.1524" layer="91"/>
 <label x="238.76" y="-55.88" size="1.778" layer="95"/>
@@ -4034,8 +4034,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="PHUPP" class="0">
 <segment>
 <pinref part="IC2" gate="B" pin="I"/>
-<wire x1="383.54" y1="-40.64" x2="375.92" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD9"/>
-<label x="375.92" y="-40.64" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD9"/>
+<wire x1="383.54" y1="-40.64" x2="375.92" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHUP"/>
+<label x="375.92" y="-40.64" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_PHUP"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="48"/>
@@ -4046,8 +4046,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="PHDPP" class="0">
 <segment>
 <pinref part="IC2" gate="A" pin="I"/>
-<wire x1="299.72" y1="-40.64" x2="292.1" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD5"/>
-<label x="292.1" y="-40.64" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD5"/>
+<wire x1="299.72" y1="-40.64" x2="292.1" y2="-40.64" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_PHDP"/>
+<label x="292.1" y="-40.64" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_PHDP"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="46"/>
@@ -4058,8 +4058,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="N6PP" class="0">
 <segment>
 <pinref part="IC1" gate="F" pin="I"/>
-<wire x1="383.54" y1="15.24" x2="375.92" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD8"/>
-<label x="375.92" y="15.24" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD8"/>
+<wire x1="383.54" y1="15.24" x2="375.92" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP6"/>
+<label x="375.92" y="15.24" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_NP6"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="44"/>
@@ -4070,8 +4070,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="N4PP" class="0">
 <segment>
 <pinref part="IC1" gate="D" pin="I"/>
-<wire x1="383.54" y1="71.12" x2="375.92" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD7"/>
-<label x="375.92" y="71.12" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD7"/>
+<wire x1="383.54" y1="71.12" x2="375.92" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP4"/>
+<label x="375.92" y="71.12" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_NP4"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="40"/>
@@ -4082,8 +4082,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="N2PP" class="0">
 <segment>
 <pinref part="IC1" gate="B" pin="I"/>
-<wire x1="383.54" y1="127" x2="375.92" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD6"/>
-<label x="375.92" y="127" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD6"/>
+<wire x1="383.54" y1="127" x2="375.92" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP2"/>
+<label x="375.92" y="127" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_NP2"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="36"/>
@@ -4094,8 +4094,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="N5PP" class="0">
 <segment>
 <pinref part="IC1" gate="E" pin="I"/>
-<wire x1="299.72" y1="15.24" x2="292.1" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD3"/>
-<label x="292.1" y="15.24" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD3"/>
+<wire x1="299.72" y1="15.24" x2="292.1" y2="15.24" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP5"/>
+<label x="292.1" y="15.24" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_NP5"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="42"/>
@@ -4106,8 +4106,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="N3PP" class="0">
 <segment>
 <pinref part="IC1" gate="C" pin="I"/>
-<wire x1="299.72" y1="71.12" x2="292.1" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD2"/>
-<label x="292.1" y="71.12" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD2"/>
+<wire x1="299.72" y1="71.12" x2="292.1" y2="71.12" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP3"/>
+<label x="292.1" y="71.12" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_NP3"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="38"/>
@@ -4118,8 +4118,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="N1PP" class="0">
 <segment>
 <pinref part="IC1" gate="A" pin="I"/>
-<wire x1="299.72" y1="127" x2="292.1" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD1"/>
-<label x="292.1" y="127" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD1"/>
+<wire x1="299.72" y1="127" x2="292.1" y2="127" width="0.1524" layer="91" grouprefs="2A-30V-IND-LOAD_NP1"/>
+<label x="292.1" y="127" size="1.778" layer="95" grouprefs="2A-30V-IND-LOAD_NP1"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="34"/>
@@ -4130,8 +4130,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="UVCTL" class="0">
 <segment>
 <pinref part="IC3" gate="A" pin="I"/>
-<wire x1="177.8" y1="116.84" x2="167.64" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD"/>
-<label x="167.64" y="116.84" size="1.778" layer="95" grouprefs="10A-IND-LOAD"/>
+<wire x1="177.8" y1="116.84" x2="167.64" y2="116.84" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_UV"/>
+<label x="167.64" y="116.84" size="1.778" layer="95" grouprefs="10A-IND-LOAD_UV"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="30"/>
@@ -4142,8 +4142,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="HEATCTL" class="0">
 <segment>
 <pinref part="IC3" gate="B" pin="I"/>
-<wire x1="177.8" y1="50.8" x2="167.64" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD1"/>
-<label x="167.64" y="50.8" size="1.778" layer="95" grouprefs="10A-IND-LOAD1"/>
+<wire x1="177.8" y1="50.8" x2="167.64" y2="50.8" width="0.1524" layer="91" grouprefs="10A-IND-LOAD_HEAT"/>
+<label x="167.64" y="50.8" size="1.778" layer="95" grouprefs="10A-IND-LOAD_HEAT"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="32"/>
