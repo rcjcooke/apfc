@@ -21,10 +21,10 @@ Uses a single SPI bus to control up to four buffered hardware UART channels
 		void initialise(int SPIDivider);
 		char CheckRx(char UART);
 		char CheckTx(char UART);
-		char ReceiveByte(char UART);
-		void ReceiveString(char *RETVAL, char UART, char NUMBYTES);
-		void TransmitByte(char UART, char DATA);
-		void TransmitString(char UART, char *DATA, char NUMBYTES);
+		uint8_t ReceiveByte(char UART);
+		void ReceiveString(uint8_t *RETVAL, char UART, char NUMBYTES);
+		void TransmitByte(char UART, uint8_t DATA);
+		void TransmitString(char UART, uint8_t *DATA, char NUMBYTES);
 		void SetBaud(char UART, char BAUD);
 	  private:
 		int _ss_pin;

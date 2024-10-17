@@ -98,9 +98,9 @@ char MULTIUART::CheckTx(char UART)
        :  UART : UART Index Range: 0-3
        :Returns : char - Range 0-255
 \*=----------------------------------------------------------------------=*/
-char MULTIUART::ReceiveByte(char UART)
+uint8_t MULTIUART::ReceiveByte(char UART)
 {
-	char RETVAL;
+	uint8_t RETVAL;
 
 	if (UART < 4)
 	{
@@ -134,7 +134,7 @@ char MULTIUART::ReceiveByte(char UART)
        :  NumBytes : char
        :Returns : MX_CHAR
 \*=----------------------------------------------------------------------=*/
-void MULTIUART::ReceiveString(char *RETVAL, char UART, char NUMBYTES)
+void MULTIUART::ReceiveString(uint8_t *RETVAL, char UART, char NUMBYTES)
 {
 	//Local variable definitions
 	char IDX = (0x0);
@@ -176,7 +176,7 @@ void MULTIUART::ReceiveString(char *RETVAL, char UART, char NUMBYTES)
        :  UART : UART Index Range: 0-3
        :  Data : char
 \*=----------------------------------------------------------------------=*/
-void MULTIUART::TransmitByte(char UART, char DATA)
+void MULTIUART::TransmitByte(char UART, uint8_t DATA)
 {
 	if (UART < 4)
 	{
@@ -206,7 +206,7 @@ void MULTIUART::TransmitByte(char UART, char DATA)
        :  UART : UART Index Range: 0-3
        :  Data[20] : MX_CHAR (by-ref)
 \*=----------------------------------------------------------------------=*/
-void MULTIUART::TransmitString(char UART, char *DATA, char NUMBYTES)
+void MULTIUART::TransmitString(char UART, uint8_t *DATA, char NUMBYTES)
 {
 	char IDX = (0x0);
 
