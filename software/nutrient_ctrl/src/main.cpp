@@ -83,8 +83,6 @@ void setup() {
 		// Note: this also starts the serial interface at a baud rate of 115200 bps
 		mDebugger = new SerialDebugger(115200);
 		mDebugger->onValueChanged(processDebugValueChangesFromUser);
-		// Serial.begin(115200);
-		// while(!Serial);
 	} else {
 		// TODO: Sort out serial comms interface
 		Serial.begin(115200);
