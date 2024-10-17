@@ -62,20 +62,24 @@ void A02YYUWviaMultiUART::setProcessed(bool processed) {
 /*******************************
  * Actions
  *******************************/
-// Reads the distance from the sensor (returns -1 if there's a checksum error, -2 if the frame wasn't read correctly)
+// Reads the distance from the sensor (returns -1 if there's a checksum error, -2 if the frame wasn't read correctly). If there wasn't enough data available, or this was called before the next read interval is due, then this returns 0;
 int A02YYUWviaMultiUART::readDistance() {
   static unsigned long lastReadTime = 0;
   byte data[A02YYUWviaMultiUARTNS::PACKET_SIZE];
+  int result = 0;
 
   // Note: There's a minimum 100ms between readings at best, so don't read if it's not been 100ms since the last correctly formatted reading
   if (millis() - lastReadTime >= A02YYUWviaMultiUARTNS::READ_INTERVAL_MS) {
     if (readSensorData(data)) {
-      int result = processData(data);
+      result = processData(data);
       // A negative result is an error code
-      if (result > 0) mLastMeasuredDistance = result;
+      if (result > 0) {
+        mLastMeasuredDistance = result;
+      }
     }
     lastReadTime = millis();
   }
+  return result;
 }
 
 bool A02YYUWviaMultiUART::readSensorData(byte* data) {

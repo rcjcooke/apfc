@@ -1,7 +1,7 @@
 #ifndef __MUARTSINGLE_H_INCLUDED__
 #define __MUARTSINGLE_H_INCLUDED__
 
-#include "MULTIUART.h"
+#include "MULTIUART.hpp"
 
 class MUARTSingle {
 
