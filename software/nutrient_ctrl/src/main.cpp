@@ -4,6 +4,8 @@
 
 #include "SolutionTanksController.hpp"
 
+// Set to true if the UV Steriliser light is LED based - if LED it will turn the light off when not needed to save power
+#define LED_UVC false
 // If true, serial output from the Arduino is in human readable form - this means comms with the Raspberry Pi controller won't work
 #define DEBUG_SOLO true
 
@@ -13,7 +15,9 @@
 // Runoff Recycling Pump control pin
 static const uint8_t RRPCTL = 4;
 // MultiUART Board 1 Chip Select pin
-static const uint8_t MU1CS = 53;
+static const uint8_t MU1CS = 6;
+// UV Sterilisation Control pin
+static const uint8_t UVCTL = 3;
 
 /* MultiUART board peripheral indexes */
 // Irrigation Supply Tank Depth Sensor
@@ -117,7 +121,7 @@ void processDebugValueChangesFromUser(String key, String value) {
  *********************/
 void setup() {
 
-  gSolutionTanksController = new SolutionTanksController(RRPCTL, MU1CS, IST_MUART_INDEX, RRT_MUART_INDEX, RRT_DSMS, IST_DSMS);
+  gSolutionTanksController = new SolutionTanksController(RRPCTL, MU1CS, IST_MUART_INDEX, RRT_MUART_INDEX, RRT_DSMS, IST_DSMS, UVCTL, LED_UVC);
 
 	// Record which controllers are alarm generators for future access
 	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gSolutionTanksController};

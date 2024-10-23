@@ -44,13 +44,16 @@ public:
       char irrigationSupplyTankDepthSensorMUARTIndex,
       char runoffRecyclingTankDepthSensorMUARTIndex,
       uint8_t runoffRecyclingTankDepthModeSelectPin,
-      uint8_t irrigationsupplyTankDepthModeSelectPin);
+      uint8_t irrigationsupplyTankDepthModeSelectPin,
+      uint8_t uvControlPin, bool ledUVC);
 
   /*******************************
    * Getters / Setters
    *******************************/
   // True when the runoff recycling tank pump is on
   bool isRunoffRecyclingPumpOn() const;
+  // True when the UV steriliser lamp is on
+  bool isUVSteriliserOn() const;
   // Get the current irrigationsupply tank depth / mm
   float getIrrigationSupplyTankDepth() const;
   // Get the current runoff recycling tank depth / mm
@@ -72,8 +75,42 @@ public:
   void turnOnRunoffRecyclingPump();
   // Turn on the Runoff recycling Tank Pump
   void turnOffRunoffRecyclingPump();
+  // Turn on the UV Steriliser
+  void turnOnUV();
+  // Turn off the UV Steriliser
+  void turnOffUV();
 
 private:
+
+  /*******************************
+   * Member variables
+   *******************************/
+  // The microcontroller pin that controls the runoff recycling pump state
+  uint8_t mRunoffRecyclingPumpControlPin;
+  // The microcontroller pin that controls the UV steriliser light state
+  uint8_t mUVControlPin;
+
+  // True if the UV Sterilisation light is LED-based (means regular switching is ok + extremely short switching time)
+  bool mLEDUVC = false;
+  // True when the UV steriliser lamp is on
+  bool mUVSteriliserOn = false;
+
+  // True when the runoff recycling tank pump is on
+  bool mRunoffRecyclingPumpOn = false;
+  // The current irrigationsupply tank depth / mm
+  float mIrrigationSupplyTankDepth = 0.0f;
+  // The current runoff recycling tank depth / mm
+  float mRunoffRecyclingTankDepth = 0.0f;
+
+  /** Depth sensors */
+  // The irrigationsupply tank depth sensor
+  A02YYUW::A02YYUWviaUARTStream* mIrrigationSupplyTankDepthSensor;
+  // The runoff recycling tank depth sensor
+  A02YYUW::A02YYUWviaUARTStream* mRunoffRecyclingTankDepthSensor;
+  
+  // The current run state of this controller
+  STCRunState mRunState = STCRunState::STARTUP;
+
   /*******************************
    * Actions
    *******************************/
@@ -91,7 +128,9 @@ private:
    */
   void emergencyStop();
   // Change state of the Runoff recycling Tank Pump
-  void changeRunoffRecyclingPumpControlPin(uint8_t state);
+  void changeRunoffRecyclingPumpControlPinState(uint8_t state);
+  // Change state of the UV Steriliser
+  void changeUVControlPinState(uint8_t state);
 
   /*******************************
    * Utilities
@@ -102,28 +141,6 @@ private:
    * if all readings are good. If (!allGood) then returns true if every reading
    * is bad. */
   bool checkLast5DepthSensorReadings(A02YYUW::A02YYUWviaUARTStream *sensor, bool allGood);
-
-  /*******************************
-   * Member variables
-   *******************************/
-  // The microcontroller pin that controls the runoff recycling pump state
-  uint8_t mRunoffRecyclingPumpControlPin;
-
-  // True when the runoff recycling tank pump is on
-  bool mRunoffRecyclingPumpOn = false;
-  // The current irrigationsupply tank depth / mm
-  float mIrrigationSupplyTankDepth = 0.0f;
-  // The current runoff recycling tank depth / mm
-  float mRunoffRecyclingTankDepth = 0.0f;
-
-  /** Depth sensors */
-  // The irrigationsupply tank depth sensor
-  A02YYUW::A02YYUWviaUARTStream* mIrrigationSupplyTankDepthSensor;
-  // The runoff recycling tank depth sensor
-  A02YYUW::A02YYUWviaUARTStream* mRunoffRecyclingTankDepthSensor;
-  
-  // The current run state of this controller
-  STCRunState mRunState = STCRunState::STARTUP;
 
 };
 
