@@ -98,6 +98,15 @@ String resultsArrayToString(const int* results) {
 	return result+="}";
 }
 
+String stcRunStateToString(STCRunState state) {
+	switch (state) {
+		case STCRunState::STARTUP: return "STARTUP";
+		case STCRunState::RUNNING: return "RUNNING";
+		case STCRunState::EMERGENCY: return "EMERGENCY";
+		default: return "UNKNOWN";
+	}
+}
+
 // Process change requests made on the debug serial interface
 void processDebugValueChangesFromUser(String key, String value) {
 	// TODO
@@ -163,18 +172,20 @@ void loop() {
 
 		// Retrieve / pre-format some data
 		String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
-		int results[5]; 
-		gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getLast5ReadResults(results);
-		byte dataPacket[A02YYUW::PACKET_SIZE];
-		gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->copyLastDataPacketReadToArray(dataPacket);
+		// int results[5]; 
+		// gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getLast5ReadResults(results);
+		// byte dataPacket[A02YYUW::PACKET_SIZE];
+		// gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->copyLastDataPacketReadToArray(dataPacket);
+		// mDebugger->updateValue("IST DS Last 5 Read Results", resultsArrayToString(results));
+		// mDebugger->updateValue("IST DS UART bytes available to read", gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getSensorUART()->available());
+		// mDebugger->updateValue("IST DS UART last 4 bytes read", dataPacketToString(dataPacket));
 
 		mDebugger->updateValue("Alarms", currentAlarms);
 		mDebugger->updateValue("IST DS Last Read Success / ms since reset", gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getLastReadSuccess());
-		mDebugger->updateValue("IST DS Last 5 Read Results", resultsArrayToString(results));
-		mDebugger->updateValue("IST DS UART bytes available to read", gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getSensorUART()->available());
-		mDebugger->updateValue("IST DS UART last 4 bytes read", dataPacketToString(dataPacket));
 		mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
+		mDebugger->updateValue("RST DS Last Read Success / ms since reset", gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getLastReadSuccess());
 		mDebugger->updateValue("Runoff Supply Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
+		mDebugger->updateValue("Solution Tanks Controller Run State", stcRunStateToString(gSolutionTanksController->getRunState()));
 		mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
 		mDebugger->updateValue("Control loop duration / ms", (unsigned long) controlLoopDurationMillis);
 		mDebugger->throttledPrintUpdate();

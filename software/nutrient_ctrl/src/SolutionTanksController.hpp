@@ -52,9 +52,11 @@ public:
   // True when the runoff recycling tank pump is on
   bool isRunoffRecyclingPumpOn() const;
   // Get the current irrigationsupply tank depth / mm
-  float getIrrigationSupplyTankDepth();
+  float getIrrigationSupplyTankDepth() const;
   // Get the current runoff recycling tank depth / mm
-  float getRunoffRecyclingTankDepth();
+  float getRunoffRecyclingTankDepth() const;
+  // Returns the current operating state of this controller
+  STCRunState getRunState() const;
   // For Debug purposes: Get the depth sensor instance for the Irrigation Supply Tank
   A02YYUW::A02YYUWviaUARTStream* getIrrigationSupplyTankDepthSensor();
   // For Debug purposes: Get the depth sensor instance for the Irrigation Supply Tank

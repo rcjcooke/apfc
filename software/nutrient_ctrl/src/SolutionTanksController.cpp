@@ -80,13 +80,18 @@ bool SolutionTanksController::isRunoffRecyclingPumpOn() const {
 }
 
 // Get the current irrigationsupply tank depth / mm
-float SolutionTanksController::getIrrigationSupplyTankDepth() {
+float SolutionTanksController::getIrrigationSupplyTankDepth() const {
   return mIrrigationSupplyTankDepth;
 }
 
 // Get the current runoff recycling tank depth / mm
-float SolutionTanksController::getRunoffRecyclingTankDepth() {
+float SolutionTanksController::getRunoffRecyclingTankDepth() const {
   return mRunoffRecyclingTankDepth;
+}
+
+// Returns the current operating state of this controller
+STCRunState SolutionTanksController::getRunState() const {
+  return mRunState;
 }
 
 // For Debug purposes: Get the depth sensor instance for the Irrigation Supply Tank
