@@ -199,6 +199,10 @@ void SolutionTanksController::runningStateLoop() {
 
 // Control loop during emergency state
 void SolutionTanksController::emergencyStateLoop() {
+  // Read all the depths
+  mRunoffRecyclingTankDepthSensor->readDistance();
+  mIrrigationSupplyTankDepthSensor->readDistance();
+
   // TODO
 }
 
