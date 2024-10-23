@@ -9,12 +9,9 @@ Compatible with the MULTIUART or SPI2UART module
 Uses a single SPI bus to control up to four buffered hardware UART channels
 *****************/
 
-#include "Arduino.h"
-#include "MULTIUART.h"
-#include <SPI.h>
+#include "MULTIUART.hpp"
 
-
-MULTIUART::MULTIUART(int ss)
+MULTIUART::MULTIUART(uint8_t ss)
 {
   pinMode(ss, OUTPUT);
   _ss_pin = ss;
@@ -38,26 +35,21 @@ void MULTIUART::initialise(int SPIDivider)
        :  UART : UART Index Range: 0-3
        :Returns : char
 \*=----------------------------------------------------------------------=*/
-char MULTIUART::CheckRx(char UART)
-{
-	char RETVAL = 0;
+uint8_t MULTIUART::checkRx(char UART) {
+	
+	uint8_t retVal = 0;
 
 	if (UART < 4)
 	{
 		digitalWrite(_ss_pin, LOW);
-
 		SPI.transfer(0x10 | UART);
-
-		delayMicroseconds(250);
-
-		RETVAL = SPI.transfer(0xFF);
-
+		// delayMicroseconds(250);
+		retVal = SPI.transfer(0xFF);
 		digitalWrite(_ss_pin, HIGH);
-
-		delayMicroseconds(50);
+		// delayMicroseconds(50);
 	}
 
-	return (RETVAL);
+	return retVal;
 }
 
 /*=----------------------------------------------------------------------=*\
@@ -73,16 +65,11 @@ char MULTIUART::CheckTx(char UART)
 	if (UART < 4)
 	{
 		digitalWrite(_ss_pin, LOW);
-
 		SPI.transfer(0x30 | UART);
-
-		delayMicroseconds(250);
-
+		// delayMicroseconds(250);
 		RETVAL = SPI.transfer(0xFF);
-
 		digitalWrite(_ss_pin, HIGH);
-
-		delayMicroseconds(50);
+		// delayMicroseconds(50);
 	}
 
 	return (RETVAL);
@@ -105,20 +92,13 @@ uint8_t MULTIUART::ReceiveByte(char UART)
 	if (UART < 4)
 	{
 		digitalWrite(_ss_pin, LOW);
-
 		SPI.transfer(0x20 | UART);
-
-		delayMicroseconds(50);
-
+		// delayMicroseconds(50);
 		SPI.transfer(1);
-
-		delayMicroseconds(50);
-
+		// delayMicroseconds(50);
 		RETVAL = SPI.transfer(0xFF);
-
 		digitalWrite(_ss_pin, HIGH);
-
-		delayMicroseconds(50);
+		// delayMicroseconds(50);
 	}
 
 	return (RETVAL);
@@ -134,40 +114,33 @@ uint8_t MULTIUART::ReceiveByte(char UART)
        :  NumBytes : char
        :Returns : MX_CHAR
 \*=----------------------------------------------------------------------=*/
-void MULTIUART::ReceiveString(uint8_t *RETVAL, char UART, char NUMBYTES)
-{
-	//Local variable definitions
-	char IDX = (0x0);
-
-	if (UART < 4)
-	{
-		digitalWrite(_ss_pin, LOW);
-
-		SPI.transfer(0x20 | UART);
-
-		delayMicroseconds(50);
-
-		SPI.transfer(NUMBYTES);
-
-		delayMicroseconds(50);
-
-		while ((IDX < NUMBYTES))
-		{
-			RETVAL[IDX] = SPI.transfer(0xFF);
-
-			delayMicroseconds(50);
-
-			IDX = IDX + 1;
-		}
-
-		digitalWrite(_ss_pin, HIGH);
-
-		delayMicroseconds(50);
-
-		RETVAL[IDX] = 0;
-	}
+void MULTIUART::ReceiveString(char *RETVAL, char UART, size_t NUMBYTES) {
+	// In Arduino land, uint8_t and char are the same size, so just casting one to the other.
+	readBytes((uint8_t*) RETVAL, UART, NUMBYTES);
+	// Add C-style string terminator
+	RETVAL[NUMBYTES] = 0;
 }
 
+void MULTIUART::readBytes(uint8_t *buffer, char UART, size_t length) {
+	
+	if (UART < 4) {
+		unsigned int index = 0;
+		digitalWrite(_ss_pin, LOW);
+		SPI.transfer(0x20 | UART);
+		// delayMicroseconds(50);
+		SPI.transfer(length);
+		// delayMicroseconds(50);
+		while ((index < length))
+		{
+			buffer[index] = SPI.transfer(0xFF);
+			// delayMicroseconds(50);
+			index++;
+		}
+		digitalWrite(_ss_pin, HIGH);
+		// delayMicroseconds(50);
+	}
+
+}
 
 
 /*=----------------------------------------------------------------------=*\
@@ -176,25 +149,18 @@ void MULTIUART::ReceiveString(uint8_t *RETVAL, char UART, char NUMBYTES)
        :  UART : UART Index Range: 0-3
        :  Data : char
 \*=----------------------------------------------------------------------=*/
-void MULTIUART::TransmitByte(char UART, uint8_t DATA)
+void MULTIUART::transmitByte(char UART, const uint8_t DATA)
 {
 	if (UART < 4)
 	{
 		digitalWrite(_ss_pin, LOW);
-
 		SPI.transfer(0x40 | UART);
-
-		delayMicroseconds(50);
-
+		// delayMicroseconds(50);
 		SPI.transfer(1);
-
-		delayMicroseconds(50);
-
+		// delayMicroseconds(50);
 		SPI.transfer(DATA);
-
 		digitalWrite(_ss_pin, HIGH);
-
-		delayMicroseconds(50);
+		// delayMicroseconds(50);
 	}
 }
 
@@ -206,34 +172,25 @@ void MULTIUART::TransmitByte(char UART, uint8_t DATA)
        :  UART : UART Index Range: 0-3
        :  Data[20] : MX_CHAR (by-ref)
 \*=----------------------------------------------------------------------=*/
-void MULTIUART::TransmitString(char UART, uint8_t *DATA, char NUMBYTES)
+void MULTIUART::transmitBytes(char UART, const uint8_t *DATA, size_t NUMBYTES)
 {
-	char IDX = (0x0);
+	unsigned int index = 0;
 
 	if (UART < 4)
 	{
 		digitalWrite(_ss_pin, LOW);
-
 		SPI.transfer(0x40 | UART);
-
-		delayMicroseconds(50);
-
+		// delayMicroseconds(50);
 		SPI.transfer(NUMBYTES);
-
-		delayMicroseconds(50);
-
-		while (IDX < NUMBYTES)
+		// delayMicroseconds(50);
+		while (index < NUMBYTES)
 		{
-			SPI.transfer(DATA[IDX]);
-
-			delayMicroseconds(50);
-
-			IDX = IDX + 1;
+			SPI.transfer(DATA[index]);
+			// delayMicroseconds(50);
+			index++;
 		}
-
 		digitalWrite(_ss_pin, HIGH);
-
-		delayMicroseconds(50);
+		// delayMicroseconds(50);
 	}
 }
 
@@ -253,20 +210,13 @@ void MULTIUART::SetBaud(char UART, char BAUD)
 		if (BAUD < 10)
 		{
 			digitalWrite(_ss_pin, LOW);
-
 			SPI.transfer(0x80 | UART);
-
-			delayMicroseconds(50);
-
+			// delayMicroseconds(50);
 			SPI.transfer(BAUD);
-
 			digitalWrite(_ss_pin, HIGH);
-
-			delayMicroseconds(50);
+			// delayMicroseconds(50);
 		}
-
 		delay(20);                // waits for 20ms - time for flash erase and write
-
 	}
 }
 

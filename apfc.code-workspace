@@ -7,10 +7,6 @@
 			"path": "software\\aero_ctrl"
 		},
 		{
-			"name": "pressure_cal",
-			"path": "software\\pressure_cal"
-		},
-		{
 			"name": "nutrient_ctrl",
 			"path": "software/nutrient_ctrl"
 		},
@@ -18,5 +14,9 @@
 			"path": "software"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"*.tpp": "cpp"
+		}
+	}
 }

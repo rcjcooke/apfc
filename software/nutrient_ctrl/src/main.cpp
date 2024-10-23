@@ -12,21 +12,27 @@
  ************************/
 // Runoff Recycling Pump control pin
 static const uint8_t RRPCTL = 4;
+// MultiUART Board 1 Chip Select pin
+static const uint8_t MU1CS = 53;
+
+/* MultiUART board peripheral indexes */
+// Irrigation Supply Tank Depth Sensor
+static const char IST_MUART_INDEX = 0;
+// Irrigation Supply Tank Depth Sensor
+static const char RRT_MUART_INDEX = 1;
+
+// Runoff Recycling Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
+static const uint8_t RRT_DSMS = 9;
+// Irrigation Supply Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
+static const uint8_t IST_DSMS = 8;
+
 /*
  * WARNING: Not all pins on the Mega and Mega 2560 boards support change
  * interrupts, so only the following can be used for RX: 10, 11, 12, 13, 14, 15,
  * 50, 51, 52, 53, A8 (62), A9 (63), A10 (64), A11 (65), A12 (66), A13 (67), A14
  * (68), A15 (69)
  */
-// Runoff Recycling Tank Depth Sensor: Processed Value/Real-time Value Output
-// Selection pin
-static const uint8_t RRT_DSMS = 49;
-// Runoff Recycling Tank Depth Sensor: Depth data pin
-static const uint8_t RRT_DSO = 53;
-// Irrigation Supply Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
-static const uint8_t IST_DSMS = 47;
-// Irrigation Supply Tank Depth Sensor: Depth data pin
-static const uint8_t IST_DSO = 51;
+
 
 // The total number of alarm generators
 static const int NUM_ALARM_GENERATORS = 1;
@@ -64,6 +70,34 @@ String createAlarmString(int numAGs, AlarmGenerator** ags) {
 	return alarmString;
 }
 
+// Formats a single byte to a Intel format HEX annotation, e.g. 0xF2
+String formatByteToIntelString(const uint8_t byte) {
+  String result = "0x";
+  if (byte < 16) result = result + "0";
+  result = result + String((int) byte, HEX);
+  return result;
+}
+
+String dataPacketToString(const byte* packet) {
+	String result = "";
+	if (packet) {
+		for (size_t i = 0; i < A02YYUW::PACKET_SIZE; i++) {
+			result+=(formatByteToIntelString(packet[i]) + " ");
+		}
+	} else {
+		result = "NULL";
+	}
+	return result;
+}
+
+String resultsArrayToString(const int* results) {
+	String result = "{" + String(results[0]);
+	for (size_t i = 1; i < 5; i++) {
+		result+=("," + String(results[i]));
+	}
+	return result+="}";
+}
+
 // Process change requests made on the debug serial interface
 void processDebugValueChangesFromUser(String key, String value) {
 	// TODO
@@ -74,7 +108,7 @@ void processDebugValueChangesFromUser(String key, String value) {
  *********************/
 void setup() {
 
-  gSolutionTanksController = new SolutionTanksController(RRPCTL, RRT_DSMS, IST_DSMS, RRT_DSO, IST_DSO);
+  gSolutionTanksController = new SolutionTanksController(RRPCTL, MU1CS, IST_MUART_INDEX, RRT_MUART_INDEX, RRT_DSMS, IST_DSMS);
 
 	// Record which controllers are alarm generators for future access
 	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gSolutionTanksController};
@@ -127,11 +161,20 @@ void loop() {
   // Communicate any updates needed
 	if (DEBUG_SOLO) {
 
+		// Retrieve / pre-format some data
 		String currentAlarms = createAlarmString(NUM_ALARM_GENERATORS, gAGs);
+		int results[5]; 
+		gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getLast5ReadResults(results);
+		byte dataPacket[A02YYUW::PACKET_SIZE];
+		gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->copyLastDataPacketReadToArray(dataPacket);
 
 		mDebugger->updateValue("Alarms", currentAlarms);
+		mDebugger->updateValue("IST DS Last Read Success / ms since reset", gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getLastReadSuccess());
+		mDebugger->updateValue("IST DS Last 5 Read Results", resultsArrayToString(results));
+		mDebugger->updateValue("IST DS UART bytes available to read", gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getSensorUART()->available());
+		mDebugger->updateValue("IST DS UART last 4 bytes read", dataPacketToString(dataPacket));
 		mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
-		mDebugger->updateValue("Runoff Recycling Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
+		mDebugger->updateValue("Runoff Supply Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
 		mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
 		mDebugger->updateValue("Control loop duration / ms", (unsigned long) controlLoopDurationMillis);
 		mDebugger->throttledPrintUpdate();
@@ -143,3 +186,4 @@ void loop() {
   controlLoopDurationMillis = millis() - startOfControlLoopMillis;
 
 }
+

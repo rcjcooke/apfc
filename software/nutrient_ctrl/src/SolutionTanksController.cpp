@@ -38,19 +38,34 @@ namespace SolutionTanksControllerNS {
  *******************************/
 SolutionTanksController::SolutionTanksController(
     uint8_t runoffRecyclingPumpControlPin,
+    uint8_t multiUART1CSPin,
+    char irrigationSupplyTankDepthSensorMUARTIndex,
+    char runoffRecyclingTankDepthSensorMUARTIndex,
     uint8_t runoffRecyclingTankDepthModeSelectPin,
-    uint8_t irrigationsupplyTankDepthModeSelectPin,
-    uint8_t runoffRecyclingTankDepthSensorPin,
-    uint8_t irrigationsupplyTankDepthSensorPin)
+    uint8_t irrigationsupplyTankDepthModeSelectPin)
     : AlarmGenerator('S', 7) {
 
   // Sort out the control pins
   mRunoffRecyclingPumpControlPin = runoffRecyclingPumpControlPin;
   pinMode(mRunoffRecyclingPumpControlPin, OUTPUT);
 
+  // Sort out the serial interfaces
+  MULTIUART* multiuart = new MULTIUART(multiUART1CSPin);
+
+  //SPI Prescaler Options
+  //SPI_CLOCK_DIV4 / SPI_CLOCK_DIV16 / SPI_CLOCK_DIV64
+  //SPI_CLOCK_DIV128 / SPI_CLOCK_DIV2 / SPI_CLOCK_DIV8 / SPI_CLOCK_DIV32
+  multiuart->initialise(SPI_CLOCK_DIV64);
+
   // Set up the tank depth (distance) sensors
-  mIrrigationSupplyTankDepthSensor = new A02YYUWDistanceSensor(irrigationsupplyTankDepthModeSelectPin, irrigationsupplyTankDepthSensorPin, true);
-  mRunoffRecyclingTankDepthSensor = new A02YYUWDistanceSensor(runoffRecyclingTankDepthModeSelectPin, runoffRecyclingTankDepthSensorPin, true);
+  mIrrigationSupplyTankDepthSensor = new A02YYUW::A02YYUWviaUARTStream(
+    new MUARTSingleStream(multiuart, irrigationSupplyTankDepthSensorMUARTIndex), 
+    irrigationsupplyTankDepthModeSelectPin, 
+    true);
+  mRunoffRecyclingTankDepthSensor = new A02YYUW::A02YYUWviaUARTStream(
+    new MUARTSingleStream(multiuart, runoffRecyclingTankDepthSensorMUARTIndex), 
+    runoffRecyclingTankDepthModeSelectPin, 
+    true);
 
   // Make sure all the pumps are off (WARNING: Don't use the standard on/off methods here)
   changeRunoffRecyclingPumpControlPin(LOW);
@@ -74,25 +89,57 @@ float SolutionTanksController::getRunoffRecyclingTankDepth() {
   return mRunoffRecyclingTankDepth;
 }
 
+// For Debug purposes: Get the depth sensor instance for the Irrigation Supply Tank
+A02YYUW::A02YYUWviaUARTStream* SolutionTanksController::getIrrigationSupplyTankDepthSensor() {
+  return mIrrigationSupplyTankDepthSensor;
+}
+
+// For Debug purposes: Get the depth sensor instance for the Irrigation Supply Tank
+A02YYUW::A02YYUWviaUARTStream* SolutionTanksController::getRunoffRecyclingTankDepthSensor() {
+  return mRunoffRecyclingTankDepthSensor;
+}
+
 /*******************************
  * Actions
  *******************************/
-// Called every microcontroller main program loop - moves solution between tanks as required
-void SolutionTanksController::controlLoop() {
+// Control loop during startup state
+void SolutionTanksController::startupStateLoop() {
+
+  // TODO: Introduce timeout check to handle faulty sensors preventing startup
+
+  // Get readings
+  mRunoffRecyclingTankDepthSensor->readDistance();
+  mIrrigationSupplyTankDepthSensor->readDistance();
+
+  // Keep cycling until we get consistent valid readings from all depth sensors - this deals with buffering and comms protocol sychronisation concerns
+  if (checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, true)) return;
+  if (checkLast5DepthSensorReadings(mIrrigationSupplyTankDepthSensor, true)) return;
+
+  // If we've got this far then transition to a running state
+  mRunState = STCRunState::RUNNING;
+
+}
+
+// Control loop during running state
+void SolutionTanksController::runningStateLoop() {
 
   // If true then a top up of the irrigationSupply tank is required
   static bool irrigationSupplyTopupRequested = false;
 
   // Read all the depths
-  if (mRunoffRecyclingTankDepthSensor->readDistance() != 0) {
-    triggerAlarm(ALARM_RUNOFF_RECYCLING_TANK_DEPTH_SENSOR_COMMS_ERROR);
-    emergencyStop();
-    return;
+  if (mRunoffRecyclingTankDepthSensor->readDistance() < 0) {
+    // If there are 5 bad readings in a row then throw toys out the pram - the occasional bad reading isn't an issue
+    if (checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, false)) {
+      triggerEmergency(ALARM_RUNOFF_RECYCLING_TANK_DEPTH_SENSOR_COMMS_ERROR);
+      return;
+    }
   }
-  if (mIrrigationSupplyTankDepthSensor->readDistance() != 0) {
-    triggerAlarm(ALARM_IRRIGATIONSUPPLY_TANK_DEPTH_SENSOR_COMMS_ERROR);
-    emergencyStop();
-    return;
+  if (mIrrigationSupplyTankDepthSensor->readDistance() < 0) {
+    // If there are 5 bad readings in a row then throw toys out the pram - the occasional bad reading isn't an issue
+    if (checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, false)) {
+      triggerEmergency(ALARM_IRRIGATIONSUPPLY_TANK_DEPTH_SENSOR_COMMS_ERROR);
+      return;
+    }
   }
 
   mRunoffRecyclingTankDepth = convertDistanceToDepth(mRunoffRecyclingTankDepthSensor->getDistance());
@@ -130,6 +177,29 @@ void SolutionTanksController::controlLoop() {
 
 }
 
+// Control loop during emergency state
+void SolutionTanksController::emergencyStateLoop() {
+  // TODO
+}
+
+// Called every microcontroller main program loop - moves solution between tanks as required
+void SolutionTanksController::controlLoop() {
+  switch (mRunState) {
+    case STCRunState::STARTUP:
+      startupStateLoop();
+      break;
+    case STCRunState::RUNNING:
+      runningStateLoop();
+      break;
+    case STCRunState::EMERGENCY:
+      emergencyStateLoop();
+      break;
+    default:
+      // This shouldn't be possible - trigger alarm if here?
+      break;
+  }
+}
+
 // Turn on the Runoff recycling Tank Pump
 void SolutionTanksController::turnOnRunoffRecyclingPump() {
   if (!mRunoffRecyclingPumpOn) changeRunoffRecyclingPumpControlPin(HIGH);
@@ -140,6 +210,13 @@ void SolutionTanksController::turnOnRunoffRecyclingPump() {
 void SolutionTanksController::turnOffRunoffRecyclingPump() {
   if (mRunoffRecyclingPumpOn) changeRunoffRecyclingPumpControlPin(LOW);
   mRunoffRecyclingPumpOn = false;
+}
+
+// Trigger a transition to the emergency state with a reason
+void SolutionTanksController::triggerEmergency(int reason) {
+  triggerAlarm(reason);
+  emergencyStop();
+  mRunState = STCRunState::EMERGENCY;
 }
 
 // Called internally in the event of a sensor communication error - if we don't know how deep the tanks are, we shouldn't be moving anything around
@@ -159,4 +236,24 @@ float SolutionTanksController::convertDistanceToDepth(float distance) {
   // Bound the distance as the sensor doesn't work under 30 mm - if it gets this close we're in trouble
   if (distance < 30.0f) distance = 30.0f;
   return SolutionTanksControllerNS::EMPTY_TANK_DISTANCE_MM - distance;
+}
+
+/* Checks the last 5 readings from the sensor. If (allGood) then returns true
+ * if all readings are good. If (!allGood) then returns true if every reading
+ * is bad. */
+bool SolutionTanksController::checkLast5DepthSensorReadings(A02YYUW::A02YYUWviaUARTStream *sensor, bool allGood) {
+  int lastResults[5];
+  sensor->getLast5ReadResults(lastResults);
+  if (allGood) {
+    int total = 0;
+    for (size_t i = 0; i < 5; i++) {
+      total+=lastResults[i];
+    }
+    return (total == 0);
+  } else {
+    for (size_t i = 0; i < 5; i++) {
+      if (lastResults[i] == 0) return false;
+    }
+    return true;
+  }
 }
