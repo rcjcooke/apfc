@@ -6,7 +6,14 @@
 namespace IrrigationPressureControllerNS {
   /* Sensor Calibration */
   // Maximum pressure the sensor detects / PSI
-  const int MAX_PRESSURE = 150; 
+  const int MAX_PRESSURE_PSI = 150;
+  /* System pressures */
+  // The pressure below which the irrigation pump should be turned back on / PSI
+  const int MIN_PRESSURE_PSI = 80;
+  // While I would like this to be 100 PSI, the compressor I have just can't seem to achieve it. 
+  const int TARGET_PRESSURE_PSI = 93;
+  // The pressure at which the drain valve should be opened to relieve pressure / PSI
+  const int OVER_PRESSURE_PSI = 120;
 }
 
 /*******************************
@@ -14,7 +21,7 @@ namespace IrrigationPressureControllerNS {
  *******************************/
 // Basic constructor
 IrrigationPressureController::IrrigationPressureController(uint8_t pressureSensorPin, uint8_t drainValveControlPin, uint8_t irrigationCompressorControlPin) : AlarmGenerator('I', 1) {
-  mPressureSensor = new PressureSensor(pressureSensorPin, IrrigationPressureControllerNS::MAX_PRESSURE);
+  mPressureSensor = new PressureSensor(pressureSensorPin, IrrigationPressureControllerNS::MAX_PRESSURE_PSI);
 
   mDrainValveControlPin = drainValveControlPin;
   mIrrigationCompressorControlPin = irrigationCompressorControlPin;
@@ -59,17 +66,17 @@ void IrrigationPressureController::controlLoop() {
   mPressureSensor->readPressure();
   float pressurePSI = mPressureSensor->getPressurePSI();
 
-  if (pressurePSI < 120) {
+  if (pressurePSI < IrrigationPressureControllerNS::OVER_PRESSURE_PSI) {
     clearAlarm(OVER_PRESSURE_ALARM); // Just in case it's been triggered
   }
   
-  if (pressurePSI <= 80) {
+  if (pressurePSI <= IrrigationPressureControllerNS::MIN_PRESSURE_PSI) {
     closeDrainValve(); // Just in case it's open
     turnOnIrrigationCompressor();
-  } else if (pressurePSI >= 95) { // While I would like this to be 100 PSI, the compressor I have just can't seem to achieve it. 
+  } else if (pressurePSI >= IrrigationPressureControllerNS::TARGET_PRESSURE_PSI) {
     // Target pressure reached
     turnOffIrrigationCompressor();
-  } else if (pressurePSI >= 120) {
+  } else if (pressurePSI >= IrrigationPressureControllerNS::OVER_PRESSURE_PSI) {
     /*
     Something's gone wrong and the pressure is still building, 
     open the drain valve to relieve pressure and raise the alarm
