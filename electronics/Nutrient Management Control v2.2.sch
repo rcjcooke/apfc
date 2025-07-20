@@ -2247,6 +2247,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <groups>
 <schematic_group name="RUNOFF_RECYCLING_PUMP"/>
 <schematic_group name="UV_STERILISER"/>
+<schematic_group name="IRRIGATION_SUPPLY_PUMP"/>
+<schematic_group name="MIXING_PUMP"/>
+<schematic_group name="HEATER"/>
 </groups>
 <parts>
 <part name="P+3" library="Aeroponics Control" deviceset="+5V" device=""/>
@@ -2292,16 +2295,45 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <part name="R6" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
 <part name="SUPPLY10" library="Aeroponics Control" deviceset="GND" device=""/>
 <part name="P+11" library="Aeroponics Control" deviceset="+5V" device=""/>
-<part name="UVCTL" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2" value="UVCTL"/>
+<part name="UVCTL" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
 <part name="R11" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
 <part name="P+19" library="Aeroponics Control" deviceset="+12V" device=""/>
 <part name="R7" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1k"/>
+<part name="Q2" library="Aeroponics Control" deviceset="FQP30N06L" device="" package3d_urn="urn:adsk.eagle:package:37207079/2"/>
+<part name="D2" library="Aeroponics Control" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:10898391/4"/>
+<part name="R2" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
+<part name="SUPPLY8" library="Aeroponics Control" deviceset="GND" device=""/>
+<part name="P+7" library="Aeroponics Control" deviceset="+12V" device=""/>
+<part name="ISP" library="Aeroponics Control" deviceset="JST-XH-02-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207166/2"/>
+<part name="R4" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
+<part name="P+8" library="Aeroponics Control" deviceset="+5V" device=""/>
+<part name="R8" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1k"/>
+<part name="Q3" library="Aeroponics Control" deviceset="FQP30N06L" device="" package3d_urn="urn:adsk.eagle:package:37207079/2"/>
+<part name="D3" library="Aeroponics Control" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:10898391/4"/>
+<part name="R9" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
+<part name="SUPPLY11" library="Aeroponics Control" deviceset="GND" device=""/>
+<part name="P+9" library="Aeroponics Control" deviceset="+12V" device=""/>
+<part name="MP" library="Aeroponics Control" deviceset="JST-XH-02-PIN" device="-LONG-PAD" package3d_urn="urn:adsk.eagle:package:37207166/2"/>
+<part name="R10" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
+<part name="P+12" library="Aeroponics Control" deviceset="+5V" device=""/>
+<part name="R12" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1k"/>
+<part name="MT_DS" library="Aeroponics Control" deviceset="GROVE-CONNECTOR-DIP-90D(4P-2.0)" device="" package3d_urn="urn:adsk.eagle:package:8004524/1" value="4P-2.0-90D"/>
+<part name="K2" library="Aeroponics Control" deviceset="SRM-1C-SL-5VDC" device="" package3d_urn="urn:adsk.eagle:package:37207205/2"/>
+<part name="Q4" library="Aeroponics Control" deviceset="FDU3N40TU" device="" package3d_urn="urn:adsk.eagle:package:37207208/2"/>
+<part name="D4" library="Aeroponics Control" deviceset="1N4004" device="" package3d_urn="urn:adsk.eagle:package:10898391/4"/>
+<part name="R13" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="10k"/>
+<part name="SUPPLY12" library="Aeroponics Control" deviceset="GND" device=""/>
+<part name="P+13" library="Aeroponics Control" deviceset="+5V" device=""/>
+<part name="HCTL" library="Aeroponics Control" deviceset="HEADER_POS2_?" device="43650-0215" package3d_urn="urn:adsk.eagle:package:37207095/2"/>
+<part name="R14" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1K"/>
+<part name="P+15" library="Aeroponics Control" deviceset="+12V" device=""/>
+<part name="R15" library="Aeroponics Control" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="1k"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="365.76" y="170.18" size="1.778" layer="97">Nutrient Pumps</text>
-<text x="111.76" y="185.42" size="1.778" layer="97">Other Pumps and Valves</text>
+<text x="78.74" y="241.3" size="1.778" layer="97">Other Pumps and Valves</text>
 </plain>
 <instances>
 <instance part="P+3" gate="1" x="35.56" y="2.54" smashed="yes" rot="R180">
@@ -2351,18 +2383,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <attribute name="NAME" x="4.445" y="6.985" size="1.778" layer="95"/>
 </instance>
 <instance part="PCB2" gate="G$1" x="63.5" y="-55.88" smashed="yes"/>
-<instance part="IC1" gate="C" x="198.12" y="-30.48" smashed="yes">
-<attribute name="NAME" x="200.66" y="-27.305" size="1.778" layer="95"/>
-<attribute name="VALUE" x="200.66" y="-35.56" size="1.778" layer="96"/>
-</instance>
-<instance part="IC1" gate="D" x="198.12" y="-45.72" smashed="yes">
-<attribute name="NAME" x="200.66" y="-42.545" size="1.778" layer="95"/>
-<attribute name="VALUE" x="200.66" y="-50.8" size="1.778" layer="96"/>
-</instance>
-<instance part="IC1" gate="E" x="198.12" y="-60.96" smashed="yes">
-<attribute name="NAME" x="200.66" y="-57.785" size="1.778" layer="95"/>
-<attribute name="VALUE" x="200.66" y="-66.04" size="1.778" layer="96"/>
-</instance>
 <instance part="SUPPLY14" gate="GND" x="187.96" y="-88.9" smashed="yes">
 <attribute name="VALUE" x="186.055" y="-92.075" size="1.778" layer="96"/>
 </instance>
@@ -2409,11 +2429,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <attribute name="NAME" x="200.66" y="-73.025" size="1.778" layer="95"/>
 <attribute name="VALUE" x="200.66" y="-81.28" size="1.778" layer="96"/>
 </instance>
-<instance part="IST_DS" gate="G$1" x="203.2" y="54.61" smashed="yes">
-<attribute name="NAME" x="196.85" y="60.96" size="1.27" layer="95" ratio="10"/>
+<instance part="IST_DS" gate="G$1" x="208.28" y="54.61" smashed="yes">
+<attribute name="NAME" x="201.93" y="60.96" size="1.27" layer="95" ratio="10"/>
 </instance>
-<instance part="RT_DS" gate="G$1" x="203.2" y="39.37" smashed="yes">
-<attribute name="NAME" x="196.85" y="45.72" size="1.27" layer="95" ratio="10"/>
+<instance part="RT_DS" gate="G$1" x="208.28" y="39.37" smashed="yes">
+<attribute name="NAME" x="201.93" y="45.72" size="1.27" layer="95" ratio="10"/>
 </instance>
 <instance part="P+1" gate="1" x="177.8" y="66.04" smashed="yes">
 <attribute name="VALUE" x="175.26" y="60.96" size="1.778" layer="96" rot="R90"/>
@@ -2445,46 +2465,168 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <instance part="SUPPLY7" gate="GND" x="96.52" y="-2.54" smashed="yes">
 <attribute name="VALUE" x="94.615" y="-5.715" size="1.778" layer="96"/>
 </instance>
-<instance part="K1" gate="G$1" x="83.82" y="121.92" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
-<attribute name="NAME" x="78.74" y="140.97" size="1.778" layer="95" rot="R90" align="center-left"/>
-<attribute name="VALUE" x="93.98" y="128.27" size="1.778" layer="96" rot="R90" align="center-left"/>
+<instance part="K1" gate="G$1" x="172.72" y="99.06" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
+<attribute name="NAME" x="167.64" y="118.11" size="1.778" layer="95" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="182.88" y="105.41" size="1.778" layer="96" rot="R90" align="center-left"/>
 </instance>
-<instance part="Q6" gate="G$1" x="50.8" y="124.46" smashed="yes" grouprefs="UV_STERILISER">
-<attribute name="NAME" x="62.23" y="128.27" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="62.23" y="125.73" size="1.778" layer="96" align="center-left"/>
+<instance part="Q6" gate="G$1" x="139.7" y="101.6" smashed="yes" grouprefs="UV_STERILISER">
+<attribute name="NAME" x="151.13" y="105.41" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="151.13" y="102.87" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="D6" gate="G$1" x="58.42" y="142.24" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
-<attribute name="NAME" x="55.3974" y="139.7" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="63.2714" y="139.7" size="1.778" layer="96" rot="R90"/>
+<instance part="D6" gate="G$1" x="147.32" y="119.38" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
+<attribute name="NAME" x="144.2974" y="116.84" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="152.1714" y="116.84" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R6" gate="G$1" x="35.56" y="139.7" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
-<attribute name="NAME" x="34.0614" y="135.89" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="38.862" y="135.89" size="1.778" layer="96" rot="R90"/>
+<instance part="R6" gate="G$1" x="124.46" y="116.84" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
+<attribute name="NAME" x="122.9614" y="113.03" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="127.762" y="113.03" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY10" gate="GND" x="58.42" y="104.14" smashed="yes" grouprefs="UV_STERILISER">
-<attribute name="VALUE" x="56.515" y="100.965" size="1.778" layer="96"/>
+<instance part="SUPPLY10" gate="GND" x="147.32" y="81.28" smashed="yes" grouprefs="UV_STERILISER">
+<attribute name="VALUE" x="145.415" y="78.105" size="1.778" layer="96"/>
 </instance>
-<instance part="P+11" gate="1" x="58.42" y="154.94" smashed="yes" grouprefs="UV_STERILISER">
-<attribute name="VALUE" x="55.88" y="149.86" size="1.778" layer="96" rot="R90"/>
+<instance part="P+11" gate="1" x="147.32" y="132.08" smashed="yes" grouprefs="UV_STERILISER">
+<attribute name="VALUE" x="144.78" y="127" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="UVCTL" gate="G$1" x="104.14" y="139.7" smashed="yes" grouprefs="UV_STERILISER">
-<attribute name="VALUE" x="102.87" y="134.62" size="1.778" layer="96"/>
-<attribute name="NAME" x="102.87" y="145.542" size="1.778" layer="95"/>
+<instance part="UVCTL" gate="G$1" x="193.04" y="116.84" smashed="yes" grouprefs="UV_STERILISER">
+<attribute name="VALUE" x="191.77" y="111.76" size="1.778" layer="96"/>
+<attribute name="NAME" x="191.77" y="122.682" size="1.778" layer="95"/>
 </instance>
-<instance part="R11" gate="G$1" x="43.18" y="124.46" smashed="yes" grouprefs="UV_STERILISER">
-<attribute name="NAME" x="39.37" y="125.9586" size="1.778" layer="95"/>
-<attribute name="VALUE" x="39.37" y="121.158" size="1.778" layer="96"/>
+<instance part="R11" gate="G$1" x="132.08" y="101.6" smashed="yes" grouprefs="UV_STERILISER">
+<attribute name="NAME" x="128.27" y="103.0986" size="1.778" layer="95"/>
+<attribute name="VALUE" x="128.27" y="98.298" size="1.778" layer="96"/>
 </instance>
-<instance part="IC1" gate="B" x="22.86" y="124.46" smashed="yes" grouprefs="UV_STERILISER">
-<attribute name="NAME" x="25.4" y="127.635" size="1.778" layer="95"/>
-<attribute name="VALUE" x="25.4" y="119.38" size="1.778" layer="96"/>
+<instance part="IC1" gate="B" x="111.76" y="101.6" smashed="yes" grouprefs="UV_STERILISER">
+<attribute name="NAME" x="114.3" y="104.775" size="1.778" layer="95"/>
+<attribute name="VALUE" x="114.3" y="96.52" size="1.778" layer="96"/>
 </instance>
-<instance part="P+19" gate="1" x="35.56" y="149.86" smashed="yes" grouprefs="UV_STERILISER">
-<attribute name="VALUE" x="33.02" y="144.78" size="1.778" layer="96" rot="R90"/>
+<instance part="P+19" gate="1" x="124.46" y="127" smashed="yes" grouprefs="UV_STERILISER">
+<attribute name="VALUE" x="121.92" y="121.92" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R7" gate="G$1" x="10.16" y="116.84" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
-<attribute name="NAME" x="8.6614" y="113.03" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="13.462" y="113.03" size="1.778" layer="96" rot="R90"/>
+<instance part="R7" gate="G$1" x="99.06" y="93.98" smashed="yes" rot="R90" grouprefs="UV_STERILISER">
+<attribute name="NAME" x="97.5614" y="90.17" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="102.362" y="90.17" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="Q2" gate="G$1" x="50.8" y="121.92" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="62.23" y="125.73" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="62.23" y="123.19" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="D2" gate="G$1" x="58.42" y="139.7" smashed="yes" rot="R90" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="55.3974" y="137.16" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="63.2714" y="137.16" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R2" gate="G$1" x="35.56" y="132.08" smashed="yes" rot="R90" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="34.0614" y="128.27" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="38.862" y="128.27" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="SUPPLY8" gate="GND" x="58.42" y="101.6" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="VALUE" x="56.515" y="98.425" size="1.778" layer="96"/>
+</instance>
+<instance part="P+7" gate="1" x="58.42" y="152.4" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="VALUE" x="55.88" y="147.32" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="ISP" gate="-2" x="68.58" y="134.62" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="71.12" y="133.858" size="1.524" layer="95"/>
+</instance>
+<instance part="ISP" gate="-1" x="68.58" y="144.78" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="71.12" y="144.018" size="1.524" layer="95"/>
+</instance>
+<instance part="R4" gate="G$1" x="43.18" y="121.92" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="39.37" y="123.4186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="39.37" y="118.618" size="1.778" layer="96"/>
+</instance>
+<instance part="P+8" gate="1" x="35.56" y="142.24" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="VALUE" x="33.02" y="137.16" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="IC1" gate="C" x="22.86" y="121.92" smashed="yes" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="25.4" y="125.095" size="1.778" layer="95"/>
+<attribute name="VALUE" x="25.4" y="116.84" size="1.778" layer="96"/>
+</instance>
+<instance part="R8" gate="G$1" x="10.16" y="114.3" smashed="yes" rot="R90" grouprefs="IRRIGATION_SUPPLY_PUMP">
+<attribute name="NAME" x="8.6614" y="110.49" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="13.462" y="110.49" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="Q3" gate="G$1" x="50.8" y="190.5" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="62.23" y="194.31" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="62.23" y="191.77" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="D3" gate="G$1" x="58.42" y="208.28" smashed="yes" rot="R90" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="55.3974" y="205.74" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="63.2714" y="205.74" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R9" gate="G$1" x="35.56" y="200.66" smashed="yes" rot="R90" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="34.0614" y="196.85" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="38.862" y="196.85" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="SUPPLY11" gate="GND" x="58.42" y="170.18" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="VALUE" x="56.515" y="167.005" size="1.778" layer="96"/>
+</instance>
+<instance part="P+9" gate="1" x="58.42" y="220.98" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="VALUE" x="55.88" y="215.9" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="MP" gate="-2" x="68.58" y="203.2" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="71.12" y="202.438" size="1.524" layer="95"/>
+</instance>
+<instance part="MP" gate="-1" x="68.58" y="213.36" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="71.12" y="212.598" size="1.524" layer="95"/>
+</instance>
+<instance part="R10" gate="G$1" x="43.18" y="190.5" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="39.37" y="191.9986" size="1.778" layer="95"/>
+<attribute name="VALUE" x="39.37" y="187.198" size="1.778" layer="96"/>
+</instance>
+<instance part="P+12" gate="1" x="35.56" y="210.82" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="VALUE" x="33.02" y="205.74" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="IC1" gate="D" x="22.86" y="190.5" smashed="yes" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="25.4" y="193.675" size="1.778" layer="95"/>
+<attribute name="VALUE" x="25.4" y="185.42" size="1.778" layer="96"/>
+</instance>
+<instance part="R12" gate="G$1" x="10.16" y="182.88" smashed="yes" rot="R90" grouprefs="MIXING_PUMP">
+<attribute name="NAME" x="8.6614" y="179.07" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="13.462" y="179.07" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="MT_DS" gate="G$1" x="208.28" y="24.13" smashed="yes">
+<attribute name="NAME" x="201.93" y="30.48" size="1.27" layer="95" ratio="10"/>
+</instance>
+<instance part="K2" gate="G$1" x="172.72" y="177.8" smashed="yes" rot="R90" grouprefs="HEATER">
+<attribute name="NAME" x="167.64" y="196.85" size="1.778" layer="95" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="182.88" y="184.15" size="1.778" layer="96" rot="R90" align="center-left"/>
+</instance>
+<instance part="Q4" gate="G$1" x="139.7" y="180.34" smashed="yes" grouprefs="HEATER">
+<attribute name="NAME" x="151.13" y="184.15" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="151.13" y="181.61" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="D4" gate="G$1" x="147.32" y="198.12" smashed="yes" rot="R90" grouprefs="HEATER">
+<attribute name="NAME" x="144.2974" y="195.58" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="152.1714" y="195.58" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R13" gate="G$1" x="124.46" y="195.58" smashed="yes" rot="R90" grouprefs="HEATER">
+<attribute name="NAME" x="122.9614" y="191.77" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="127.762" y="191.77" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="SUPPLY12" gate="GND" x="147.32" y="160.02" smashed="yes" grouprefs="HEATER">
+<attribute name="VALUE" x="145.415" y="156.845" size="1.778" layer="96"/>
+</instance>
+<instance part="P+13" gate="1" x="147.32" y="210.82" smashed="yes" grouprefs="HEATER">
+<attribute name="VALUE" x="144.78" y="205.74" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="HCTL" gate="G$1" x="193.04" y="195.58" smashed="yes" grouprefs="HEATER">
+<attribute name="VALUE" x="191.77" y="190.5" size="1.778" layer="96"/>
+<attribute name="NAME" x="191.77" y="201.422" size="1.778" layer="95"/>
+</instance>
+<instance part="R14" gate="G$1" x="132.08" y="180.34" smashed="yes" grouprefs="HEATER">
+<attribute name="NAME" x="128.27" y="181.8386" size="1.778" layer="95"/>
+<attribute name="VALUE" x="128.27" y="177.038" size="1.778" layer="96"/>
+</instance>
+<instance part="IC1" gate="E" x="111.76" y="180.34" smashed="yes" grouprefs="HEATER">
+<attribute name="NAME" x="114.3" y="183.515" size="1.778" layer="95"/>
+<attribute name="VALUE" x="114.3" y="175.26" size="1.778" layer="96"/>
+</instance>
+<instance part="P+15" gate="1" x="124.46" y="205.74" smashed="yes" grouprefs="HEATER">
+<attribute name="VALUE" x="121.92" y="200.66" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R15" gate="G$1" x="99.06" y="172.72" smashed="yes" rot="R90" grouprefs="HEATER">
+<attribute name="NAME" x="97.5614" y="168.91" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="102.362" y="168.91" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -2518,14 +2660,18 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </segment>
 <segment>
 <pinref part="IST_DS" gate="G$1" pin="1"/>
-<wire x1="199.39" y1="58.42" x2="177.8" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="204.47" y1="58.42" x2="177.8" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
 <wire x1="177.8" y1="58.42" x2="177.8" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="RT_DS" gate="G$1" pin="1"/>
-<wire x1="199.39" y1="43.18" x2="177.8" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="204.47" y1="43.18" x2="177.8" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="43.18" x2="177.8" y2="53.34" width="0.1524" layer="91"/>
 <junction x="177.8" y="58.42"/>
 <wire x1="177.8" y1="53.34" x2="177.8" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="MT_DS" gate="G$1" pin="1"/>
+<wire x1="204.47" y1="27.94" x2="177.8" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="27.94" x2="177.8" y2="43.18" width="0.1524" layer="91"/>
+<junction x="177.8" y="43.18"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="+5V."/>
@@ -2547,16 +2693,38 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <junction x="38.1" y="-106.68"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="144.78" x2="58.42" y2="147.32" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="58.42" y1="147.32" x2="58.42" y2="149.86" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="58.42" y1="152.4" x2="58.42" y2="149.86" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="83.82" y1="154.94" x2="78.74" y2="154.94" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="78.74" y1="154.94" x2="78.74" y2="147.32" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="78.74" y1="147.32" x2="58.42" y2="147.32" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<junction x="58.42" y="147.32" grouprefs="UV_STERILISER"/>
+<wire x1="147.32" y1="121.92" x2="147.32" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="147.32" y1="124.46" x2="147.32" y2="127" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="147.32" y1="129.54" x2="147.32" y2="127" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="172.72" y1="132.08" x2="167.64" y2="132.08" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="167.64" y1="132.08" x2="167.64" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="167.64" y1="124.46" x2="147.32" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<junction x="147.32" y="124.46" grouprefs="UV_STERILISER"/>
 <pinref part="K1" gate="G$1" pin="COIL_2"/>
 <pinref part="D6" gate="G$1" pin="C"/>
 <pinref part="P+11" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<wire x1="35.56" y1="139.7" x2="35.56" y2="137.16" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<pinref part="P+8" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<wire x1="35.56" y1="208.28" x2="35.56" y2="205.74" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="P+12" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<wire x1="147.32" y1="200.66" x2="147.32" y2="203.2" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="147.32" y1="203.2" x2="147.32" y2="205.74" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="147.32" y1="208.28" x2="147.32" y2="205.74" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="172.72" y1="210.82" x2="167.64" y2="210.82" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="167.64" y1="210.82" x2="167.64" y2="203.2" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="167.64" y1="203.2" x2="147.32" y2="203.2" width="0.1524" layer="91" grouprefs="HEATER"/>
+<junction x="147.32" y="203.2" grouprefs="HEATER"/>
+<pinref part="K2" gate="G$1" pin="COIL_2"/>
+<pinref part="D4" gate="G$1" pin="C"/>
+<pinref part="P+13" gate="1" pin="+5V"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -2586,38 +2754,20 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <wire x1="25.4" y1="-7.62" x2="27.94" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="C" pin="I"/>
-<pinref part="IC1" gate="D" pin="I"/>
-<wire x1="187.96" y1="-30.48" x2="187.96" y2="-45.72" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="E" pin="I"/>
-<wire x1="187.96" y1="-45.72" x2="187.96" y2="-60.96" width="0.1524" layer="91"/>
-<junction x="187.96" y="-45.72"/>
 <pinref part="SUPPLY14" gate="GND" pin="GND"/>
 <wire x1="187.96" y1="-86.36" x2="187.96" y2="-83.82" width="0.1524" layer="91"/>
-<junction x="187.96" y="-60.96"/>
-<pinref part="IC1" gate="C" pin="O"/>
 <wire x1="187.96" y1="-83.82" x2="187.96" y2="-76.2" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="D" pin="O"/>
-<wire x1="208.28" y1="-30.48" x2="208.28" y2="-45.72" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="E" pin="O"/>
-<wire x1="208.28" y1="-45.72" x2="208.28" y2="-60.96" width="0.1524" layer="91"/>
-<junction x="208.28" y="-45.72"/>
-<wire x1="208.28" y1="-60.96" x2="208.28" y2="-76.2" width="0.1524" layer="91"/>
-<junction x="208.28" y="-60.96"/>
 <wire x1="208.28" y1="-83.82" x2="187.96" y2="-83.82" width="0.1524" layer="91"/>
 <junction x="187.96" y="-83.82"/>
 <pinref part="IC1" gate="F" pin="I"/>
 <pinref part="IC1" gate="F" pin="O"/>
 <wire x1="208.28" y1="-76.2" x2="208.28" y2="-83.82" width="0.1524" layer="91"/>
-<junction x="208.28" y="-76.2"/>
-<wire x1="187.96" y1="-76.2" x2="187.96" y2="-60.96" width="0.1524" layer="91"/>
-<junction x="187.96" y="-76.2"/>
 </segment>
 <segment>
 <wire x1="58.42" y1="35.56" x2="58.42" y2="38.1" width="0.1524" layer="91" grouprefs="RUNOFF_RECYCLING_PUMP"/>
 <wire x1="58.42" y1="38.1" x2="58.42" y2="48.26" width="0.1524" layer="91" grouprefs="RUNOFF_RECYCLING_PUMP"/>
-<wire x1="10.16" y1="40.64" x2="7.62" y2="38.1" width="0.1524" layer="91" grouprefs="RUNOFF_RECYCLING_PUMP"/>
-<wire x1="7.62" y1="38.1" x2="58.42" y2="38.1" width="0.1524" layer="91" grouprefs="RUNOFF_RECYCLING_PUMP"/>
+<wire x1="10.16" y1="40.64" x2="10.16" y2="38.1" width="0.1524" layer="91" grouprefs="RUNOFF_RECYCLING_PUMP"/>
+<wire x1="10.16" y1="38.1" x2="58.42" y2="38.1" width="0.1524" layer="91" grouprefs="RUNOFF_RECYCLING_PUMP"/>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <pinref part="SUPPLY1" gate="GND" pin="GND"/>
 <pinref part="R3" gate="G$1" pin="1"/>
@@ -2625,27 +2775,24 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </segment>
 <segment>
 <pinref part="IST_DS" gate="G$1" pin="2"/>
-<wire x1="199.39" y1="55.88" x2="182.88" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="204.47" y1="55.88" x2="182.88" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 <wire x1="182.88" y1="55.88" x2="182.88" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="RT_DS" gate="G$1" pin="2"/>
 <wire x1="182.88" y1="40.64" x2="182.88" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="30.48" x2="182.88" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="30.48" x2="182.88" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="25.4" x2="182.88" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="20.32" x2="182.88" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="15.24" x2="182.88" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="10.16" x2="182.88" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="5.08" x2="182.88" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="199.39" y1="40.64" x2="182.88" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="204.47" y1="40.64" x2="182.88" y2="40.64" width="0.1524" layer="91"/>
 <junction x="182.88" y="40.64"/>
-<pinref part="MU1" gate="G$1" pin="RX3"/>
-<wire x1="162.56" y1="40.64" x2="170.18" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="40.64" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="170.18" y1="35.56" x2="170.18" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="170.18" y1="30.48" x2="182.88" y2="30.48" width="0.1524" layer="91"/>
 <junction x="182.88" y="30.48"/>
 <pinref part="MU1" gate="G$1" pin="RX4"/>
 <wire x1="162.56" y1="35.56" x2="170.18" y2="35.56" width="0.1524" layer="91"/>
-<junction x="170.18" y="35.56"/>
 <pinref part="MU2" gate="G$1" pin="RX1"/>
 <wire x1="162.56" y1="20.32" x2="182.88" y2="20.32" width="0.1524" layer="91"/>
 <junction x="182.88" y="20.32"/>
@@ -2658,6 +2805,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <pinref part="MU2" gate="G$1" pin="RX4"/>
 <wire x1="162.56" y1="5.08" x2="182.88" y2="5.08" width="0.1524" layer="91"/>
 <junction x="182.88" y="5.08"/>
+<pinref part="MT_DS" gate="G$1" pin="2"/>
+<wire x1="204.47" y1="25.4" x2="182.88" y2="25.4" width="0.1524" layer="91"/>
+<junction x="182.88" y="25.4"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="GND.."/>
@@ -2698,14 +2848,44 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <junction x="96.52" y="35.56"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="106.68" x2="58.42" y2="109.22" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="58.42" y1="109.22" x2="58.42" y2="119.38" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="10.16" y1="111.76" x2="10.16" y2="109.22" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="10.16" y1="109.22" x2="58.42" y2="109.22" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<junction x="58.42" y="109.22" grouprefs="UV_STERILISER"/>
+<wire x1="147.32" y1="83.82" x2="147.32" y2="86.36" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="147.32" y1="86.36" x2="147.32" y2="96.52" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="99.06" y1="88.9" x2="99.06" y2="86.36" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="99.06" y1="86.36" x2="147.32" y2="86.36" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<junction x="147.32" y="86.36" grouprefs="UV_STERILISER"/>
 <pinref part="Q6" gate="G$1" pin="S"/>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
 <pinref part="R7" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="58.42" y1="104.14" x2="58.42" y2="106.68" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="58.42" y1="106.68" x2="58.42" y2="116.84" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="10.16" y1="109.22" x2="10.16" y2="106.68" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="10.16" y1="106.68" x2="58.42" y2="106.68" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<pinref part="Q2" gate="G$1" pin="S"/>
+<pinref part="SUPPLY8" gate="GND" pin="GND"/>
+<pinref part="R8" gate="G$1" pin="1"/>
+<junction x="58.42" y="106.68"/>
+</segment>
+<segment>
+<wire x1="58.42" y1="172.72" x2="58.42" y2="175.26" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="58.42" y1="175.26" x2="58.42" y2="185.42" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="10.16" y1="177.8" x2="10.16" y2="175.26" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="10.16" y1="175.26" x2="58.42" y2="175.26" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<pinref part="Q3" gate="G$1" pin="S"/>
+<pinref part="SUPPLY11" gate="GND" pin="GND"/>
+<pinref part="R12" gate="G$1" pin="1"/>
+<junction x="58.42" y="175.26"/>
+</segment>
+<segment>
+<wire x1="147.32" y1="162.56" x2="147.32" y2="165.1" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="147.32" y1="165.1" x2="147.32" y2="175.26" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="99.06" y1="167.64" x2="99.06" y2="165.1" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="99.06" y1="165.1" x2="147.32" y2="165.1" width="0.1524" layer="91" grouprefs="HEATER"/>
+<junction x="147.32" y="165.1" grouprefs="HEATER"/>
+<pinref part="Q4" gate="G$1" pin="S"/>
+<pinref part="SUPPLY12" gate="GND" pin="GND"/>
+<pinref part="R15" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="+12V" class="4">
@@ -2725,9 +2905,34 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <pinref part="RRP" gate="-1" pin="S"/>
 </segment>
 <segment>
-<wire x1="35.56" y1="144.78" x2="35.56" y2="147.32" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="124.46" y1="121.92" x2="124.46" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 <pinref part="P+19" gate="1" pin="+12V"/>
+</segment>
+<segment>
+<wire x1="58.42" y1="147.32" x2="58.42" y2="149.86" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="58.42" y1="142.24" x2="58.42" y2="144.78" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="58.42" y1="144.78" x2="58.42" y2="147.32" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="66.04" y1="144.78" x2="58.42" y2="144.78" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<junction x="58.42" y="144.78" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<pinref part="D2" gate="G$1" pin="C"/>
+<pinref part="P+7" gate="1" pin="+12V"/>
+<pinref part="ISP" gate="-1" pin="S"/>
+</segment>
+<segment>
+<wire x1="58.42" y1="215.9" x2="58.42" y2="218.44" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="58.42" y1="210.82" x2="58.42" y2="213.36" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="58.42" y1="213.36" x2="58.42" y2="215.9" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="66.04" y1="213.36" x2="58.42" y2="213.36" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<junction x="58.42" y="213.36" grouprefs="MIXING_PUMP"/>
+<pinref part="D3" gate="G$1" pin="C"/>
+<pinref part="P+9" gate="1" pin="+12V"/>
+<pinref part="MP" gate="-1" pin="S"/>
+</segment>
+<segment>
+<wire x1="124.46" y1="200.66" x2="124.46" y2="203.2" width="0.1524" layer="91" grouprefs="HEATER"/>
+<pinref part="R13" gate="G$1" pin="2"/>
+<pinref part="P+15" gate="1" pin="+12V"/>
 </segment>
 </net>
 <net name="+240VAC" class="1">
@@ -2737,9 +2942,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <label x="66.04" y="-5.08" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="86.36" y1="154.94" x2="86.36" y2="162.56" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<label x="86.36" y="154.94" size="1.778" layer="95" rot="R90" grouprefs="UV_STERILISER"/>
+<wire x1="175.26" y1="132.08" x2="175.26" y2="139.7" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<label x="175.26" y="132.08" size="1.778" layer="95" rot="R90" grouprefs="UV_STERILISER"/>
 <pinref part="K1" gate="G$1" pin="COM"/>
+</segment>
+<segment>
+<wire x1="175.26" y1="210.82" x2="175.26" y2="218.44" width="0.1524" layer="91" grouprefs="HEATER"/>
+<label x="175.26" y="210.82" size="1.778" layer="95" rot="R90" grouprefs="HEATER"/>
+<pinref part="K2" gate="G$1" pin="COM"/>
 </segment>
 </net>
 <net name="-240VAC" class="1">
@@ -2749,10 +2959,16 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <label x="68.58" y="-5.08" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<wire x1="99.06" y1="142.24" x2="96.52" y2="142.24" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="96.52" y1="142.24" x2="96.52" y2="162.56" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<label x="96.52" y="154.94" size="1.778" layer="95" rot="R90" grouprefs="UV_STERILISER"/>
+<wire x1="187.96" y1="119.38" x2="185.42" y2="119.38" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="185.42" y1="119.38" x2="185.42" y2="139.7" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<label x="185.42" y="132.08" size="1.778" layer="95" rot="R90" grouprefs="UV_STERILISER"/>
 <pinref part="UVCTL" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="187.96" y1="198.12" x2="185.42" y2="198.12" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="185.42" y1="198.12" x2="185.42" y2="218.44" width="0.1524" layer="91" grouprefs="HEATER"/>
+<label x="185.42" y="210.82" size="1.778" layer="95" rot="R90" grouprefs="HEATER"/>
+<pinref part="HCTL" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$10" class="5">
@@ -2803,17 +3019,17 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="IST_DSO" class="0">
 <segment>
 <pinref part="IST_DS" gate="G$1" pin="4"/>
-<wire x1="199.39" y1="50.8" x2="185.42" y2="50.8" width="0.1524" layer="91"/>
-<label x="185.42" y="50.8" size="1.778" layer="95"/>
+<wire x1="204.47" y1="50.8" x2="193.04" y2="50.8" width="0.1524" layer="91"/>
+<label x="190.5" y="50.8" size="1.778" layer="95"/>
 <pinref part="MU1" gate="G$1" pin="RX1"/>
-<wire x1="185.42" y1="50.8" x2="162.56" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="50.8" x2="162.56" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RRT_DSO" class="0">
 <segment>
 <pinref part="RT_DS" gate="G$1" pin="4"/>
-<wire x1="199.39" y1="35.56" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
-<label x="185.42" y="35.56" size="1.778" layer="95"/>
+<wire x1="204.47" y1="35.56" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
+<label x="190.5" y="35.56" size="1.778" layer="95"/>
 <pinref part="MU1" gate="G$1" pin="RX2"/>
 <wire x1="162.56" y1="45.72" x2="172.72" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="45.72" x2="172.72" y2="35.56" width="0.1524" layer="91"/>
@@ -2823,8 +3039,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="IST_DSMS" class="0">
 <segment>
 <pinref part="IST_DS" gate="G$1" pin="3"/>
-<wire x1="199.39" y1="53.34" x2="185.42" y2="53.34" width="0.1524" layer="91"/>
-<label x="185.42" y="53.34" size="1.778" layer="95"/>
+<wire x1="204.47" y1="53.34" x2="190.5" y2="53.34" width="0.1524" layer="91"/>
+<label x="190.5" y="53.34" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="8"/>
@@ -2835,8 +3051,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <net name="RRT_DSMS" class="0">
 <segment>
 <pinref part="RT_DS" gate="G$1" pin="3"/>
-<wire x1="199.39" y1="38.1" x2="185.42" y2="38.1" width="0.1524" layer="91"/>
-<label x="185.42" y="38.1" size="1.778" layer="95"/>
+<wire x1="204.47" y1="38.1" x2="190.5" y2="38.1" width="0.1524" layer="91"/>
+<label x="190.5" y="38.1" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="9"/>
@@ -2947,12 +3163,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="N$21" class="0">
 <segment>
-<wire x1="58.42" y1="134.62" x2="58.42" y2="137.16" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="83.82" y1="121.92" x2="78.74" y2="121.92" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="78.74" y1="121.92" x2="78.74" y2="137.16" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="78.74" y1="137.16" x2="58.42" y2="137.16" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="58.42" y1="139.7" x2="58.42" y2="137.16" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<junction x="58.42" y="137.16" grouprefs="UV_STERILISER"/>
+<wire x1="147.32" y1="111.76" x2="147.32" y2="114.3" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="172.72" y1="99.06" x2="167.64" y2="99.06" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="167.64" y1="99.06" x2="167.64" y2="114.3" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="167.64" y1="114.3" x2="147.32" y2="114.3" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="147.32" y1="116.84" x2="147.32" y2="114.3" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<junction x="147.32" y="114.3" grouprefs="UV_STERILISER"/>
 <pinref part="K1" gate="G$1" pin="COIL_1"/>
 <pinref part="Q6" gate="G$1" pin="D"/>
 <pinref part="D6" gate="G$1" pin="A"/>
@@ -2960,13 +3176,130 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 </net>
 <net name="UVCTL" class="0">
 <segment>
-<wire x1="12.7" y1="124.46" x2="10.16" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<label x="7.62" y="127" size="1.778" layer="95" grouprefs="UV_STERILISER"/>
-<wire x1="10.16" y1="124.46" x2="7.62" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="10.16" y1="121.92" x2="10.16" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<junction x="10.16" y="124.46" grouprefs="UV_STERILISER"/>
+<wire x1="101.6" y1="101.6" x2="99.06" y2="101.6" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<label x="96.52" y="104.14" size="1.778" layer="95" grouprefs="UV_STERILISER"/>
+<wire x1="99.06" y1="101.6" x2="96.52" y2="101.6" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="99.06" y1="99.06" x2="99.06" y2="101.6" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<junction x="99.06" y="101.6" grouprefs="UV_STERILISER"/>
 <pinref part="IC1" gate="B" pin="I"/>
 <pinref part="R7" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="PCB2" gate="G$1" pin="2"/>
+<wire x1="60.96" y1="-27.94" x2="60.96" y2="-15.24" width="0.1524" layer="91"/>
+<label x="60.96" y="-25.4" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="N$7" class="1">
+<segment>
+<wire x1="177.8" y1="99.06" x2="185.42" y2="99.06" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="185.42" y1="99.06" x2="185.42" y2="116.84" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="185.42" y1="116.84" x2="187.96" y2="116.84" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<pinref part="K1" gate="G$1" pin="NO"/>
+<pinref part="UVCTL" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<wire x1="137.16" y1="101.6" x2="139.7" y2="101.6" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<pinref part="Q6" gate="G$1" pin="G"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<wire x1="127" y1="101.6" x2="124.46" y2="101.6" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="124.46" y1="101.6" x2="121.92" y2="101.6" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<wire x1="124.46" y1="111.76" x2="124.46" y2="101.6" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
+<junction x="124.46" y="101.6" grouprefs="UV_STERILISER"/>
+<pinref part="R6" gate="G$1" pin="1"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="IC1" gate="B" pin="O"/>
+</segment>
+</net>
+<net name="N$1" class="5">
+<segment>
+<wire x1="58.42" y1="132.08" x2="58.42" y2="134.62" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="66.04" y1="134.62" x2="58.42" y2="134.62" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="58.42" y1="137.16" x2="58.42" y2="134.62" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<junction x="58.42" y="134.62" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<pinref part="Q2" gate="G$1" pin="D"/>
+<pinref part="D2" gate="G$1" pin="A"/>
+<pinref part="ISP" gate="-2" pin="S"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<wire x1="33.02" y1="121.92" x2="35.56" y2="121.92" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="35.56" y1="121.92" x2="38.1" y2="121.92" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="35.56" y1="127" x2="35.56" y2="121.92" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<junction x="35.56" y="121.92" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="IC1" gate="C" pin="O"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<wire x1="48.26" y1="121.92" x2="50.8" y2="121.92" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<pinref part="Q2" gate="G$1" pin="G"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="ISPCTL" class="0">
+<segment>
+<wire x1="12.7" y1="121.92" x2="10.16" y2="121.92" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<label x="7.62" y="124.46" size="1.778" layer="95" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="10.16" y1="121.92" x2="7.62" y2="121.92" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<wire x1="10.16" y1="121.92" x2="10.16" y2="119.38" width="0.1524" layer="91" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<junction x="10.16" y="121.92" grouprefs="IRRIGATION_SUPPLY_PUMP"/>
+<pinref part="IC1" gate="C" pin="I"/>
+<pinref part="R8" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="PCB2" gate="G$1" pin="5"/>
+<wire x1="53.34" y1="-27.94" x2="53.34" y2="-15.24" width="0.1524" layer="91"/>
+<label x="53.34" y="-25.4" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="N$6" class="5">
+<segment>
+<wire x1="58.42" y1="200.66" x2="58.42" y2="203.2" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="66.04" y1="203.2" x2="58.42" y2="203.2" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="58.42" y1="205.74" x2="58.42" y2="203.2" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<junction x="58.42" y="203.2" grouprefs="MIXING_PUMP"/>
+<pinref part="Q3" gate="G$1" pin="D"/>
+<pinref part="D3" gate="G$1" pin="A"/>
+<pinref part="MP" gate="-2" pin="S"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<wire x1="33.02" y1="190.5" x2="35.56" y2="190.5" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="35.56" y1="190.5" x2="38.1" y2="190.5" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="35.56" y1="195.58" x2="35.56" y2="190.5" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<junction x="35.56" y="190.5" grouprefs="MIXING_PUMP"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="IC1" gate="D" pin="O"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<wire x1="48.26" y1="190.5" x2="50.8" y2="190.5" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<pinref part="Q3" gate="G$1" pin="G"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="MPCTL" class="0">
+<segment>
+<wire x1="12.7" y1="190.5" x2="10.16" y2="190.5" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<label x="7.62" y="193.04" size="1.778" layer="95" grouprefs="MIXING_PUMP"/>
+<wire x1="10.16" y1="190.5" x2="7.62" y2="190.5" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<wire x1="10.16" y1="190.5" x2="10.16" y2="187.96" width="0.1524" layer="91" grouprefs="MIXING_PUMP"/>
+<junction x="10.16" y="190.5" grouprefs="MIXING_PUMP"/>
+<pinref part="IC1" gate="D" pin="I"/>
+<pinref part="R12" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="PCB2" gate="G$1" pin="3"/>
@@ -2974,31 +3307,83 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <label x="58.42" y="-25.4" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$7" class="2">
+<net name="MT_DSMS" class="0">
 <segment>
-<wire x1="88.9" y1="121.92" x2="96.52" y2="121.92" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="96.52" y1="121.92" x2="96.52" y2="139.7" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="96.52" y1="139.7" x2="99.06" y2="139.7" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<pinref part="K1" gate="G$1" pin="NO"/>
-<pinref part="UVCTL" gate="G$1" pin="2"/>
+<pinref part="MT_DS" gate="G$1" pin="3"/>
+<wire x1="204.47" y1="22.86" x2="190.5" y2="22.86" width="0.1524" layer="91"/>
+<label x="190.5" y="22.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="PCB2" gate="G$1" pin="10"/>
+<wire x1="35.56" y1="-27.94" x2="35.56" y2="-15.24" width="0.1524" layer="91"/>
+<label x="35.56" y="-25.4" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$13" class="0">
+<net name="N$11" class="0">
 <segment>
-<wire x1="48.26" y1="124.46" x2="50.8" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<pinref part="Q6" gate="G$1" pin="G"/>
-<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="MT_DS" gate="G$1" pin="4"/>
+<wire x1="204.47" y1="20.32" x2="187.96" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="20.32" x2="187.96" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="MU1" gate="G$1" pin="RX3"/>
+<wire x1="162.56" y1="40.64" x2="180.34" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="40.64" x2="180.34" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="22.86" x2="187.96" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="N$12" class="0">
 <segment>
-<wire x1="38.1" y1="124.46" x2="35.56" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="35.56" y1="124.46" x2="33.02" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<wire x1="35.56" y1="134.62" x2="35.56" y2="124.46" width="0.1524" layer="91" grouprefs="UV_STERILISER"/>
-<junction x="35.56" y="124.46" grouprefs="UV_STERILISER"/>
-<pinref part="R6" gate="G$1" pin="1"/>
-<pinref part="R11" gate="G$1" pin="1"/>
-<pinref part="IC1" gate="B" pin="O"/>
+<wire x1="147.32" y1="190.5" x2="147.32" y2="193.04" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="172.72" y1="177.8" x2="167.64" y2="177.8" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="167.64" y1="177.8" x2="167.64" y2="193.04" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="167.64" y1="193.04" x2="147.32" y2="193.04" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="147.32" y1="195.58" x2="147.32" y2="193.04" width="0.1524" layer="91" grouprefs="HEATER"/>
+<junction x="147.32" y="193.04" grouprefs="HEATER"/>
+<pinref part="K2" gate="G$1" pin="COIL_1"/>
+<pinref part="Q4" gate="G$1" pin="D"/>
+<pinref part="D4" gate="G$1" pin="A"/>
+</segment>
+</net>
+<net name="N$14" class="1">
+<segment>
+<wire x1="177.8" y1="177.8" x2="185.42" y2="177.8" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="185.42" y1="177.8" x2="185.42" y2="195.58" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="185.42" y1="195.58" x2="187.96" y2="195.58" width="0.1524" layer="91" grouprefs="HEATER"/>
+<pinref part="K2" gate="G$1" pin="NO"/>
+<pinref part="HCTL" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<wire x1="137.16" y1="180.34" x2="139.7" y2="180.34" width="0.1524" layer="91" grouprefs="HEATER"/>
+<pinref part="Q4" gate="G$1" pin="G"/>
+<pinref part="R14" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$16" class="0">
+<segment>
+<wire x1="127" y1="180.34" x2="124.46" y2="180.34" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="124.46" y1="180.34" x2="121.92" y2="180.34" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="124.46" y1="190.5" x2="124.46" y2="180.34" width="0.1524" layer="91" grouprefs="HEATER"/>
+<junction x="124.46" y="180.34" grouprefs="HEATER"/>
+<pinref part="R13" gate="G$1" pin="1"/>
+<pinref part="R14" gate="G$1" pin="1"/>
+<pinref part="IC1" gate="E" pin="O"/>
+</segment>
+</net>
+<net name="HCTL" class="0">
+<segment>
+<wire x1="101.6" y1="180.34" x2="99.06" y2="180.34" width="0.1524" layer="91" grouprefs="HEATER"/>
+<label x="96.52" y="182.88" size="1.778" layer="95" grouprefs="HEATER"/>
+<wire x1="99.06" y1="180.34" x2="96.52" y2="180.34" width="0.1524" layer="91" grouprefs="HEATER"/>
+<wire x1="99.06" y1="177.8" x2="99.06" y2="180.34" width="0.1524" layer="91" grouprefs="HEATER"/>
+<junction x="99.06" y="180.34" grouprefs="HEATER"/>
+<pinref part="IC1" gate="E" pin="I"/>
+<pinref part="R15" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="PCB2" gate="G$1" pin="22"/>
+<wire x1="111.76" y1="-38.1" x2="127" y2="-38.1" width="0.1524" layer="91"/>
+<label x="119.38" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -3019,6 +3404,8 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/SRM-1C-SL-5VD
 <approved hash="113,1,35.2704,10.0679,5VS,,,,,"/>
 <approved hash="113,1,50.5104,10.773,12VS,,,,,"/>
 <approved hash="113,1,65.7504,13.2499,240ACVS,,,,,"/>
+<approved hash="113,1,192.171,119.67,UVCTL,,,,,"/>
+<approved hash="113,1,191.323,198.41,HCTL,,,,,"/>
 </errors>
 </schematic>
 </drawing>
