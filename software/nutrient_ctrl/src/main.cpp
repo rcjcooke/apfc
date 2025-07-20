@@ -12,19 +12,33 @@
 /************************
  * Constants
  ************************/
-// Runoff Recycling Pump control pin
-static const uint8_t RRPCTL = 4;
+// MultiUART Board 1 Chip Select pin
+static const uint8_t MU2CS = 7;
 // MultiUART Board 1 Chip Select pin
 static const uint8_t MU1CS = 6;
+
+// Irrigation Supply Pump control pin
+static const uint8_t ISPCTL = 5;
+// Runoff Recycling Pump control pin
+static const uint8_t RRPCTL = 4;
+// Mixing Pump control pin
+static const uint8_t MPCTL = 3;
+
 // UV Sterilisation Control pin
-static const uint8_t UVCTL = 3;
+static const uint8_t UVCTL = 2;
+// Heater Control pin
+static const uint8_t HCTL = 22;
 
 /* MultiUART board peripheral indexes */
 // Irrigation Supply Tank Depth Sensor
 static const char IST_MUART_INDEX = 0;
 // Irrigation Supply Tank Depth Sensor
 static const char RRT_MUART_INDEX = 1;
+// Mixing Tank Depth Sensor
+static const char MT_MUART_INDEX = 2;
 
+// Mixing Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
+static const uint8_t MT_DSMS = 10;
 // Runoff Recycling Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
 static const uint8_t RRT_DSMS = 9;
 // Irrigation Supply Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
