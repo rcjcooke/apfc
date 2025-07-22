@@ -180,7 +180,7 @@ void SolutionTanksController::runningStateLoop() {
     triggerAlarm(ALARM_IRRIGATIONSUPPLY_TANK_OVER_FULL);
   } 
 
-  /* V2.1 - no mixing tank, runoff goes direct to supply tank, all water still, so no sterilisation etc. */
+  /* V2.2 - no mixing tank, runoff goes direct to supply tank */
   // If we need more solution and it's available, then top it up
   if (irrigationSupplyTopupRequested && (mRunoffRecyclingTankDepth > SolutionTanksControllerNS::RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM)) {
     if (mLEDUVC) turnOnUV();
