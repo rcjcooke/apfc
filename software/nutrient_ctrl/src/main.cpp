@@ -32,7 +32,7 @@ static const uint8_t HCTL = 22;
 /* MultiUART board peripheral indexes */
 // Irrigation Supply Tank Depth Sensor
 static const char IST_MUART_INDEX = 0;
-// Irrigation Supply Tank Depth Sensor
+// Runoff Recycling Tank Depth Sensor
 static const char RRT_MUART_INDEX = 1;
 // Mixing Tank Depth Sensor
 static const char MT_MUART_INDEX = 2;
