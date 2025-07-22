@@ -80,7 +80,7 @@ namespace A02YYUW {
      *******************************/
     /*
     * Reads the distance from the sensor. Returns: 
-    *  -  1 Throttled out: call to readDistance() function made witihin minimum re-read time (this result is the only one not added to the lastResults buffer)
+    *  -  1 Throttled out: call to readDistance() function made within minimum re-read time (this result is the only one not added to the lastResults buffer)
     *  -  0 Successfully read and updated distance,
     *  - -1 not enough data available in the read buffer from the sensor yet,
     *  - -2 HEADER_BYTE not found despite there being a full packet's worth of data in the read buffer,
