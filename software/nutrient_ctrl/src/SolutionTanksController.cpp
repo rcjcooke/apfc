@@ -123,8 +123,8 @@ void SolutionTanksController::startupStateLoop() {
   mIrrigationSupplyTankDepthSensor->readDistance();
 
   // Keep cycling until we get consistent valid readings from all depth sensors - this deals with buffering and comms protocol sychronisation concerns
-  if (checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, true)) return;
-  if (checkLast5DepthSensorReadings(mIrrigationSupplyTankDepthSensor, true)) return;
+  if (A02YYUW::checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, true)) return;
+  if (A02YYUW::checkLast5DepthSensorReadings(mIrrigationSupplyTankDepthSensor, true)) return;
 
   // If we've got this far then transition to a running state
   setRunState(ControllerRunState::RUNNING);
@@ -140,14 +140,14 @@ void SolutionTanksController::runningStateLoop() {
   // Read all the depths
   if (mRunoffRecyclingTankDepthSensor->readDistance() < 0) {
     // If there are 5 bad readings in a row then throw toys out the pram - the occasional bad reading isn't an issue
-    if (checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, false)) {
+    if (A02YYUW::checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, false)) {
       triggerEmergency(ALARM_RUNOFF_RECYCLING_TANK_DEPTH_SENSOR_COMMS_ERROR);
       return;
     }
   }
   if (mIrrigationSupplyTankDepthSensor->readDistance() < 0) {
     // If there are 5 bad readings in a row then throw toys out the pram - the occasional bad reading isn't an issue
-    if (checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, false)) {
+    if (A02YYUW::checkLast5DepthSensorReadings(mRunoffRecyclingTankDepthSensor, false)) {
       triggerEmergency(ALARM_IRRIGATIONSUPPLY_TANK_DEPTH_SENSOR_COMMS_ERROR);
       return;
     }
@@ -247,22 +247,3 @@ float SolutionTanksController::convertDistanceToDepth(float distance) {
   return SolutionTanksControllerNS::EMPTY_TANK_DISTANCE_MM - distance;
 }
 
-/* Checks the last 5 readings from the sensor. If (allGood) then returns true
- * if all readings are good. If (!allGood) then returns true if every reading
- * is bad. */
-bool SolutionTanksController::checkLast5DepthSensorReadings(A02YYUW::A02YYUWviaUARTStream *sensor, bool allGood) {
-  int lastResults[5];
-  sensor->getLast5ReadResults(lastResults);
-  if (allGood) {
-    int total = 0;
-    for (size_t i = 0; i < 5; i++) {
-      total+=lastResults[i];
-    }
-    return (total == 0);
-  } else {
-    for (size_t i = 0; i < 5; i++) {
-      if (lastResults[i] == 0) return false;
-    }
-    return true;
-  }
-}

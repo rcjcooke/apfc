@@ -194,3 +194,25 @@ int A02YYUWviaUARTStream::processData(const byte* data) {
     return distance;
   }
 }
+
+namespace A02YYUW {
+  /* Checks the last 5 readings from the sensor. If (allGood) then returns true
+  * if all readings are good. If (!allGood) then returns true if every reading
+  * is bad. */
+  bool checkLast5DepthSensorReadings(A02YYUWviaUARTStream *sensor, bool allGood) {
+    int lastResults[5];
+    sensor->getLast5ReadResults(lastResults);
+    if (allGood) {
+      int total = 0;
+      for (size_t i = 0; i < 5; i++) {
+        total+=lastResults[i];
+      }
+      return (total == 0);
+    } else {
+      for (size_t i = 0; i < 5; i++) {
+        if (lastResults[i] == 0) return false;
+      }
+      return true;
+    }
+  }
+}

@@ -123,10 +123,6 @@ namespace apfc {
      *******************************/
     // Converts a distance sensor reading into a tank depth
     float convertDistanceToDepth(float distance);
-    /* Checks the last 5 readings from the sensor. If (allGood) then returns true
-    * if all readings are good. If (!allGood) then returns true if every reading
-    * is bad. */
-    bool checkLast5DepthSensorReadings(A02YYUW::A02YYUWviaUARTStream *sensor, bool allGood);
 
   };
 }

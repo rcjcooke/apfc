@@ -7,28 +7,13 @@ using namespace apfc;
  ************************/
 namespace WaterSupplyControllerNS {
 
-  // The distance measured for a completely empty tank
-  static const float EMPTY_TANK_DISTANCE_MM = 150.0f;
+  // The distance measured for a completely empty tank - TODO: Measure this
+  static const float EMPTY_TANK_DISTANCE_MM = 1000.0f;
   
-  // Depth above which runoff recycling gets transferred back to the mixing tank
-  static const float RUNOFF_RECYCLING_TANK_TRANSFER_DEPTH_MM = 50.0f;
-  // Minimum depth for the runoff recycling tank
-  static const float RUNOFF_RECYCLING_MIN_TANK_DEPTH_MM = 10.0f;
-  // The minimum depth available across the mixing and runoff recycling tanks
-  static const float IN_SYSTEM_SOLUTION_MIN_DEPTH_MM = 50.0f;
-  // The maximum depth that should be available across the mixing and runoff recycling tanks
-  static const float IN_SYSTEM_SOLUTION_MAX_DEPTH_MM = 90.0f;
-
-  // The minimum depth the irrigationsupply tank should be allowed to get to
-  static const float IRRIGATIONSUPPLY_TANK_MIN_DEPTH_MM = 40.0f;
-  // The operating minimum depth of the irrigationsupply tank. If the depth goes below this figure, it should be topped up
-  static const float IRRIGATIONSUPPLY_TANK_OPS_MIN_DEPTH_MM = 60.0f;
-  // The operating maximum depth of the irrigationsupply tank. This is the depth to which the tank should be topped up when necessary
-  static const float IRRIGATIONSUPPLY_TANK_OPS_MAX_DEPTH_MM = 80.0f;
   // At this depth, there's too much in the tank
-  static const float WARNING_TANK_MAX_DEPTH_MM = 100.0f;
+  static const float WARNING_TANK_MAX_DEPTH_MM = 900.0f;
   // At this depth, there's too little in the tank
-  static const float WARNING_TANK_MIN_DEPTH_MM = 100.0f;
+  static const float WARNING_TANK_MIN_DEPTH_MM = 30.0f;
 
 }
 
@@ -44,7 +29,9 @@ WaterSupplyController::WaterSupplyController(
     uint8_t wasteWaterTankDepthModeSelectPin,
     uint8_t waterSupplyTDSDataPin,
     uint8_t preROTDSDataPin,
-    uint8_t outputWaterTDSDataPin) 
+    uint8_t outputWaterTDSDataPin, 
+    DallasTemperature* temperatureSensors,
+    const DeviceAddress waterSupplyTankTemperatureSensorAddress) 
       : StandardController('W', 4), 
         mWaterFilterSystemFlushSolenoidControlPin(waterFilterSystemFlushSolenoidControlPin) {
 
@@ -109,8 +96,8 @@ void WaterSupplyController::startupStateLoop() {
   mWasteWaterTankDepthSensor->readDistance();
 
   // Keep cycling until we get consistent valid readings from all depth sensors - this deals with buffering and comms protocol sychronisation concerns
-  if (checkLast5DepthSensorReadings(mWaterSupplyTankDepthSensor, true)) return;
-  if (checkLast5DepthSensorReadings(mWasteWaterTankDepthSensor, true)) return;
+  if (A02YYUW::checkLast5DepthSensorReadings(mWaterSupplyTankDepthSensor, true)) return;
+  if (A02YYUW::checkLast5DepthSensorReadings(mWasteWaterTankDepthSensor, true)) return;
 
   // If we've got this far then transition to a running state
   setRunState(ControllerRunState::RUNNING);
@@ -123,14 +110,14 @@ void WaterSupplyController::runningStateLoop() {
   // Read all the depths
   if (mWaterSupplyTankDepthSensor->readDistance() < 0) {
     // If there are 5 bad readings in a row then throw toys out the pram - the occasional bad reading isn't an issue
-    if (checkLast5DepthSensorReadings(mWaterSupplyTankDepthSensor, false)) {
+    if (A02YYUW::checkLast5DepthSensorReadings(mWaterSupplyTankDepthSensor, false)) {
       triggerEmergency(ALARM_WATER_SUPPLY_TANK_DEPTH_SENSOR_COMMS_ERROR);
       return;
     }
   }
   if (mWasteWaterTankDepthSensor->readDistance() < 0) {
     // If there are 5 bad readings in a row then throw toys out the pram - the occasional bad reading isn't an issue
-    if (checkLast5DepthSensorReadings(mWasteWaterTankDepthSensor, false)) {
+    if (A02YYUW::checkLast5DepthSensorReadings(mWasteWaterTankDepthSensor, false)) {
       triggerEmergency(ALARM_WASTE_WATER_TANK_DEPTH_SENSOR_COMMS_ERROR);
       return;
     }
@@ -156,9 +143,22 @@ void WaterSupplyController::runningStateLoop() {
   mPreROTDSensor->controlLoop();
   mOutputWaterTDSSensor->controlLoop();
 
-  float waterSupplyTDSValue = getWaterSupplyTDSValue();
+  // float waterSupplyTDSValue = getWaterSupplyTDSValue();
 
 }
+
+// Control loop during emergency state
+void WaterSupplyController::emergencyStateLoop() {
+  // TODO
+}
+
+/* Called internally in the event of a sensor communication error - if we
+* don't know how deep the tanks are, we shouldn't be moving anything around
+*/
+void WaterSupplyController::emergencyStop() {
+  // TODO
+}
+
 
 // Get the water supply tank TDS value / ppm
 float WaterSupplyController::getWaterSupplyTDSValue() const {
@@ -174,3 +174,14 @@ float WaterSupplyController::getPreROTDSValue() const {
 float WaterSupplyController::getOutputWaterTDSValue() const {
   return mOutputWaterTDSSensor->getTDSValue(mWaterTemperature);
 };
+
+/*******************************
+ * Utilities
+ *******************************/
+// Converts a distance sensor reading into a tank depth
+float WaterSupplyController::convertDistanceToDepth(float distance) {
+  // Bound the distance as the sensor doesn't work under 30 mm - if it gets this close we're in trouble
+  if (distance < 30.0f) distance = 30.0f;
+  return WaterSupplyControllerNS::EMPTY_TANK_DISTANCE_MM - distance;
+}
+
