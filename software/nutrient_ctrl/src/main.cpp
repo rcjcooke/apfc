@@ -179,6 +179,8 @@ void setup() {
 	gOneWire = new OneWire(WST_T);
 	// Set up temperature sensors interface
 	gTemperatureSensors = new DallasTemperature(gOneWire);
+  // Start up the library
+  gTemperatureSensors->begin();
 
   gSolutionTanksController = new SolutionTanksController(
 		RRPCTL, MU1CS, IST_MUART_INDEX, RRT_MUART_INDEX, RRT_DSMS, IST_DSMS, 
@@ -231,7 +233,11 @@ void loop() {
 	static unsigned long controlLoopDurationMillis = 0;
 	// static unsigned long lastSerialWrite = 0;
 	unsigned long startOfControlLoopMillis = millis();
-  // Water Supply management
+  
+	// Update temperature sensors
+	gTemperatureSensors->requestTemperatures();
+	
+	// Water Supply management
   gWaterSupplyController->controlLoop();
   // Solution tank management
   gSolutionTanksController->controlLoop();
