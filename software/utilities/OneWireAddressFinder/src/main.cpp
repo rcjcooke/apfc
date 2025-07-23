@@ -22,6 +22,18 @@ void printAddress(DeviceAddress deviceAddress) {
   }
 }
 
+// function to print a device address in C++ pasteable format
+void printAddressLongForm(DeviceAddress deviceAddress) {
+  Serial.print("{");
+  for (uint8_t i = 0; i < 8; i++) {
+    if (i>0) Serial.print(", ");
+    Serial.print("0x");  
+    if (deviceAddress[i] < 16) Serial.print("0");
+    Serial.print(deviceAddress[i], HEX);
+  }
+  Serial.print("}");
+}
+
 void setup() {
   // start serial port
   Serial.begin(115200);
@@ -47,7 +59,7 @@ void setup() {
       Serial.print("Found device ");
       Serial.print(i, DEC);
       Serial.print(" with address: ");
-      printAddress(tempDeviceAddress);
+      printAddressLongForm(tempDeviceAddress);
       Serial.println();
 		} else {
 		  Serial.print("Found ghost device at ");
