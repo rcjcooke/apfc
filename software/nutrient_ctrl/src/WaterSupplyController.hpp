@@ -1,5 +1,5 @@
-// Add in weekly 2-3 minute flush (need to add solenoid in parallel to manual flush valve) - This is to ensure that the RO membranes are flushed to remove impurities and bacteria left on the surface of the membrane.
-// Add TDS sensors to detect when the filters and membrane need to be replaced
+// TODO: Add in weekly 2-3 minute flush (need to add solenoid in parallel to manual flush valve) - This is to ensure that the RO membranes are flushed to remove impurities and bacteria left on the surface of the membrane.
+// TODO: Add TDS sensors to detect when the filters and membrane need to be replaced
 
 #ifndef __WATERSUPPLYCONTROLLER_H_INCLUDED__
 #define __WATERSUPPLYCONTROLLER_H_INCLUDED__
@@ -49,7 +49,7 @@ namespace apfc {
       uint8_t preROTDSDataPin,
       uint8_t outputWaterTDSDataPin,
       DallasTemperature* temperatureSensors,
-      const DeviceAddress waterSupplyTankTemperatureSensorAddress);
+      const DeviceAddress* waterSupplyTankTemperatureSensorAddress);
 
     /*******************************
      * Getters / Setters
@@ -80,21 +80,6 @@ namespace apfc {
     // For Debug purposes: Get the sensor measuring the filtered water TDS
     CQRobotOceanTDS::CQRobotOceanTDSSensor* getOutputWaterTDSSensor();
 
-    /*******************************
-     * Actions
-     *******************************/
-    // Called every microcontroller main program loop - does everything at runtime
-    void controlLoop();
-
-    // // Turn on the Runoff recycling Tank Pump
-    // void turnOnRunoffRecyclingPump();
-    // // Turn on the Runoff recycling Tank Pump
-    // void turnOffRunoffRecyclingPump();
-    // // Turn on the UV Steriliser
-    // void turnOnUV();
-    // // Turn off the UV Steriliser
-    // void turnOffUV();
-
   private:
 
     /*******************************
@@ -110,7 +95,6 @@ namespace apfc {
     // The current waste water tank depth / mm
     float mWasteWaterTankDepth = 0.0f;
 
-    /** Depth sensors */
     // The water supply tank depth sensor
     A02YYUW::A02YYUWviaUARTStream* mWaterSupplyTankDepthSensor{ nullptr };
     // The waste water tank depth sensor
@@ -123,6 +107,10 @@ namespace apfc {
     CQRobotOceanTDS::CQRobotOceanTDSSensor* mPreROTDSensor{ nullptr };
     // The TDS sensor measuring the filtered water
     CQRobotOceanTDS::CQRobotOceanTDSSensor* mOutputWaterTDSSensor{ nullptr };
+    // The interface to all temperature sensors  
+    DallasTemperature* mTemperatureSensors;
+    // The address of the water supply tank temperature sensor
+    const DeviceAddress* mWaterSupplyTankTemperatureSensorAddress;
     
     /*******************************
      * Actions

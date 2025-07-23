@@ -31,9 +31,11 @@ WaterSupplyController::WaterSupplyController(
     uint8_t preROTDSDataPin,
     uint8_t outputWaterTDSDataPin, 
     DallasTemperature* temperatureSensors,
-    const DeviceAddress waterSupplyTankTemperatureSensorAddress) 
+    const DeviceAddress* waterSupplyTankTemperatureSensorAddress) 
       : StandardController('W', 4), 
-        mWaterFilterSystemFlushSolenoidControlPin(waterFilterSystemFlushSolenoidControlPin) {
+        mWaterFilterSystemFlushSolenoidControlPin(waterFilterSystemFlushSolenoidControlPin),
+        mTemperatureSensors(temperatureSensors),
+        mWaterSupplyTankTemperatureSensorAddress(waterSupplyTankTemperatureSensorAddress) {
 
   // Sort out the control pins
   pinMode(mWaterFilterSystemFlushSolenoidControlPin, OUTPUT);

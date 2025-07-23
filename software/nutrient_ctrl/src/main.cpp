@@ -185,7 +185,7 @@ void setup() {
 		UVCTL, LED_UVC);
 	gWaterSupplyController = new WaterSupplyController(
 		WSFCTL, MU2CS, WST_MUART_INDEX, WWT_MUART_INDEX, WST_DSMS, WWT_DSMS,
-		WS_TDS_A, PRO_TDS_A, OW_TDS_A, gTemperatureSensors, WST_T_ADDR);
+		WS_TDS_A, PRO_TDS_A, OW_TDS_A, gTemperatureSensors, &WST_T_ADDR);
 	// Record which controllers are alarm generators for future access
 	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gSolutionTanksController, gWaterSupplyController};
 	
