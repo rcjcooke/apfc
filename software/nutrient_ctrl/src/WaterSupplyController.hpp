@@ -1,5 +1,4 @@
 // TODO: Add in weekly 2-3 minute flush (need to add solenoid in parallel to manual flush valve) - This is to ensure that the RO membranes are flushed to remove impurities and bacteria left on the surface of the membrane.
-// TODO: Add TDS sensors to detect when the filters and membrane need to be replaced
 
 #ifndef __WATERSUPPLYCONTROLLER_H_INCLUDED__
 #define __WATERSUPPLYCONTROLLER_H_INCLUDED__
@@ -34,6 +33,13 @@ namespace apfc {
     static const int ALARM_WATER_SUPPLY_TANK_EMPTY = 3;
     // Alarm code triggered when waste water tank is too full
     static const int ALARM_WASTE_WATER_TANK_OVER_FULL = 4;
+    // Alarm code triggered if there are communication problems with the water supply tank temperature sensor
+    static const int ALARM_WATER_SUPPLY_TANK_TEMPERATURE_SENSOR_COMMS_ERROR = 5;
+
+    // Alarm code triggered if the pre-RO filters need changing
+    static const int ALARM_PRE_RO_FILTERS_NEED_CHANGING = 6;
+    // Alarm code triggered if the RO filters need changing
+    static const int ALARM_RO_FILTERS_NEED_CHANGING = 7;
 
     /*******************************
      * Constructors
@@ -80,13 +86,25 @@ namespace apfc {
     // For Debug purposes: Get the sensor measuring the filtered water TDS
     CQRobotOceanTDS::CQRobotOceanTDSSensor* getOutputWaterTDSSensor();
 
+    // Open the water filter system flush valve
+    void openFlushValve();
+    // Close the water filter system flush valve
+    void closeFlushValve();
+
   private:
 
     /*******************************
      * Member variables
      *******************************/
+    // The last time the control loop was run / ms since last reset
+    unsigned long mLastControlLoopMillis = 0;
+    // The last time the water filter system was flushed / ms since last reset
+    unsigned long mLastFlushMillis = 0;
+
     // The microcontroller pin that controls the water filter system flush solenoid
     uint8_t mWaterFilterSystemFlushSolenoidControlPin;
+    // Whether the water filter system is currently flushing
+    bool mFlushing = false;
     
     // The current water supply tank temperature / C
     float mWaterTemperature = 0.0f;
@@ -121,6 +139,15 @@ namespace apfc {
     void runningStateLoop() override;
     // Control loop during emergency state
     void emergencyStateLoop() override;
+
+    // Manage the tanks
+    bool manageTanks();
+    // Manage the filters
+    void filterManagement();
+    // Manage the flush schedule
+    void membraneFlushManagement();
+    // Trigger an update of the water temperature reading. Returns false if the temperature sensor is disconnected.
+    bool updateWaterTemperature();
 
     /* Called internally in the event of a sensor communication error - if we
      * don't know how deep the tanks are, we shouldn't be moving anything around
