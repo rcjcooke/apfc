@@ -1,8 +1,11 @@
 #include <Arduino.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
 
 #include <SerialDebugger.hpp>
 
 #include "SolutionTanksController.hpp"
+#include "WaterSupplyController.hpp"
 
 // Set to true if the UV Steriliser light is LED based - if LED it will turn the light off when not needed to save power
 #define LED_UVC false
@@ -14,7 +17,7 @@ using namespace apfc;
 /************************
  * Constants
  ************************/
-// MultiUART Board 1 Chip Select pin
+// MultiUART Board 2 Chip Select pin
 static const uint8_t MU2CS = 7;
 // MultiUART Board 1 Chip Select pin
 static const uint8_t MU1CS = 6;
@@ -30,14 +33,21 @@ static const uint8_t MPCTL = 3;
 static const uint8_t UVCTL = 2;
 // Heater Control pin
 static const uint8_t HCTL = 22;
+// Water Filter System Flush Solenoid Control pin
+static const uint8_t WSFCTL = 23;
 
 /* MultiUART board peripheral indexes */
-// Irrigation Supply Tank Depth Sensor
+// MUART1: Irrigation Supply Tank Depth Sensor
 static const char IST_MUART_INDEX = 0;
-// Runoff Recycling Tank Depth Sensor
+// MUART1: Runoff Recycling Tank Depth Sensor
 static const char RRT_MUART_INDEX = 1;
-// Mixing Tank Depth Sensor
+// MUART1: Mixing Tank Depth Sensor
 static const char MT_MUART_INDEX = 2;
+
+// MUART2: Water Supply Tank Depth Sensor
+static const char WST_MUART_INDEX = 0;
+// MUART2: Waste Water Tank Depth Sensor
+static const char WWT_MUART_INDEX = 1;
 
 // Mixing Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
 static const uint8_t MT_DSMS = 10;
@@ -45,6 +55,24 @@ static const uint8_t MT_DSMS = 10;
 static const uint8_t RRT_DSMS = 9;
 // Irrigation Supply Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
 static const uint8_t IST_DSMS = 8;
+// Water Supply Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
+static const uint8_t WST_DSMS = 11;
+// Waste Water Tank Depth Sensor: Processed Value/Real-time Value Output Selection pin
+static const uint8_t WWT_DSMS = 12;
+
+/* TDS Sensor pins */
+// Water Supply Tank TDS Sensor data pin
+static const uint8_t WS_TDS_A = A0;
+// Pre-RO Water TDS Sensor data pin
+static const uint8_t PRO_TDS_A = A1;
+// Output Water TDS Sensor data pin
+static const uint8_t OW_TDS_A = A2;
+
+/* Temperature sensor pins*/
+// Water Supply Tank Temperature Sensor data pin
+static const uint8_t WST_T = 24;
+// Address of the Water Supply Tank Temperature Sensor - should be determined using the address finder utility
+static const DeviceAddress WST_T_ADDR = {0x28, 0x80, 0x43, 0x94, 0x97, 0x01, 0x03, 0xC8};
 
 /*
  * WARNING: Not all pins on the Mega and Mega 2560 boards support change
@@ -53,16 +81,22 @@ static const uint8_t IST_DSMS = 8;
  * (68), A15 (69)
  */
 
-
 // The total number of alarm generators
-static const int NUM_ALARM_GENERATORS = 1;
+static const int NUM_ALARM_GENERATORS = 2;
 
 /************************
- * Variables
+ * Variables/ Fields
  ************************/
 
-// Controls the movement of solution between tanks
+// A OneWire instance to communicate with any OneWire devices
+OneWire* gOneWire;
+// Temperature sensors interface - all have to be managed at this level together frustratingly
+DallasTemperature* gTemperatureSensors;
+
+ // Controls the movement of solution between tanks
 SolutionTanksController* gSolutionTanksController;
+// Manages the water supply
+WaterSupplyController* gWaterSupplyController;
 
 // The array of all alarm generators
 AlarmGenerator** gAGs;
@@ -72,6 +106,7 @@ SerialDebugger* mDebugger;
 /*********************
  * Utility functions
  *********************/
+// Create a human readable string of all the current alarms
 String createAlarmString(int numAGs, AlarmGenerator** ags) {
 	String alarmString = "";
 	for (int agi = 0; agi < numAGs; agi++) {
@@ -98,6 +133,7 @@ String formatByteToIntelString(const uint8_t byte) {
   return result;
 }
 
+// Formats a data packet to a human readable string
 String dataPacketToString(const byte* packet) {
 	String result = "";
 	if (packet) {
@@ -118,6 +154,7 @@ String resultsArrayToString(const int* results) {
 	return result+="}";
 }
 
+// Converts the ControllerRunState enum to a human readable string
 String controllerRunStateToString(ControllerRunState state) {
 	switch (state) {
 		case ControllerRunState::STARTUP: return "STARTUP";
@@ -137,11 +174,21 @@ void processDebugValueChangesFromUser(String key, String value) {
  *********************/
 void setup() {
 
-  gSolutionTanksController = new SolutionTanksController(RRPCTL, MU1CS, IST_MUART_INDEX, RRT_MUART_INDEX, RRT_DSMS, IST_DSMS, UVCTL, LED_UVC);
+	// Set up the OneWire instance to communicate with the temperature sensor 
+	// Note: At the moment there is only one temp sensor on this. Once this becomes multiple, this should be renamed to a generic Bus pin name.
+	gOneWire = new OneWire(WST_T);
+	// Set up temperature sensors interface
+	gTemperatureSensors = new DallasTemperature(gOneWire);
 
+  gSolutionTanksController = new SolutionTanksController(
+		RRPCTL, MU1CS, IST_MUART_INDEX, RRT_MUART_INDEX, RRT_DSMS, IST_DSMS, 
+		UVCTL, LED_UVC);
+	gWaterSupplyController = new WaterSupplyController(
+		WSFCTL, MU2CS, WST_MUART_INDEX, WWT_MUART_INDEX, WST_DSMS, WWT_DSMS,
+		WS_TDS_A, PRO_TDS_A, OW_TDS_A, gTemperatureSensors, WST_T_ADDR);
 	// Record which controllers are alarm generators for future access
-	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gSolutionTanksController};
-
+	gAGs = new AlarmGenerator*[NUM_ALARM_GENERATORS] {gSolutionTanksController, gWaterSupplyController};
+	
 	if (DEBUG_SOLO) {
 		// Note: this also starts the serial interface at a baud rate of 115200 bps
 		mDebugger = new SerialDebugger(115200);
@@ -184,6 +231,8 @@ void loop() {
 	static unsigned long controlLoopDurationMillis = 0;
 	// static unsigned long lastSerialWrite = 0;
 	unsigned long startOfControlLoopMillis = millis();
+  // Water Supply management
+  gWaterSupplyController->controlLoop();
   // Solution tank management
   gSolutionTanksController->controlLoop();
 
