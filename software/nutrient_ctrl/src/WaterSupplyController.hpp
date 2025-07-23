@@ -1,5 +1,3 @@
-// TODO: Add in weekly 2-3 minute flush (need to add solenoid in parallel to manual flush valve) - This is to ensure that the RO membranes are flushed to remove impurities and bacteria left on the surface of the membrane.
-
 #ifndef __WATERSUPPLYCONTROLLER_H_INCLUDED__
 #define __WATERSUPPLYCONTROLLER_H_INCLUDED__
 

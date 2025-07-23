@@ -240,6 +240,7 @@ void WaterSupplyController::filterManagement() {
 // Manage the flush schedule
 void WaterSupplyController::membraneFlushManagement() {
   // If it's been a week since the last flush (and we're not in the middle of flushing already), then flush the system
+  // This is to ensure that the RO membranes are flushed to remove impurities and bacteria left on the surface of the membrane.
   static unsigned long flushValveOpenTimeMillis = 0;
   if (!mFlushing && millis() - mLastFlushMillis > WaterSupplyControllerNS::MIN_FLUSH_INTERVAL_MILLIS) {
     mLastFlushMillis = millis();
