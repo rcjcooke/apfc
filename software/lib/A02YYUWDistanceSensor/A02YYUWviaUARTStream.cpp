@@ -40,7 +40,7 @@ bool A02YYUWviaUARTStream::isProcessed() {
 // Set processed = true to get the sensor do some pre-processing to reduce noise, otherwise the sensor will return real-time data
 void A02YYUWviaUARTStream::setProcessed(bool processed) {
   mProcessed = processed;
-  digitalWrite(mModeSelectPin, processed ? HIGH : LOW);
+  digitalWrite(mModeSelectPin, processed ? PROCESSED : REALTIME);
 }
 
 // For Debug purposes: The last time the sensor was asked to update the distance reading / ms since last reset

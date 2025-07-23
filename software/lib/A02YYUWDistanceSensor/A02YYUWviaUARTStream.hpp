@@ -9,6 +9,11 @@ namespace A02YYUW {
   /************************
    * Constants
    ************************/
+  // Mode select for processed values from depth sensor
+  static const uint8_t PROCESSED = HIGH;
+  // Mode select for real-time values from depth sensor
+  static const uint8_t REALTIME = LOW;
+
   // Data packet header byte
   static const byte HEADER_BYTE = 0xFF;
   // Data packet size in bytes
