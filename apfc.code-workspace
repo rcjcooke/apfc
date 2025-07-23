@@ -12,6 +12,10 @@
 		},
 		{
 			"path": "software"
+		},
+		{
+			"name": "OneWireAddressFinder",
+			"path": "software/utilities/OneWireAddressFinder"
 		}
 	],
 	"settings": {
