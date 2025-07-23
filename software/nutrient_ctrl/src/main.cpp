@@ -9,6 +9,8 @@
 // If true, serial output from the Arduino is in human readable form - this means comms with the Raspberry Pi controller won't work
 #define DEBUG_SOLO true
 
+using namespace apfc;
+
 /************************
  * Constants
  ************************/
@@ -116,11 +118,11 @@ String resultsArrayToString(const int* results) {
 	return result+="}";
 }
 
-String stcRunStateToString(STCRunState state) {
+String controllerRunStateToString(ControllerRunState state) {
 	switch (state) {
-		case STCRunState::STARTUP: return "STARTUP";
-		case STCRunState::RUNNING: return "RUNNING";
-		case STCRunState::EMERGENCY: return "EMERGENCY";
+		case ControllerRunState::STARTUP: return "STARTUP";
+		case ControllerRunState::RUNNING: return "RUNNING";
+		case ControllerRunState::EMERGENCY: return "EMERGENCY";
 		default: return "UNKNOWN";
 	}
 }
@@ -203,7 +205,7 @@ void loop() {
 		mDebugger->updateValue("Irrigation Supply Tank Depth / mm", gSolutionTanksController->getIrrigationSupplyTankDepth());
 		mDebugger->updateValue("RST DS Last Read Success / ms since reset", gSolutionTanksController->getIrrigationSupplyTankDepthSensor()->getLastReadSuccess());
 		mDebugger->updateValue("Runoff Supply Tank Depth / mm", gSolutionTanksController->getRunoffRecyclingTankDepth());
-		mDebugger->updateValue("Solution Tanks Controller Run State", stcRunStateToString(gSolutionTanksController->getRunState()));
+		mDebugger->updateValue("Solution Tanks Controller Run State", controllerRunStateToString(gSolutionTanksController->getRunState()));
 		mDebugger->updateValue("Runoff Recycling Pump On", gSolutionTanksController->isRunoffRecyclingPumpOn());
 		mDebugger->updateValue("Control loop duration / ms", (unsigned long) controlLoopDurationMillis);
 		mDebugger->throttledPrintUpdate();

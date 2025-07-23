@@ -1,14 +1,11 @@
 #include "SolutionTanksController.hpp"
 
+using namespace apfc;
+
 /************************
  * Constants
  ************************/
 namespace SolutionTanksControllerNS {
-
-  // Mode select for processed values from depth sensor
-  static const uint8_t PROCESSED = HIGH;
-  // Mode select for real-time values from depth sensor
-  static const uint8_t REALTIME = LOW;
 
   // The distance measured for a completely empty tank
   static const float EMPTY_TANK_DISTANCE_MM = 150.0f;
@@ -43,15 +40,16 @@ SolutionTanksController::SolutionTanksController(
     char runoffRecyclingTankDepthSensorMUARTIndex,
     uint8_t runoffRecyclingTankDepthModeSelectPin,
     uint8_t irrigationsupplyTankDepthModeSelectPin,
-    uint8_t uvControlPin, bool ledUVC) : AlarmGenerator('S', 7) {
+    uint8_t uvControlPin, bool ledUVC) 
+      : StandardController('S', 7),
+        mRunoffRecyclingPumpControlPin(runoffRecyclingPumpControlPin),
+        mUVControlPin(uvControlPin),
+        mLEDUVC(ledUVC) {
 
   // Sort out the control pins
-  mRunoffRecyclingPumpControlPin = runoffRecyclingPumpControlPin;
   pinMode(mRunoffRecyclingPumpControlPin, OUTPUT);
-  mUVControlPin = uvControlPin;
   pinMode(mUVControlPin, OUTPUT);
 
-  mLEDUVC = ledUVC;
   // If it's not an LED based UV light, then it needs to be on the whole time to avoid switching wear and warmup time
   // WARNING: Don't use the standard on/off methods here in case the member variables are incorrectly or not initialised. 
   if (!mLEDUVC) {changeUVControlPinState(HIGH); mUVSteriliserOn = true;}
@@ -102,11 +100,6 @@ float SolutionTanksController::getRunoffRecyclingTankDepth() const {
   return mRunoffRecyclingTankDepth;
 }
 
-// Returns the current operating state of this controller
-STCRunState SolutionTanksController::getRunState() const {
-  return mRunState;
-}
-
 // For Debug purposes: Get the depth sensor instance for the Irrigation Supply Tank
 A02YYUW::A02YYUWviaUARTStream* SolutionTanksController::getIrrigationSupplyTankDepthSensor() {
   return mIrrigationSupplyTankDepthSensor;
@@ -134,7 +127,7 @@ void SolutionTanksController::startupStateLoop() {
   if (checkLast5DepthSensorReadings(mIrrigationSupplyTankDepthSensor, true)) return;
 
   // If we've got this far then transition to a running state
-  mRunState = STCRunState::RUNNING;
+  setRunState(ControllerRunState::RUNNING);
 
 }
 
@@ -206,24 +199,6 @@ void SolutionTanksController::emergencyStateLoop() {
   // TODO
 }
 
-// Called every microcontroller main program loop - moves solution between tanks as required
-void SolutionTanksController::controlLoop() {
-  switch (mRunState) {
-    case STCRunState::STARTUP:
-      startupStateLoop();
-      break;
-    case STCRunState::RUNNING:
-      runningStateLoop();
-      break;
-    case STCRunState::EMERGENCY:
-      emergencyStateLoop();
-      break;
-    default:
-      // This shouldn't be possible - trigger alarm if here?
-      break;
-  }
-}
-
 // Turn on the Runoff recycling Tank Pump
 void SolutionTanksController::turnOnRunoffRecyclingPump() {
   if (!mRunoffRecyclingPumpOn) changeRunoffRecyclingPumpControlPinState(HIGH);
@@ -238,13 +213,6 @@ void SolutionTanksController::turnOffRunoffRecyclingPump() {
 
 void SolutionTanksController::changeRunoffRecyclingPumpControlPinState(uint8_t state) {
   digitalWrite(mRunoffRecyclingPumpControlPin, state);
-}
-
-// Trigger a transition to the emergency state with a reason
-void SolutionTanksController::triggerEmergency(int reason) {
-  triggerAlarm(reason);
-  emergencyStop();
-  mRunState = STCRunState::EMERGENCY;
 }
 
 // Called internally in the event of a sensor communication error - if we don't know how deep the tanks are, we shouldn't be moving anything around
